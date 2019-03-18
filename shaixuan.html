@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <section>
+        <button id="sel_1">100-300</button>
+        <button id="sel_2">300以上</button>
+        <button id="bighouse">大床房</button>
+    </section>
+    <div class="hotel">
+        <p class="hotelname">大酒店</p>
+        <p class="hotelprice">¥<span>99</span></p>
+    </div>
+    <div class="hotel">
+        <p class="hotelname">大酒店</p>
+        <p class="hotelprice">¥<span>199</span></p>
+    </div>
+    <div class="hotel">
+        <p class="hotelname">大床房</p>
+        <p class="hotelprice">¥<span>299</span></p>
+    </div>
+    <div class="hotel">
+        <p class="hotelname">大床房</p>
+        <p class="hotelprice">¥<span>399</span></p>
+    </div>
+    <div class="hotel">
+        <p class="hotelname">大酒店</p>
+        <p class="hotelprice">¥<span>499</span></p>
+    </div>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+    <script>
+
+
+        $("button#sel_1").click(function () {
+            $('div.hotel').hide().each(function () {
+                var price = parseInt($('span', this).html());
+                if (price <= 200) this.style.display = 'block'
+            })
+        });
+        $("button#sel_2").click(function () {
+            $('div.hotel').hide().each(function () {
+                var price = parseInt($('span', this).html());
+                if (price >= 200) this.style.display = 'block'
+            })
+        });
+        $("button#bighouse").click(function () {
+            $('div.hotel').hide().each(function () {
+                var rename = "大床房"
+                var name = $('p.hotelname', this).text();
+                if (name == rename) this.style.display = 'block'
+            })
+        })
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
