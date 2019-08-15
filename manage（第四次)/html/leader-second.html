@@ -1,0 +1,713 @@
+﻿<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<!--[if lt IE 9]>
+	<script type="text/javascript" src="../lib/html5shiv.js"></script>
+	<script type="text/javascript" src="../lib/respond.min.js"></script>
+	<![endif]-->
+
+	<title>东北师范物理学院设备采购管理系统</title>
+	<link rel="stylesheet" type="text/css" href="../css/index.css" />
+	<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap-table.min.css" />
+	<link rel="stylesheet" type="text/css" href="../static/h-ui/css/H-ui.min.css" />
+	<link rel="stylesheet" type="text/css" href="../lib/Hui-iconfont/1.0.8/iconfont.min.css" />
+	<style type="text/css">
+		.ui-sortable .panel-header {
+			cursor: move
+		}
+
+		div.fw-container div.fw-body div.content {
+			margin-top: 5em;
+		}
+
+		/* div.fw-body h1 {
+			display: none;
+
+		}
+
+		div.fw-container {
+			z-index: 1;
+			height: 1000px;
+		} */
+	</style>
+	<!-- <script type="text/javascript" async="" src="../media/js/ga.js"></script>
+	<script src="../media/js/site.js"></script>
+	<script src="../media/js/dynamic.php" async></script>
+	<script src="../media/js/dataTables.responsive.min.js"></script> -->
+	<script>
+		// $(document).ready(function () {
+		// 	$('#example')
+		// 		.addClass('nowrap')
+		// 		.dataTable({
+		// 			responsive: true,
+		// 			columnDefs: [
+		// 				// { targets: [-1, -3], className: 'dt-body-right' }
+		// 			]
+		// 		});
+		// });
+	</script>
+	<!-- <link rel="stylesheet" href="../media/css/translateelement.css"> -->
+
+</head>
+
+<body ontouchstart class="wide hero">
+	<div class="sideBox">
+		<ul class="na navbar-na pt-20 Huifold" id="Huifold1">
+			<li class="item">
+				<h4>首页</h4>
+			</li>
+			<li class="item">
+				<h4>用户管理<b>十</b></h4>
+				<div class="info">
+					<ul>
+						<li>
+							<a href="" target="_blank">一级领导</a>
+						</li>
+						<li>
+							<a href="" target="_blank">二级领导</a>
+						</li>
+						<li>
+							<a href="" target="_blank">申请用户</a>
+						</li>
+						<li>
+							<a href="">采购人</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+			<li class="item">
+				<h4>系统设置<b>十</b></h4>
+				<div class="info">
+					<ul>
+						<li>
+							<a href="" target="_blank">存放地维护</a>
+						</li>
+						<li>
+							<a href="" target="_blank">部门维护</a>
+						</li>
+						<li>
+							<a href="" target="_blank">管理员密码修改</a>
+						</li>
+						<li>
+							<a href="">数据库备份</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+			<li class="item">
+				<h4>系统设置<b>十</b></h4>
+				<div class="info">
+					<ul>
+						<li>
+							<a href="" target="_blank"><i class="arrow Hui-iconfont">&#xe60d;</i>姓名：</a>
+						</li>
+						<li>
+							<a href="" target="_blank"><i
+									class="arrow Hui-iconfont">&#xe602;</i>校园卡号：123334555666666</a>
+						</li>
+						<li>
+							<a href="" target="_blank"><i class="arrow Hui-iconfont">&#xe68a;</i>邮箱：543543543543543</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div class="containBox">
+		<div class="containBox-bg"></div>
+		<header class="navbar-wrapper">
+			<div class="navbar navbar-black navbar-fixed-top">
+				<div class="container cl">
+					<a class="logo navbar-logo hidden-xs" href="/aboutHui.shtml"><img class="full-logo"
+							src="../images/logo-big.png" alt="SimDahs"></a>
+					<a class="logo navbar-logo-m visible-xs" href="/aboutHui.shtml"><img class="small-logo"
+							src="../images/logo-small.png" alt="SimDahs"></a>
+					<a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs JS-nav-toggle"
+						href="javascript:;">&#xe667;</a>
+					<nav class="na navbar-na nav-collapse" role="navigation" id="Hui-navbar">
+						<ul class="cl">
+							<li class="current">
+								<a href="http://www.h-ui.net/" target="_blank">首页</a>
+							</li>
+							<li class="dropDown dropDown_hover">
+								<a href="javascript:;" class="dropDown_A">用户管理 <i class="Hui-iconfont">&#xe6d5;</i></a>
+								<ul class="dropDown-menu menu radius box-shadow">
+									<li>
+										<a href="http://www.h-ui.net/bug.shtml" target="_blank">一级领导</a>
+									</li>
+									<li>
+										<a href="http://www.h-ui.net/websafecolors.shtml" target="_blank">二级领导</a>
+									</li>
+									<li>
+										<a href="http://www.h-ui.net/Hui-3.7-Hui-iconfont.shtml"
+											target="_blank">申请用户</a>
+									</li>
+									<li>
+										<a href="javascript:;">采购人</a>
+									</li>
+								</ul>
+							</li>
+							<li class="dropDown dropDown_hover">
+								<a href="javascript:;" class="dropDown_A">系统设置 <i class="Hui-iconfont">&#xe6d5;</i></a>
+								<ul class="dropDown-menu menu radius box-shadow">
+									<li>
+										<a href="http://www.h-ui.net/bug.shtml" target="_blank">存放地维护</a>
+									</li>
+									<li>
+										<a href="http://www.h-ui.net/websafecolors.shtml" target="_blank">部门维护</a>
+									</li>
+									<li>
+										<a href="http://www.h-ui.net/Hui-3.7-Hui-iconfont.shtml"
+											target="_blank">管理员密码修改</a>
+									</li>
+									<li>
+										<a href="javascript:;">数据库备份</a>
+									</li>
+								</ul>
+							</li>
+							<li class="dropDown dropDown_hover">
+								<a href="javascript:;" class="dropDown_A">个人中心 <i class="Hui-iconfont">&#xe6d5;</i></a>
+								<ul class="dropDown-menu menu radius box-shadow">
+									<li>
+										<a href="http://www.h-ui.net/bug.shtml" target="_blank"><i
+												class="arrow Hui-iconfont">&#xe60d;</i>姓名：</a>
+									</li>
+									<li>
+										<a href="http://www.h-ui.net/Hui-3.7-Hui-iconfont.shtml" target="_blank"><i
+												class="arrow Hui-iconfont">&#xe602;</i>校园卡号：123334555666666</a>
+									</li>
+									<li>
+										<a href="javascript:;"><i
+												class="arrow Hui-iconfont">&#xe68a;</i>邮箱：543543543543543</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
+					<nav class="navbar-userbar hidden-xs"></nav>
+				</div>
+			</div>
+		</header>
+		<div class="title">东北石油大学</div>
+		<div class="container">
+			<div class="callouthero table-responsive">
+				<div class="header">
+					一级领导列表
+				</div>
+				<div class="tablesite">
+					<table id="mytab" class="table table-striped table-bordered table-hover word-style">
+						<thead>
+							<tr>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>内容</td>
+								<td>34</td>
+								<td>40000</td>
+								<td>单孔相机</td>
+								<td>采购部</td>
+								<td>
+									<div class="btn-sty">
+										<button class="add">同意</button>
+										<button class="del">拒绝</button>
+										<button class="no-reason">拒绝原因</button>
+									</div>
+								</td>
+
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>内容</td>
+								<td>34</td>
+								<td>40000</td>
+								<td>单孔相机</td>
+								<td>采购部</td>
+								<td>
+									<div class="btn-sty">
+										<button class="add">同意</button>
+										<button class="del">拒绝</button>
+									</div>
+								</td>
+
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>内容</td>
+								<td>34</td>
+								<td>40000</td>
+								<td>单孔相机</td>
+								<td>采购部</td>
+								<td>
+									<div class="btn-sty">
+										<button class="add">同意</button>
+										<button class="del">拒绝</button>
+									</div>
+								</td>
+
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>内容</td>
+								<td>34</td>
+								<td>40000</td>
+								<td>单孔相机</td>
+								<td>采购部</td>
+								<td>
+									<div class="btn-sty">
+										<button class="add">同意</button>
+										<button class="del">拒绝</button>
+									</div>
+								</td>
+
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>内容</td>
+								<td>34</td>
+								<td>40000</td>
+								<td>单孔相机</td>
+								<td>采购部</td>
+								<td>
+									<div class="btn-sty">
+										<button class="add">同意</button>
+										<button class="del">拒绝</button>
+									</div>
+								</td>
+
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>内容</td>
+								<td>34</td>
+								<td>40000</td>
+								<td>单孔相机</td>
+								<td>采购部</td>
+								<td>
+									<div class="btn-sty">
+										<button class="add">同意</button>
+										<button class="del">拒绝</button>
+									</div>
+								</td>
+
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>内容</td>
+								<td>34</td>
+								<td>40000</td>
+								<td>单孔相机</td>
+								<td>采购部</td>
+								<td>
+									<div class="btn-sty">
+										<button class="add">同意</button>
+										<button class="del">拒绝</button>
+									</div>
+								</td>
+
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>内容</td>
+								<td>34</td>
+								<td>40000</td>
+								<td>单孔相机</td>
+								<td>采购部</td>
+								<td>
+									<div class="btn-sty">
+										<button class="add">同意</button>
+										<button class="del">拒绝</button>
+									</div>
+								</td>
+
+							</tr>
+							<tr>
+								<td>9</td>
+								<td>内容</td>
+								<td>34</td>
+								<td>40000</td>
+								<td>单孔相机</td>
+								<td>采购部</td>
+								<td>
+									<div class="btn-sty">
+										<button class="add">同意</button>
+										<button class="del">拒绝</button>
+									</div>
+								</td>
+
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>内容</td>
+								<td>34</td>
+								<td>40000</td>
+								<td>单孔相机</td>
+								<td>采购部</td>
+								<td>
+									<div class="btn-sty">
+										<button class="add">同意</button>
+										<button class="del">拒绝</button>
+									</div>
+								</td>
+
+							<tr>
+								<td>11</td>
+								<td>内容</td>
+								<td>34</td>
+								<td>40000</td>
+								<td>单孔相机</td>
+								<td>采购部</td>
+								<td>
+									<div class="btn-sty">
+										<button class="add">同意</button>
+										<button class="del">拒绝</button>
+									</div>
+								</td>
+
+							</tr>
+							<tr>
+								<td>12</td>
+								<td>内容</td>
+								<td>34</td>
+								<td>40000</td>
+								<td>单孔相机</td>
+								<td>采购部</td>
+								<td>
+									<div class="btn-sty">
+										<button class="add">同意</button>
+										<button class="del">拒绝</button>
+									</div>
+								</td>
+
+							</tr>
+						
+								<tr>
+									<td>1</td>
+									<td>内容</td>
+									<td>34</td>
+									<td>40000</td>
+									<td>单孔相机</td>
+									<td>采购部</td>
+									<td>
+										<div class="btn-sty">
+											<button class="add">同意</button>
+											<button class="del">拒绝</button>
+										</div>
+									</td>
+	
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>内容</td>
+									<td>34</td>
+									<td>40000</td>
+									<td>单孔相机</td>
+									<td>采购部</td>
+									<td>
+										<div class="btn-sty">
+											<button class="add">同意</button>
+											<button class="del">拒绝</button>
+										</div>
+									</td>
+	
+								</tr>
+								<tr>
+									<td>3</td>
+									<td>内容</td>
+									<td>34</td>
+									<td>40000</td>
+									<td>单孔相机</td>
+									<td>采购部</td>
+									<td>
+										<div class="btn-sty">
+											<button class="add">同意</button>
+											<button class="del">拒绝</button>
+										</div>
+									</td>
+	
+								</tr>
+								<tr>
+									<td>4</td>
+									<td>内容</td>
+									<td>34</td>
+									<td>40000</td>
+									<td>单孔相机</td>
+									<td>采购部</td>
+									<td>
+										<div class="btn-sty">
+											<button class="add">同意</button>
+											<button class="del">拒绝</button>
+										</div>
+									</td>
+	
+								</tr>
+								<tr>
+									<td>5</td>
+									<td>内容</td>
+									<td>34</td>
+									<td>40000</td>
+									<td>单孔相机</td>
+									<td>采购部</td>
+									<td>
+										<div class="btn-sty">
+											<button class="add">同意</button>
+											<button class="del">拒绝</button>
+										</div>
+									</td>
+	
+								</tr>
+								<tr>
+									<td>6</td>
+									<td>内容</td>
+									<td>34</td>
+									<td>40000</td>
+									<td>单孔相机</td>
+									<td>采购部</td>
+									<td>
+										<div class="btn-sty">
+											<button class="add">同意</button>
+											<button class="del">拒绝</button>
+										</div>
+									</td>
+	
+								</tr>
+								<tr>
+									<td>7</td>
+									<td>内容</td>
+									<td>34</td>
+									<td>40000</td>
+									<td>单孔相机</td>
+									<td>采购部</td>
+									<td>
+										<div class="btn-sty">
+											<button class="add">同意</button>
+											<button class="del">拒绝</button>
+										</div>
+									</td>
+	
+								</tr>
+								<tr>
+									<td>8</td>
+									<td>内容</td>
+									<td>34</td>
+									<td>40000</td>
+									<td>单孔相机</td>
+									<td>采购部</td>
+									<td>
+										<div class="btn-sty">
+											<button class="add">同意</button>
+											<button class="del">拒绝</button>
+										</div>
+									</td>
+	
+								</tr>
+								<tr>
+									<td>9</td>
+									<td>内容</td>
+									<td>34</td>
+									<td>40000</td>
+									<td>单孔相机</td>
+									<td>采购部</td>
+									<td>
+										<div class="btn-sty">
+											<button class="add">同意</button>
+											<button class="del">拒绝</button>
+										</div>
+									</td>
+	
+								</tr>
+								<tr>
+									<td>10</td>
+									<td>内容</td>
+									<td>34</td>
+									<td>40000</td>
+									<td>单孔相机</td>
+									<td>采购部</td>
+									<td>
+										<div class="btn-sty">
+											<button class="add">同意</button>
+											<button class="del">拒绝</button>
+										</div>
+									</td>
+	
+								<tr>
+									<td>11</td>
+									<td>内容</td>
+									<td>34</td>
+									<td>40000</td>
+									<td>单孔相机</td>
+									<td>采购部</td>
+									<td>
+										<div class="btn-sty">
+											<button class="add">同意</button>
+											<button class="del">拒绝</button>
+										</div>
+									</td>
+	
+								</tr>
+								<tr>
+									<td>12</td>
+									<td>内容</td>
+									<td>34</td>
+									<td>40000</td>
+									<td>单孔相机</td>
+									<td>采购部</td>
+									<td>
+										<div class="btn-sty">
+											<button class="add">同意</button>
+											<button class="del">拒绝</button>
+										</div>
+									</td>
+	
+								</tr>
+							</tbody>
+					</table>
+				</div>
+
+			</div>
+
+		</div>
+		<div style="height:100px"></div>
+	</div>
+
+	<!-- scripit init-->
+	<!-- <script src="../js/scripts.js"></script> -->
+	<script type="text/javascript" src="../lib/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../lib/jquery-ui/1.9.1/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../static/h-ui/js/H-ui.js"></script>
+	<script type="text/javascript" src="../lib/jquery.SuperSlide/2.1.1/jquery.SuperSlide.min.js"></script>
+	<script type="text/javascript" src="../lib/jquery.validation/1.14.0/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="../lib/jquery.validation/1.14.0/validate-methods.js"></script>
+	<script type="text/javascript" src="../lib/jquery.validation/1.14.0/messages_zh.min.js"></script>
+	<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../bootstrap/js/bootstrap-table.min.js"></script>
+	<script type="text/javascript" src="../bootstrap/js/bootstrap-table-zh-CN.min.js"></script>
+	<script>
+		$('#mytab').bootstrapTable({
+			queryParams: "queryParams",
+			toolbar: "#toolbar",
+			sidePagination: "true",
+			striped: true, // 是否显示行间隔色
+			search: "true",
+			uniqueId: "ID",
+			pageSize: "10",
+			pagination: true, // 是否分页
+			sortable: true, // 是否启用排序
+			columns: [{
+					field: 'id',
+					title: '登录名'
+				},
+				{
+					field: 'name',
+					title: '昵称'
+				},
+				{
+					field: 'person',
+					title: '角色'
+				},
+				{
+					field: 'number',
+					title: '数量'
+				},
+				{
+					field: 'price',
+					title: '单价'
+				},
+				{
+					field: 'date',
+					title: '日期'
+				},
+				{
+					field: 'action',
+					title: '操作',
+					// formatter: actionFormatter,
+				},
+
+			]
+		});
+		//操作栏的格式化
+		// function actionFormatter(value, row, index) {
+		//     var id = value;
+		//     var result = "";
+		//     result += "<a href='javascript:;' class='btn btn-xs green' οnclick=\"EditViewById('" + id + "', view='view')\" title='查看'><span class='glyphicon glyphicon-search'></span></a>";
+		//     result += "<a href='javascript:;' class='btn btn-xs blue' οnclick=\"EditViewById('" + id + "')\" title='编辑'><span class='glyphicon glyphicon-pencil'></span></a>";
+		//     result += "<a href='javascript:;' class='btn btn-xs red' οnclick=\"DeleteByIds('" + id + "')\" title='拒绝'><span class='glyphicon glyphicon-remove'></span></a>";
+		//     return result;
+		// }	     
+	</script>
+	<script>
+		$(function () {
+			$(".ui-sortable").sortable({
+				//connectWith: ".panel",
+				items: ".panel",
+				handle: ".panel-header",
+				//delay: 300, //时间延迟
+				//distance: 15, //距离延迟
+				placeholder: "ui-state-highlight", //占位符样式
+				update: function (event, ui) {
+
+				}
+			}).disableSelection();
+			var _bodyHeight = $(window).height();
+			var _doch = $(document).height();
+			// $(".containBox").height(_bodyHeight);
+
+			/*左右滑动菜单*/
+			$(".JS-nav-toggle").click(function () {
+				$("body").addClass('sideBox-open');
+				$(".containBox-bg").height(_bodyHeight).show();
+			});
+			$(".containBox-bg").click(function () {
+				$(this).hide();
+				$("body").removeClass('sideBox-open');
+			});
+		});
+		jQuery.Huifold = function (obj, obj_c, speed, obj_type, Event) {
+			if (obj_type == 2) {
+				$(obj + ":first").find("b").html("—");
+				$(obj_c + ":first").show()
+			}
+			$(obj).bind(Event, function () {
+				if ($(this).next().is(":visible")) {
+					if (obj_type == 2) {
+						return false
+					} else {
+						$(this).next().slideUp(speed).end().removeClass("selected");
+						$(this).find("b").html("十")
+					}
+				} else {
+					if (obj_type == 3) {
+						$(this).next().slideDown(speed).end().addClass("selected");
+						$(this).find("b").html("—")
+					} else {
+						$(obj_c).slideUp(speed);
+						$(obj).removeClass("selected");
+						$(obj).find("b").html("十");
+						$(this).next().slideDown(speed).end().addClass("selected");
+						$(this).find("b").html("—")
+					}
+				}
+			})
+		};
+		$(function () {
+			$.Huifold("#Huifold1 .item h4", "#Huifold1 .item .info", "fast", 1,
+				"click"); /*5个参数顺序不可打乱，分别是：相应区,隐藏显示的内容,速度,类型,事件*/
+		});
+	</script>
+</body>
+
+</html>
