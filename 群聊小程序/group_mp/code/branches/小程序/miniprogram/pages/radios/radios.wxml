@@ -1,0 +1,22 @@
+<view class="head">
+  <view class="search">
+    <input type='text' bindconfirm='bindlike' placeholder='输入成员昵称' confirm-type='search' bindinput="bindvalue"></input>
+    <image class="" src='../../images/search.png' bindtap='bindtitle'></image>
+  </view>
+  <view class="sure" bindtap='bindzhuan'>确定</view>
+</view>
+<scroll-view scroll-y scroll-into-view="{{scroll}}">
+  <view class="con">
+    <radio-group bindchange="bindchange">
+      <view class="con_list">
+        <view class="list" wx:for="{{items}}" wx:key="" wx:for-item="list">
+          <label class="checkbox">
+            <image src="{{list.avatar_url}}"></image>
+            <view class="name">{{list.g_nick_name}}</view>
+            <radio class="radio_style" value="{{list.g_userid}}" checked="{{list.checks ? true : false}}" style="position:absolute; right:1rem;" />
+          </label>
+        </view>
+      </view>
+    </radio-group>
+  </view>
+</scroll-view>

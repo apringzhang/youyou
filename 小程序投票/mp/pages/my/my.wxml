@@ -1,0 +1,49 @@
+<!--pages/my/my.wxml-->
+<view class="container">
+  <view class="my_bg">
+    <image src="/images/3.jpg" class="main_bg"></image>
+    <view class="my_info">
+      <image src="{{rel.avatar_url}}"></image>
+      <text>昵称：{{rel.nick_name}}</text>
+      <navigator url="../enter/index">报名</navigator>
+    </view>
+  </view>
+  <!--
+  <view class="my_colum clearfix">
+    <view>
+      红包：{{rel.red_packet}}元    <text style="color:#3492eb;margin-left:6px" bindtap='isclick'>提现</text>
+    </view>
+    <view>
+      积分：{{rel.score}}
+    </view>
+  </view>
+  -->
+  <view class="item">
+    <button open-type='getUserInfo' bindgetuserinfo="onGetUserInfo">获取微信用户信息</button>
+    <navigator url="../mysign/index">
+      我的报名<image src="/images/icon18.png"></image>
+    </navigator>
+    <navigator url="../web/index">
+      定制我的专属小程序<image src="/images/icon18.png"></image>
+    </navigator>
+    <!--
+    <navigator url="../mymessage/index">
+      我的留言<image src="/images/icon18.png"></image>
+    </navigator>
+    -->
+    <!-- <navigator url="../mypacket/index">
+      拉票红包<image src="/images/icon18.png"></image>
+    </navigator> -->
+    <!-- <navigator url="../record/index">
+      中奖纪录<image src="/images/icon18.png"></image>
+    </navigator> -->
+    <!-- <navigator url="../redrecord/index">
+      红包记录<image src="/images/icon18.png"></image>
+    </navigator> -->
+    <!--
+    <navigator bindtap='myaddress'>
+      收货地址<image src="/images/icon18.png"></image>
+    </navigator>
+    -->
+  </view>
+</view>

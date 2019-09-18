@@ -1,0 +1,32 @@
+<div class="pageContent">
+    <form method="post" action="{:url('Gift/doAdd')}" class="pageForm" onsubmit="return validateCallback(this, dialogAjaxDone)">
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>奖品名称：</label>
+                <input type="text" name="name" size="20" maxlength="20" class="required" value=""/>
+            </div>
+            <div class="unit">
+                <label>奖品分类：</label>
+                <select name="type">
+                    <option value="0">谢谢参与</option>
+                    <option value="1">礼品奖励</option>
+                </select>
+            </div>
+            <div class="unit">
+                <label>奖品排序：</label>
+                <input type="text" name="sort" size="10" maxlength="10" class="required" class="required"/>
+            </div>
+            <div class="unit">
+                <label>奖品原始图：</label>
+                {:widget('Upload/image', ['image', ''])}
+            </div>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>
+

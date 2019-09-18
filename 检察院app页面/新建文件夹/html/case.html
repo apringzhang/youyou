@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	 <meta charset = "utf-8">
+	 <meta name = "viewport" content = "width = device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable = 0" />
+	 <meta name="apple-mobile-web-app-capable" content="yes">
+	 <link rel="stylesheet" type="text/css" href="../css/style.css">
+ 	<script type="text/javascript" src="../js/screen.js"></script>
+	 <script type="text/javascript" src="../js/jquery.min.js"></script>
+</head>
+<body>
+	<header>
+		<p class="title"><span class="back"></span>案件列表</p>
+	</header>
+  	<div class="law_list">
+  		<ul>
+  			<li>
+  				<p class="contant">检察机关对官员涉嫌受贿案提起公诉</p>
+  				<p class="bianhao">进度跟踪 <span class="date">2018-6-2</span>
+          </p>
+  			</li>
+  			<li>
+  				<p class="contant">清远警方打掉一碰瓷团伙</p>
+  				<p class="bianhao">进度跟踪 <span class="date">2018-5-24</span>
+          </p>
+  			</li>
+  			<li>
+  				<p class="contant">顺风车司机杀人案罪犯被执行死刑</p>
+  				<p class="bianhao">进度跟踪 <span class="date">2018-12-22</span>
+          </p>
+  			</li>
+  			<li>
+  				<p class="contant">最高法知产法庭首次进行巡回调解</p>
+  				<p class="bianhao">进度跟踪 <span class="date">2018-3-7</span>
+          </p>
+  			</li>
+  			<li>
+  				<p class="contant">益阳打掉一套路贷恶势力团伙套路贷受害人不堪骚扰被逼自杀</p>
+  				<p class="bianhao">进度跟踪 <span class="date">2018-1-2</span>
+          </p>
+  			</li>
+  		</ul>
+  	</div>
+	<script type="text/javascript">
+             $("li").click(function(){
+         location.href='case_list.html';
+      }); 
+             $(".back").click(function(){
+         location.href='case_show.html';
+      })
+        
+    </script>
+</body>
+</html>

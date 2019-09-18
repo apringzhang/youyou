@@ -1,0 +1,16 @@
+<view>
+  <form bindsubmit="submitMessage">
+    <view class="bg_view">
+        <view class="apply">
+            <view class="pic" bindtap="bindexc">
+                <image src="../../images/del.png" />
+            </view>
+            <view class="title">申请入群理由</view>
+            <view class="contant">
+                <input class="inp" name="state" value="" placeholder="请输入如群理由"/>
+            </view>
+            <button class="btn" form-type='submit'>提交</button>
+        </view>
+    </view>
+  </form>
+</view>

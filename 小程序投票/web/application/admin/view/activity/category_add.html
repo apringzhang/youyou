@@ -1,0 +1,47 @@
+<div class="pageContent">
+    <form method="post" action="{:url('Activity/do_category_add')}" class="pageForm" onsubmit="return validateCallback(this, navTabAjaxDone)">
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>分类名称：</label>
+                <input type="text" name="category_name" size="20" maxlength="20" class="required" />
+            </div>
+            <div class="unit">
+                <label>排序：</label>
+                <input type="text" name="sort" size="20" maxlength="20" class="required" />
+            </div>
+            <div class="unit">
+                <label>显示状态：</label>
+                <input type="radio" name="status" value="0" checked="checked"/>是
+                <input type="radio" name="status" value="1" />否
+            </div>
+            
+        </div>
+        <script>
+            $(document).ready(function(){
+                $('.receive').click();
+                $('.receive').attr('disabled', 'disabled');
+                $('.colorSelect').ColorPicker({
+                    onSubmit: function(hsb, hex, rgb, el) {
+                        $(el).next().css('backgroundColor', '#' + hex);
+                        $(el).prev().val('#' + hex);
+                        $(el).val(hex);
+                        $(el).ColorPickerHide();
+                    },
+                    onBeforeShow: function () {
+                        $(this).ColorPickerSetColor(this.value);
+                    }
+                })
+                .bind('keyup', function(){
+                    $(this).ColorPickerSetColor(this.value);
+                });
+            });
+        </script>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>
+

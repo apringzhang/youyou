@@ -1,0 +1,41 @@
+<script type="text/javascript">
+    $('.ad_issue_date').parent('div.unit').hide();
+    $('.ad_issue_date').toggleClass('required');
+    $('.ad_issue_time_limit_button').change(function () {
+        $('.ad_issue_date').parent('div.unit').toggle();
+        $('.ad_issue_date').toggleClass('required');
+    });
+</script>
+<div class="pageContent">
+    <form method="post" action="{:url('AdPosition/doModify')}?id={$id}" class="pageForm" onsubmit="return validateCallback(this, dialogAjaxDone)">
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>广告位名称：</label>
+                <input type="text" name="adp_name" maxlength="200" class="required" value="{$adp_name}" />
+            </div>
+            <div class="unit">
+                <label>广告位宽度：</label>
+                <input type="text" name="adp_width" maxlength="200" class="required digits" value="{$adp_width}" />
+            </div>
+            <div class="unit">
+                <label>广告位高度：</label>
+                <input type="text" name="adp_height" maxlength="200" class="required digits" value="{$adp_height}" />
+            </div>
+            <div class="unit">
+                <label>广告位标识符：</label>
+                <input type="text" name="adp_code" maxlength="200" class="required" value="{$adp_code}" />
+            </div>
+            <div class="unit">
+                <label>广告位描述：</label>
+                <!--<input type="text" name="adp_introduce" maxlength="200" size="50" class="required" value="{$adp_introduce}" />-->
+                <textarea name="adp_introduce" class="required" rows="7" cols="40">{$adp_introduce}</textarea>
+            </div> 
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>

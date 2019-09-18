@@ -1,0 +1,69 @@
+<div class="pageContent">
+    <form method="post" action="{:url('Sign/doModify')}" class="pageForm" onsubmit="return validateCallback(this, navTabAjaxDone)">
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>所属学校：</label>
+                <input type="text" name="sign_unit" size="20" maxlength="20" class="required" value="{$sign_unit}" />
+            </div>
+            <div class="unit">
+                <label>所属班级：</label>
+                <input type="text" name="sign_class" size="20" maxlength="20" class="required" value="{$sign_class}" />
+            </div>
+            <div class="unit">
+                <label>学生姓名：</label>
+                <input type="text" name="username" size="20" maxlength="6" class="required" value="{$username}"/>
+            </div>
+            <div class="unit">
+                <label>性别：</label>
+                <input type="radio" name="sex" value="1" {eq name="sex" value="1"}checked="checked"{/eq}/>男
+                <input type="radio" name="sex" value="2" {eq name="sex" value="2"}checked="checked"{/eq}/>女
+            </div>
+            <div class="unit">
+                <label>联系电话：</label>
+                <input type="text" name="mobile" size="20" maxlength="11" class="required" value="{$mobile}"/>
+            </div>
+            <div class="unit">
+                <label>故事名称：</label>
+                <input type="text" name="sign_introduce" size="20" maxlength="20" class="required" value="{$sign_introduce}" />
+            </div>
+            <div class="unit">
+                <label>参赛宣言：</label>
+                <textarea name="sign_declaration" cols="50" rows="8" maxlength="200">{$sign_declaration}</textarea>
+            </div>
+            <div class="unit">
+                <label>封面图：</label>
+                {:widget('Upload/mpImage', ['sign_image', $sign_image])}
+            </div>
+            <div class="unit">
+                <label>风采介绍图：</label>
+                {:widget('Upload/mpMultiImage', ['sign_introduce_image', $sign_introduce_image])}
+            </div>
+            <div class="unit">
+                <label>参赛音频：</label>
+                {:widget('Upload/mpAudio', ['sign_audio', $sign_audio])}
+            </div>
+            <div class="unit">
+                <label>参赛视频：</label>
+                {:widget('Upload/mpVideo', ['sign_video', $sign_video])}
+            </div>
+            <div class="unit">
+                <label>锁定：</label>
+                <input type="radio" name="is_lock" value="0" {eq name="is_lock" value="0"}checked="checked"{/eq}/>否
+                <input type="radio" name="is_lock" value="1" {eq name="is_lock" value="1"}checked="checked"{/eq}/>是
+            </div>
+<!--             <div class="unit">
+                <label>审核：</label>
+                <input type="radio" name="audit_flag" value="1" {eq name="audit_flag" value="1"}checked="checked"{/eq}/>审核通过
+                <input type="radio" name="audit_flag" value="2" {eq name="audit_flag" value="2"}checked="checked"{/eq}/>待审核
+            </div> -->
+        </div>
+        <input name="id" type="hidden" value="{$id}"/>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>
+

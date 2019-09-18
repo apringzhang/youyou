@@ -1,0 +1,6 @@
+<!--pages/activity/index.wxml-->
+<block wx:for="{{activity_list}}" wx:key="id">
+  <view bindtap="submitActivity" data-activityId="{{item.id}}">
+    <button>{{item.activity_name}}</button>
+  </view>
+</block>

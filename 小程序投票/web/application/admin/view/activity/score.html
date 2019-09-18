@@ -1,0 +1,25 @@
+<div class="pageContent">
+    <form method="post" action="{:url('Activity/doscore')}" class="pageForm" onsubmit="return validateCallback(this, dialogAjaxDone)">
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>投票赠送积分：</label>
+                <input type="text" name="vote_score" size="20" maxlength="7" class="required digits" value="{$vote_score}"/>
+            </div>
+            {volist name="gift_ids" id="vo"}
+            <div class="unit">
+                <label>{$vo.name}：</label>
+                <input type="hidden" name="gift_id[]" value="{$vo.id}"/>
+                <input type="text" name="score[{$key}]" size="20" maxlength="20" class="required digits" placeholder="礼物赠送积分数量" value="{$vo.score|default=''}"/>
+            </div>
+            {/volist}
+        </div>
+        <input type="hidden" name="activity_id" value="{$Think.get.id}"/>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>
+

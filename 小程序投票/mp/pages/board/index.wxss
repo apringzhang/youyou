@@ -1,0 +1,64 @@
+/* pages/board/index.wxss */
+
+.send_gift {
+  margin: 20rpx 0;
+}
+
+.bill {
+  padding: 0 20rpx;
+}
+
+.bill>view {
+  height: 150rpx;
+  padding: 40rpx 0 16rpx;
+  border-bottom: 1px solid #ddd;
+}
+
+.bill .left_img {
+  position: relative;
+  float: left;
+  width: 140rpx;
+  height: 150rpx;
+  padding: 16rpx 0;
+  box-sizing: border-box;
+}
+.bill .left_img>image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius:50%;
+}
+.bill .gold {
+  position: absolute;
+  top: -22rpx;
+  left: 26rpx;
+  display: inline-block;
+  width: 68rpx;
+  height: 44rpx;
+}
+.bill .gold image{
+  width: 68rpx;
+  height: 44rpx;
+}
+.bill .right_txt {
+    float: left;
+    width: 75%;
+    margin-top: 16rpx;
+}
+.bill .title {
+    margin: 10rpx 0 20rpx 0;
+    color: #666666;
+    font-size: 28rpx;
+}
+.bill .votenum{
+    color: #666666;
+    font-size: 24rpx;
+}
+.bill .em{
+    float: right;
+    font-size: 40rpx;
+    position: relative;
+    top: -70rpx;
+}
+.bill .on {
+    color: #e40000;
+}

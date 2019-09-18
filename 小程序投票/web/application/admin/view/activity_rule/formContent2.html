@@ -1,0 +1,12 @@
+<div class="unit">
+    <label>间隔时间单位：</label>
+    <select class="combox active"  name="time_unit">
+        <option value="1" {eq name="time_unit" value="1"}selected='selected'{/eq}>分钟</option>
+        <option value="2" {eq name="time_unit" value="2"}selected='selected'{/eq}>小时</option>
+        <option value="3" {eq name="time_unit" value="3"}selected='selected'{/eq}>天</option>
+    </select>
+</div>
+<div class="unit">
+    <label>间隔时间：</label>
+    <input type="text" name="time_interval" maxlength="200" class="required number" value="{$time_interval}" />
+</div>

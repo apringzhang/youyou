@@ -1,0 +1,100 @@
+<form id="pagerForm" method="post" action="{:url('Ad/index')}">
+    <input type="hidden" name="keyword" value="{$keyword}" />
+    <input type="hidden" name="ad_position" value="{$ad_position_id}" />
+    <input type="hidden" name="pageNum" value="{$page_num}" />
+    <input type="hidden" name="activity_id" value="{$activity_id}" />
+</form>
+<div class="pageHeader">
+    <form onsubmit="return navTabSearch(this);" action="{:url('Ad/index')}" method="post">
+        <div class="searchBar">
+            <table class="searchContent">
+                <tr>
+                    <td>
+                        标题名称：<input type="text" name="keyword" value="{$keyword}" />
+                    </td>
+                    <td>
+                        <label>广告位：</label>
+                        <select id="ad_position" name="ad_position" class="combox" >
+                            <option value="">全部</option>
+                            {volist name="ad_position" id="vo_two"}
+                                {eq name="vo_two.id" value="$ad_position_id"}
+                                    <option value="{$vo_two.id}" selected="selected">{$vo_two.adp_name}</option>
+                                {else/}
+                                    <option value="{$vo_two.id}">{$vo_two.adp_name}</option>
+                                {/eq}
+                            {/volist}
+                        </select>
+                    </td>
+                    <td>
+                        <label>活动：</label>
+                        <select id="activity_id" name="activity_id" class="combox" >
+                            <option value="">全部</option>
+                            {volist name="activity" id="vo"}
+                                {eq name="vo.id" value="$activity_id"}
+                                    <option value="{$vo.id}" selected="selected">{$vo.activity_name}</option>
+                                {else/}
+                                    <option value="{$vo.id}">{$vo.activity_name}</option>
+                                {/eq}
+                            {/volist}
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div class="subBar">
+                <ul>
+                    <li><div class="buttonActive"><div class="buttonContent"><button type="submit">搜索</button></div></div></li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <div class="panelBar">
+        <ul class="toolBar">
+            
+                <li><a rel="ad_manage_add" class="add" href="{:url('Ad/add')}" target="dialog" width="850" height="500" title="添加广告"><span>添加</span></a></li>
+            
+                <li><a rel="ad_manage_modify" class="edit" href="{:url('Ad/modify')}?id={ad_id}" target="dialog" width="850" height="500" title="修改广告"><span>修改</span></a></li>
+            
+                <li><a class="delete" href="{:url('Ad/doDelete')}?id={ad_id}" target="ajaxTodo" title="确定要删除吗？"><span>删除</span></a></li>
+            
+            
+        </ul>
+    </div>
+    <table class="table" width="100%" layoutH="137">
+        <thead>
+            <tr>
+                <th width="70">排序</th>
+                <th>广告名称</th>
+                <th width="125">小程序</th>
+                <th width="70">广告位</th>
+                <th width="125">所属活动</th>
+<!--                <th width="70">链接类型</th>
+                <th width="200">链接地址</th>-->
+                <th width="125">创建时间</th>
+                <th width="125">修改时间</th>
+            </tr>
+        </thead>
+        <tbody>
+            {volist name="list" id="vo"}
+                <tr target="ad_id" rel="{$vo.id}">
+                    <td>{$vo.sort}</td>
+                    <td>{$vo.ad_name}</td>
+                    <td>{$vo.mp_name}</td>
+                    <td>{$vo.adp_name}</td>
+                    <td>{$vo.activity_name}</td>
+<!--                    <td>{switch name="vo.ad_link_type"}{case value="2"}外部链接{/case}{case value="1"}内部链接{/case}{/switch}</td>
+                    <td>{$vo.ad_link_address}</td>-->
+                    <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
+                    <td>{$vo.update_time|date="Y-m-d H:i:s",###}</td>
+                </tr>
+            {/volist}
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>共{$count}条</span>
+        </div>
+        <div class="pagination" targetType="adTab" totalCount="{$count}" numPerPage="{$num_per_page}" pageNumShown="10" currentPage="{$page_num}"></div>
+    </div>
+</div>

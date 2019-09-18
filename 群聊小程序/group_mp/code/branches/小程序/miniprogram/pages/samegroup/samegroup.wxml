@@ -1,0 +1,23 @@
+<!-- index.wxml -->
+<view class="page">
+  <view class="search">
+    <input type='text' placeholder='输入搜索昵称' value="{{val}}" confirm-type='search' bindconfirm='bindlike'  bindinput="bindvalue"></input>
+    <image class="" src='../../images/search.png' bindtap='bindtitle'></image>
+  </view>
+  <view class='name'>超级群聊</view>
+  <block wx:for="{{group}}" wx:key="this">
+    <view class='list_contain' bindtap="clickme" data-id="{{item.id}}">
+      <view class="group_pic">
+        <image src="{{imgurl}}{{item.icon}}" class='group_piccontain'></image>
+      </view>
+      <view class="group_name">
+        <text class='group_namecontain'>{{item.name}}</text>
+      </view>
+      <view class="disturb {{hidden?'show':'hide'}}">
+        <image src="../../images/disturb.png" />
+      </view>
+      <!-- <view class="amend" bindtap="click"><image src="../../images/amend.png" /></view> -->
+    </view>
+  </block>
+  <view class='group_nub' wx:if="{{len != 0}}">{{len}}个群聊</view>
+</view>

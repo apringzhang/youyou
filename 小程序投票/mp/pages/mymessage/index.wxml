@@ -1,0 +1,27 @@
+<!--pages/listimg/listimg.wxml-->
+<view class="container">
+
+  <view wx:if="{{rel != ''}}">
+    <view class="listimg" wx:key="id" wx:for="{{rel}}">
+      <view class="left_img">
+        <image src="{{item.avatar_url}}" />
+      </view>
+      <view class="right_txt">
+        <text>{{item.content}}</text>
+        <view>
+          <text class="clock">{{item.create_time}}</text>
+          <view class="edit" id="{{item.id}}" data-sign="{{item.sign_id}}" bindtap='isdelete'>
+            删除
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="nomessage" wx:else="{{rel == ''}}">
+    <view class="circle">
+      <image src="/images/icon19.png"></image>
+    </view>
+    <text>暂无消息</text>
+  </view>
+</view>

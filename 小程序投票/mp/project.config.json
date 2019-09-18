@@ -1,0 +1,56 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.1",
+	"appid": "wxbca9f8bd6e704988",
+	"projectname": "%E6%8A%95%E7%A5%A8%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80%E7%89%88",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "模拟公众号参数",
+					"pathName": "pages/index/index",
+					"query": "activity_id=1"
+				},
+				{
+					"id": -1,
+					"name": "分享二维码",
+					"pathName": "pages/detail/index",
+					"query": "scene=1-11"
+				},
+				{
+					"id": -1,
+					"name": "分享活动二维码",
+					"pathName": "pages/index/index",
+					"query": "scene=1"
+				}
+			]
+		}
+	}
+}

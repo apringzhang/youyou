@@ -1,0 +1,40 @@
+<!-- index.wxml -->
+<view class="page">
+  <view class='page_row'>
+    <van-icon name="arrow-left" class='arrow_left' bindtap="goBack" />
+    <view class="title {{showView?'hide':'show'}}">超级群聊</view>
+    <input class="inp {{showView?'show':'hide'}}" placeholder="搜索" value="" confirm-type="search" focus="{{inputShowed}}" bindconfirm="bindlike"/>
+    <van-icon name="search" class="search_icon {{showView?'hide':'show'}}" bindtap='showButton' />
+    <van-icon name="plus" class='plus' bindtap="openConfirm" />
+  </view>
+  <modal id="modal" hidden="{{hiddenmodalput}}" title="创建超级群" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
+   <view class="add_img"><image bindtap='onClickUpload' src="{{images}}" data-fieldtype="cover" style="width:100%;height:100%"/></view>
+    <p>
+      群名称：
+      <input class="inputstyle" id="gname" type='text' placeholder="" value="{{inputvalue}}" auto-focus bindinput="bindname" maxlength="15"/>
+    </p>
+    <p>
+      群公告：
+      <input class="inputstyle" id="gg" type='text' placeholder="" value="{{inputvalue}}" auto-focus bindinput="bindgg" maxlength="50"/>
+    </p>
+    <p style="line-height:3rem" >是否需要审核
+    <checkbox name="lobby_flag" data-checked="{{lobby_flag}}" class="checked" bindtap='lobby_flag'/>
+    </p>
+  </modal>
+  <view class='name'>超级群聊</view>
+  <block wx:for="{{group}}" wx:key="this">
+    <view class='list_contain' bindtap="clickme" data-id="{{item.id}}">
+      <view class="group_pic">
+        <image src="{{imgurl}}{{item.icon}}" class='group_piccontain'></image>
+      </view>
+      <view class="group_name">
+        <text class='group_namecontain'>{{item.name}}</text>
+      </view>
+      <view class="disturb {{hidden?'show':'hide'}}">
+        <image src="../../images/disturb.png" />
+      </view>
+      <!-- <view class="amend" bindtap="click"><image src="../../images/amend.png" /></view> -->
+    </view>
+  </block>
+  <view class='group_nub' wx:if="{{len != 0}}">{{len}}个群聊</view>
+</view>

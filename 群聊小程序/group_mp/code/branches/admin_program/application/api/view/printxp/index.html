@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>外卖小票</title>
+    <style>* {
+        margin: 0;
+        padding: 0
+    }
+
+    body {
+        background: #f1f1f1
+    }
+
+    .fl {
+        float: left
+    }
+
+    .fr {
+        float: right
+    }
+
+    .clear {
+        clear: both
+    }
+
+    .zbox {
+        width: 364px;
+        padding: 40px 10px;
+        background: #FFF;
+        margin: 30px auto
+    }
+
+    .wmbox {
+        font-size: "微软雅黑";
+        width: 364px;
+        margin: 0 auto;
+        background: #fff;
+        border-top: #000 1px dashed;
+        border-bottom: #000 1px dashed
+    }
+
+    .fontbig {
+        font-size: 32px
+    }
+
+    .fontmid {
+        font-size: 24px
+    }
+
+    .fontsml {
+        font-size: 20px
+    }
+
+    .cen {
+        text-align: center
+    }
+
+    .caipin {
+        border-top: #000 1px dashed;
+        position: relative;
+        margin: 20px 0;
+        padding-top: 15px;
+        height: auto
+    }
+
+    .caipin .lanzi {
+        position: absolute;
+        top: -110%;
+        left: 40%;
+        background: #FFF
+    }
+
+    .caipin .cpxx {
+        clear: both
+    }
+
+    .caipin .cpxx .cp {
+        width: 60%
+    }
+
+    .caipin .cpxx .sl {
+        width: 15%
+    }
+
+    .caipin .cpxx .jg {
+        width: 25%;
+        text-align: right
+    }
+
+    .qt {
+        border-top: #000 1px dashed;
+        border-bottom: #000 1px dashed;
+        position: relative;
+        margin: 50px 0 5px;
+        padding-top: 15px;
+        padding-bottom: 15px
+    }
+
+    .qt .tit {
+        position: absolute;
+        top: -16%;
+        left: 45%;
+        background: #FFF
+    }</style>
+</head>
+<body>
+<div class="zbox">
+    <div class="wmbox">
+        <p class="fontbig cen">【{$print.pbill_name}】</p>
+        <p class="fontsml cen">{$company.company_name}</p>
+        <p class="fontbig cen">
+            {switch name="$order.distribution" }
+                {case value="0"}到店就餐{/case}
+                {case value="1"}到店取餐{/case}
+                {case value="2"}商家自配送{/case}
+                {case value="3"}达达配送{/case}
+                {default /}预定订单
+            {/switch}
+        </p>
+        <p class="fontsml cen">订单号：{$order.order_sn}</p>
+        <p class="fontsml cen">
+            {switch name="$order.distribution" }
+            {case value="1"}下单时间:{$order.create_time|date="Y-m-d H:i:s",###}{/case}
+            {/switch}
+        </p>
+        <!-- 预定时间:{$order.bring_time|date="Y-m-d H:i:s",###} -->
+        <p class="fontsml cen">
+            {switch name="$order.distribution"}
+            {case value="0"}{/case}
+            {case value="1"}取餐时间:{$order.bring_time|date="Y-m-d H:i:s",###}{/case}
+            {case value="2"}下单时间:{$order.create_time|date="Y-m-d H:i:s",###}{/case}
+            {case value="3"}下单时间:{$order.create_time|date="Y-m-d H:i:s",###}{/case}
+            {default /}预定时间:{$order.create_time|date="Y-m-d H:i:s",###}
+            {/switch}
+        </p>
+
+        <!-- 备注 -->
+        {notempty name="$order.user_note"}
+        <div class="fontmid caipin">
+            {notempty name="$order.user_note"}
+            <span class="fontbig cen">备注：{$order.user_note}</span>
+            {/notempty}
+
+           
+            <div class="fontbig cen">*************************</div>
+        </div>
+        {/notempty}
+        {notempty name="$order.advance_remark"}
+        <div class="fontmid caipin">
+            {notempty name="$order.advance_remark"}
+            <span class="fontbig cen">备注：{$order.advance_remark}</span>
+            {/notempty}
+            <div class="fontbig cen">*************************</div>
+        </div>
+        {/notempty}
+
+        <!--菜品-->
+        {notempty name="$goods_list"}
+        <div class="fontmid caipin">
+            <span class="lanzi">1号篮子</span>
+            {volist name="goods_list" id="vo"}
+            <div class="cpxx">
+                <div class="cp fl">{$vo.goods_name}</div>
+                <div class="sl fl">×{$vo.goods_num}</div>
+                <div class="jg fr">￥{$vo.goods_price}</div>
+            </div>
+            {/volist}
+        </div>
+        {/notempty}
+
+        <!--其他-->
+        <div class="qt">
+            {notempty name="$order.distribution"}
+            <span class="fontsml tit">其他</span>
+            {switch name="$order.distribution" }
+                {case value="1"}
+                <p class="fontsml">餐盒费：￥{$order.user_money}</p>
+                {/case}
+                {case value="2"}
+                <p class="fontsml">餐盒费：￥{$order.user_money}</p>
+                <p class="fontsml">配送费：￥{$order.shipping_price}</p>
+                {/case}
+                {case value="3"}
+                <p class="fontsml">餐盒费：￥{$order.user_money}</p>
+                <p class="fontsml">配送费：￥{$order.shipping_price}</p>
+                {/case}
+            {/switch}
+            <p class="fontsml">{$prom.name}[满{$prom.full_money}减{$prom.reduction_money}]：{$prom_amount|default='￥0.00'}</p>
+            </div>
+            <p class="fontbig clear">
+                <span>小计</span>
+                <span class="fr">￥{$order.goods_price}</span>
+            </p>
+            {/notempty}
+            {if condition="$order.order_type eq 3"}
+            <p class="fontbig clear">
+                    <span>预付款</span>
+                    <span class="fr">￥{$order.advance_amount}</span>
+            </p>
+            <p class="fontbig clear">
+                    <span>总计</span>
+                    <span class="fr">￥{$order.total_amount}</span>
+            </p>
+            {/if}
+
+            {switch name="$order.distribution" }
+                {case value="1"}
+                <p class="fontbig clear">
+                    <span>总计</span>
+                    <span class="fr">￥{$order.total_amount}</span>
+                </p>
+                {/case}
+                {case value="2"}
+                <p class="fontbig clear">
+                    <span>总计</span>
+                    <span class="fr">￥{$order.total_amount}</span>
+                </p>
+                {/case}
+                {case value="3"}
+                <p class="fontbig clear">
+                    <span>总计</span>
+                    <span class="fr">￥{$order.total_amount}</span>
+                </p>
+                {/case}
+            {/switch}
+            
+        <div class="fontbig">{$delivery.province}{$delivery.city}{$delivery.district}{$delivery.address}</div>
+        <div class="fontbig">{$delivery.consignee}{$order.contacts_name}
+            {switch name="$order.contacts_sex"}
+            {case value="1"}(先生){/case}
+            {case value="2"}(女士){/case}
+            {/switch}
+        </div>
+        <div class="fontbig">{$order.contacts_phone}{$delivery.mobile}</div>
+        <div class="fontbig cen">*************************</div>
+    </div>
+</div>
+</body>
+</html>

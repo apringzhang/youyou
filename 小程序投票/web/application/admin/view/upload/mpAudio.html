@@ -1,0 +1,33 @@
+<div style="padding-left: 130px;">
+    <div style="float: left;text-align: center;width: 75px;">
+        <a id="colorbox-{$name}" class="button" onclick="$(this).colorbox({width: 640, height: 480, iframe: true});return false;" href="{empty name='value'}{$Think.config.static_url}/admin/images/no_photo.png{else/}{$Think.config.mp_audio_url}/{$value}{/empty}"><span>查看音频</span></a>
+    </div>
+    <div style="float: left;">
+        <div id="uploadify-{$name}"></div>
+    </div>
+</div>
+<input type="hidden" id="{$name}" name="{$name}" value="{$value}" />
+<script type="text/javascript">
+    $('#uploadify-{$name}').Huploadify({
+        uploader: '{:config("mp_upload_audio_url")}',
+        buttonText: '上传音频',
+        fileTypeDesc: '*.mp3',
+        fileTypeExts: '*.mp3',
+        fileSizeLimit: 1024 * 1024 * 100,
+        auto: true,
+        multi: false,
+        height: 21,
+        width: 100,
+        fileObjName: 'audio',
+        onUploadSuccess: function uploadifySuccess(file, data, response) {
+            data = JSON.parse(data);
+            if (data.result == '0') {
+                $('#colorbox-{$name}').attr('href', "{:config('mp_audio_url')}" + data.data);
+                $('#{$name}').val(data.data);
+            } else {
+                alertMsg.error(data.message);
+            }
+        }
+    });
+
+</script>

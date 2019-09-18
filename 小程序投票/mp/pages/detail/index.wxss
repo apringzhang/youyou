@@ -1,0 +1,316 @@
+/* pages/detail/index.wxss */
+.container{
+  position:relative;
+  z-index:1;
+}
+.main {
+  width: 100%;
+  padding-bottom: 70px;
+}
+.top_bg {
+  padding-top: 10px;
+  background: #f9f9f9;
+}
+.person_info {
+  position:relative;
+  padding-bottom: 10px;
+  text-align: center;
+  border-bottom: 1px dashed #c8c8c8;
+}
+
+.person_info image {
+  width: 50px;
+  height: 60px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.person_info text {
+  margin-left: 3px;
+}
+
+.number1 {
+  padding: 0;
+}
+
+.number1 .cloumn {
+  width: 33%;
+}
+
+.view {
+  padding: 0 20rpx;
+  background: #fff;
+}
+
+.dowebok1 {
+  line-height: 60rpx;
+  color: #666;
+}
+
+.slide, .slide image {
+  width: 100%;
+  height: 900rpx;
+}
+
+.slide1 {
+  margin: 20rpx 0;
+}
+
+.intro_box image {
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 12rpx;
+  vertical-align: top;
+}
+
+.person_intro {
+  display: inline-block;
+  width: 87%;
+  line-height: 44rpx;
+  color: #808080;
+  font-size: 24rpx;
+}
+
+.person_intro text {
+  display: block;
+  font-size: 28rpx;
+}
+
+.person_intro .title {
+  margin: 0 0 10rpx;
+  font-size: 32rpx;
+}
+
+.person_intro video {
+  width: 400rpx;
+  height: 400rpx;
+  margin: 10rpx 0;
+}
+
+.send_gift {
+  margin: 20rpx 0;
+}
+
+.send_gift .title {
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  line-height: 60rpx;
+  border-top: 1px dashed #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.send_gift .title image {
+  width: 15px;
+  height: 15px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+.send_gift .list {
+  padding: 0 20rpx;
+}
+
+.send_gift .list>view {
+  height: 150rpx;
+  border-bottom: 1px solid #ddd;
+}
+
+.send_gift .left_img {
+  position: relative;
+  float: left;
+  width: 140rpx;
+  height: 150rpx;
+  padding: 16rpx 0;
+  box-sizing: border-box;
+}
+
+.send_gift .left_img image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 10px;
+}
+
+.send_gift .right_txt {
+  float: left;
+  width: 75%;
+  margin-top: 16rpx;
+}
+
+.send_gift .right_txt text {
+  display: block;
+}
+
+.send_gift .right_txt .clock {
+  line-height: 48rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+
+.footer {
+  position: fixed;
+  z-index: 10;
+  bottom: 0;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  background: #fff;
+  border-top: 1px solid #b2b2b2;
+}
+
+.footer navigator,.footer view {
+  float: left;
+  width: 33%;
+  text-align: center;
+  color: #666;
+}
+
+.footer navigator image,.footer view image{
+  width: 38rpx;
+  height: 38rpx;
+  margin-right: 6rpx;
+  vertical-align: middle;
+}
+
+.footer .middle image {
+  width: 136rpx;
+  height: 136rpx;
+  margin-top: -60rpx;
+}
+.share{
+  position:absolute;
+  bottom:20rpx;
+  right:20rpx;
+}
+.share image{
+  width:40rpx;
+  height:40rpx;
+}
+.share_layer{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,.9);
+  z-index:10;
+}
+.share_box{
+  width:600rpx;
+  margin:0 auto;
+  background: #ffffff;
+}
+.share_bg{
+  position:relative;
+  width:100%;
+  height:300rpx;
+  padding:50rpx 0;
+}
+.share_bg .img_bg{
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:2;
+  width:100%;
+  height:400rpx;
+}
+.txt_top{
+  position:absolute;
+  top:40rpx;
+  left:50%;
+  margin-left:-250rpx;
+  z-index:5;
+  text-align: center;
+}
+
+.share_bg text{
+  display:block;
+  margin-bottom:40rpx;
+  font-size:36rpx;
+  text-align: center;
+}
+.share_avater{
+  width:200rpx;
+  height:200rpx;
+  margin:0 auto;
+  border-radius:50%;
+}
+.share_avater image{
+  width:200rpx;
+  height:200rpx;
+  border-radius:50%;
+}
+.share_txt{
+  padding:0rpx 20rpx 20rpx 0rpx;
+  color:#666666;
+}
+.share_txt .title{
+  padding:10rpx 0;
+  font-size:32rpx;
+  border-bottom:1px solid #666666;
+}
+.share_txt .title text{
+  margin:0 10rpx;
+}
+.motto{
+  height:160rpx;
+  margin:20rpx 0;
+  font-size:28rpx;
+  overflow:hidden;
+}
+.ico{
+  width:200rpx;
+  height:200rpx;
+  margin: 0 auto;
+}
+.ico image{
+  width:200rpx;
+  height:200rpx;
+}
+.default{
+  width:50%;
+  margin:25rpx auto;
+  border:1px solid #dedede;
+  font-size:28rpx;
+}
+.share_pic{
+  display:block;
+  padding-bottom:20rpx;
+  font-size:28rpx;
+  text-align: center;
+}
+.close{
+  width:100rpx;
+  height:100rpx;
+  margin:30rpx auto 0;
+}
+.close image{
+  width:100rpx;
+  height:100rpx;
+}
+.pull button{
+  width: 100%;
+  height: 80rpx;
+  margin-bottom: 22rpx;
+  line-height: 80rpx;
+  background: #ba48ed;
+  color: #ffffff;
+  border-radius: 10rpx;
+  font-size:32rpx;
+}
+
+.playbtn{
+  display:flex;
+}
+.playbtn>view image{
+  width:100rpx;
+  height:100rpx;
+  margin-right:20rpx;
+}
+.playbar{
+  width:78%;
+}
+.playbar text{
+  display:block;
+  margin-bottom:10rpx;
+  color:#666666;
+}

@@ -1,0 +1,58 @@
+<view class="personal">
+  <view class="headphoto">
+    <image src="{{info.avatar_url}}" />
+  </view>
+  <view class="name">
+    <text class="nickname">{{info.nick_name}} {{info.genders}}</text>
+    <text class="site">{{info.province}} {{info.city}}</text>
+  </view>
+  <van-icon name="replay" class="replay" bindtap="bindinfo"/>
+</view>
+<view class="hr"></view>
+<view class='item' bindtap="goCollection">
+  <view class="icon"><image src="../../images/collection.png" /></view>
+  <view class="title">我的收藏</view>
+  <view class="detail2">
+    <image src="../../images/more.png" />
+  </view>
+</view>
+<view class="line"></view>
+<view class='item' bindtap="goBusiness">
+  <view class="icon"><image src="../../images/present.png" /></view>
+  <view class="title">我的礼品</view>
+  <view class="detail2">
+    <image src="../../images/more.png" />
+  </view>
+</view>
+<!-- <view class="hr"></view>
+<view class='item'>
+  <view class="icon"><image src="../../images/address.png" /></view>
+  <view class="title">收货地址</view>
+  <view class="detail2">
+    <image src="../../images/more.png" />
+  </view>
+</view> -->
+<view class="line"></view>
+<!-- <view class="item" bindtap="goTickets">
+  <view class="icon"><image src="../../images/dianquan.png" /></view>
+  <view class="title">我的点劵</view>
+  <view class="number">{{stamps}}</view>
+  <view class="detail2">
+    <image src="../../images/more.png" />
+  </view>
+</view>
+<view class="line"></view>
+<view class="item" bindtap="goRecharge">
+  <view class="icon"><image src="../../images/coin.png" /></view>
+  <view class="title">充值</view>
+  <view class="detail2">
+    <image src="../../images/more.png" />
+  </view>
+</view>
+<view class="line"></view>
+<view class="item" bindtap="goRechargevip">
+  <view class="icon"><image src="../../images/VIP.png" /></view>
+  <view class="title">VIP</view>
+  <view class="day"><block wx:if="{{info.is_vip == 1}}">20天</block><van-button type="primary" size="mini" style="margin-left:0.7rem">续费</van-button></view>
+</view>
+<view class="line"></view> -->

@@ -1,0 +1,37 @@
+<!--pages/gift/index.wxml-->
+<view class="container">
+  <view class="send_gift" bindtap='toDetail'>
+    <view class="gift_txt clearfix">
+      <view class="left_img">
+        <image src="{{imageUrl}}{{rel.user.sign_image}}" />
+      </view>
+      <view class="right_txt">
+        <view class="title">{{rel.user.username}} {{rel.user.sign_code}}号</view>
+        <text class="small">为Ta助力吧</text>
+        <text class="votes">{{rel.user.total_count}}票</text>
+      </view>
+    </view>
+  </view>
+  <view class="gift clearfix">
+    <block wx:key="id" wx:for="{{rel.gift_list}}">
+      <view class="box" bindtap='isClick' id="{{item.id}}" data-value='{{item.gift_value}}' data-num='{{item.vote_num}}'>
+        <image src="{{adminUrl}}{{item.gift_image}}" />
+        <text class="title">{{item.gift_name}}</text>
+        <text>{{item.gift_value}}元</text>
+        <block wx:if='{{giftid == item.id}}'>
+          <view class="choose">
+            <image src="/images/choose.png" />
+          </view>
+        </block>
+      </view>
+    </block>
+  </view>
+  <block wx:if='{{price}}'>
+    <view class="counts">
+      <text>数量：</text>
+      <slider show-value bindchange='giftNumChange' max='10' min='1'/>
+      <view>单价{{price}}元，总价{{price*giftNum}}元，共抵{{giftNum*num}}票</view>
+      <button type="primary" class="primary" bindtap='doSubmit'>微信支付</button>
+    </view>
+  </block>
+</view>

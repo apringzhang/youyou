@@ -1,0 +1,7 @@
+<swiper class="slide" autoplay indicator-dots indicator-color="#eeeeee" indicator-active-color="#ee001c">
+  <block wx:key='id' wx:for='{{slideshow}}'>
+    <swiper-item>
+      <image src="{{adminImageUrl}}{{item.ad_image}}"></image>
+    </swiper-item>
+  </block>
+  </swiper>

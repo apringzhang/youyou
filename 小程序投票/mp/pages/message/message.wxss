@@ -1,0 +1,60 @@
+/* pages/message/message.wxss */
+.scroll{
+  height:860rpx;
+}
+.listimg {
+  padding: 20rpx;
+  border-bottom: 1px solid #ddd;
+}
+
+.listimg .left_img {
+  position: relative;
+  float: left;
+  width: 140rpx;
+}
+.listimg .left_img text{
+  display:block;
+  width:120rpx;
+  margin-top:10rpx;
+  color:#666666;
+  text-align: center;
+}
+.listimg .left_img image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 10px;
+  vertical-align: top;
+}
+
+.listimg .right_txt {
+  float: left;
+  width: 80%;
+}
+.listimg .right_txt > text{
+  display:block;
+}
+.listimg .right_txt .clock {
+  line-height: 48rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+.key_info{
+  padding:0 20rpx;
+  margin:40rpx 0 0;
+}
+.key_info .multi{
+  width:100%;
+  height:160rpx;
+  padding:4rpx;
+  margin-bottom:20rpx;
+  border:1px solid #dddddd;
+  box-sizing: border-box;
+}
+.key_info button{
+  width:100%;
+  height:80rpx;
+  line-height:80rpx;
+  background:#ba48ed;
+  color:#ffffff;
+  font-size:32rpx;
+}

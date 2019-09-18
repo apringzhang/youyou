@@ -1,0 +1,150 @@
+<view id="wrap" style="height: 100vh">
+    <view class="setpage" bindtap="setPage">
+        <image class="edit" src='../../images/xiugai.png' mode='widthFix'></image>
+    </view>
+    <scroll-view scroll-y scroll-top="{{scrollTop}}" style='height: {{scrollHeight}}px;' >
+     
+        <block wx:key wx:for='{{msgList}}' wx:for-index="index" wx:key="this">
+            <!-- 单个消息1 客服发出（左） -->
+            <view wx:if='{{item.speaker=="server"}}' id='msg-{{index}}' class="left_user">
+              <block wx:if="{{item.type == 'text'}}">
+                <view class="left_userbord">
+                    <image class="left_userimg" src='{{item.avatar_url}}' bindtap='turnFriend' data-user="{{item.uid}}"></image>
+                </view>
+                <view class="left_site">
+                    <!-- <image style='width: 4vw;' src='' mode='widthFix'></image> -->
+                </view>
+                <view class='leftMsg'>{{item.data}}</view>
+              </block>
+
+              <block wx:if="{{item.type == 'audio'}}">
+                <view class="left_userbord">
+                    <image class="left_userimg" src='{{item.avatar_url}}' bindtap='turnFriend' data-user="{{item.uid}}"></image>
+                </view>
+                <view class="left_site">
+                    <!-- <image style='width: 4vw;' src='' mode='widthFix'></image> -->
+                </view>
+                <view class='leftMsg' data-url="{{item.data}}" data-index="{{index}}" bindtap='beginVoice'>
+                    <view class="left_voice">
+                        <span class="voice">
+                          <image class="voice_pic" src="{{item.vids}}"></image>
+                            <!-- <image class="voice_pic {{voiceView?'hide':'show'}}" src="../../images/left_voice1.png" bindtap='beginVoice'></image>
+                            <image class="voice_pic {{voiceView?'show':'hide'}}" src="../../images/left_voice.gif" bindtap='beginVoice'></image> -->
+                        </span>
+                        <text class="text_con">{{item.timers}}''</text>
+                    </view>
+                </view>
+              </block>
+
+              <block wx:if="{{item.type == 'imgs'}}">
+                <view class="left_userbord">
+                    <image class="left_userimg" src='{{item.avatar_url}}' bindtap='turnFriend' data-user="{{item.uid}}"></image>
+                </view>
+                <view class="left_site">
+                    <!-- <image style='width: 4vw;' src='' mode='widthFix'></image> -->
+                </view>
+                <view class='leftMsg'>
+                    <view class='imgList'>
+                        <view class='imgList-li'>
+                           <image class='img' src='{{item.data}}' data-index='{{index}}' bindtap='previewImg' data-src="{{item.data}}"></image>
+                          </view>
+                    </view>
+                </view>
+              </block>
+            </view>
+ 
+            <!-- 单个消息2 用户发出（右） -->
+            <view wx:else class="right_user" id='msg-{{index}}'>
+              <block wx:if="{{item.type == 'text'}}">
+                <view class='rightMsg' data-url="{{item.data}}">{{item.data}}</view>
+                <view class="right_site">
+                    <!-- <image style='width: 4vw;' src='' mode='widthFix'></image> -->
+                </view>
+                <view class="right_userbord">
+                    <image class="right_userimg" src='{{item.avatar_url}}'></image>
+                </view>
+              </block>
+              <block wx:if="{{item.type == 'audio'}}">
+                <view class='rightMsg' data-url="{{item.data}}" data-index="{{index}}" bindtap='beginVoice'>
+                    <view class="right_voice">
+                        <span class="voice_you">
+                        <image class="voice_pic" src="{{item.vids}}"></image>
+                            <!-- <image class="voice_pic" id="audio{{index}}" src="../../images/right_voice1.png"></image> -->
+                            <!-- <image class="voice_pic {{voiceView?'show':'hide'}}" src="../../images/right_voice.gif"></image> -->
+                        </span>
+                        <text class="righttext_con">{{item.timers}}''</text>
+                    </view>
+                </view>
+                <view class="right_site">
+                    <!-- <image style='width: 4vw;' src='' mode='widthFix'></image> -->
+                </view>
+                <view class="right_userbord">
+                    <image class="right_userimg" src='{{item.avatar_url}}'></image>
+                </view>
+              </block>
+              <block wx:if="{{item.type == 'imgs'}}">
+                <view class='rightMsg'>
+                      <view class='imgList'>
+                            <view class='imgList-li'>
+                                <image class='img' src='{{item.data}}' data-index='{{index}}' bindtap='previewImg' data-src="{{item.data}}"></image>
+                            </view>
+                     </view>             
+                  </view>
+                <view class="right_site">
+                    <!-- <image style='width: 4vw;' src='' mode='widthFix'></image> -->
+                </view>
+                <view class="right_userbord">
+                    <image class="right_userimg" src='{{item.avatar_url}}'></image>
+                </view>
+              </block>
+            </view> 
+        </block>
+    </scroll-view>
+    <view class='inputRoom' style='bottom: {{inputBottom}}' > 
+        <view class="bottom_key">
+            <image class="sound {{soundView?'hide':'show'}}" style='width: 7vw; margin-left: 3.2vw;' src='../../images/sound.png' mode='widthFix' bindtap="soundButton"></image>
+            <input class="{{soundView?'hide':'show'}}" bindinput='sendClick' adjust-position='{{false}}' value='{{inputVal}}' confirm-type='send' bindfocus='focus' bindblur='blur' bindconfirm='sendconfirm'></input>
+            <image class="keybord {{keybordView?'show':'hide'}}" style='width: 7vw; margin-left: 3.2vw;' src='../../images/keybord.png' mode='widthFix' bindtap="keybordButton"></image>
+            <button class="speak {{keybordView?'show':'hide'}}" bindtouchstart='startManager' bindtouchend="stopManager">按住说话</button>
+            <image class="add-o {{showvan?'show':'hide'}}" src='../../images/tianjia.png' mode='widthFix' bindtap="onClickUpload" data-fieldtype="cover"></image>  
+            <view class="send {{showButton?'show':'hide'}}" bindtap='sendmessages'>发送</view>
+        </view>
+        <!-- <view class="bottom_list {{showView?'show':'hide'}}">
+            <swiper class="navban" indicator-dots="{{indicatorDots}}" interval="{{interval}}" duration="{{duration}}">
+                <swiper-item>
+                    <block wx:for="{{navs}}" wx:key="this">
+                        <view class="navbox" data-fieldtype="cover" bindtap='onClickUpload'>
+                            <view class="navbox_img">
+                                <image class="navimg" src="{{item.navimg}}"></image>
+                            </view>
+                            <text class="navtext">{{item.navtext}}</text>
+                        </view>
+                    </block>
+                </swiper-item>
+                <swiper-item>
+                    <block wx:for="{{navss}}" wx:key="this">
+                        <view class="navbox">
+                            <view class="navbox_img">
+                                <image class="navimg" src="{{item.navsimg}}"></image>
+                            </view>
+                            <text class="navtext">{{item.navstext}}</text>
+                        </view>
+                    </block>
+                </swiper-item>
+            </swiper>
+        </view>
+        <view class="expression_list {{appearView?'show':'hide'}}">
+            <swiper class="expression" indicator-dots="{{indicatorDots}}" interval="{{interval}}" duration="{{duration}}">
+                <swiper-item>
+                    <block wx:for="{{express}}" wx:key="this">
+                        <view class="express">
+                            <view class="express_img">
+                                <image class="navimg" src="{{item.img}}"></image>
+                            </view>
+                        </view>
+                    </block>
+                </swiper-item>
+            </swiper>
+        </view> -->
+    </view>
+</view>

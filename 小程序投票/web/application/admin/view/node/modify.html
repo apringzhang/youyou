@@ -1,0 +1,33 @@
+<div class="pageContent">
+    <form method="post" action="{:url('Node/doModify')}" class="pageForm" onsubmit="return validateCallback(this, dialogAjaxDone)">
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>上级节点：</label>
+                <input name="pid" value="" type="hidden" value="{$pid}"/>
+                <input class="required" name="parentNodeTitle" type="text" readonly="readonly" lookupGroup="" value="{$parent_node_title}" />
+                <a class="btnLook" href="{:url('Node/pid?nodeId=' . $id)}" lookupGroup="" width="400" height="400" title="选择上级节点" mask="true"></a>
+            </div>
+            <div class="unit">
+                <label>节点标题：</label>
+                <input type="text" name="nodeTitle" size="20" maxlength="20" class="required"  value="{$node_title}"/>
+            </div>
+            <div class="unit">
+                <label>节点名称：</label>
+                <input type="text" name="nodeName1" size="20" maxlength="20" class="required" value="{$node_name}" />
+            </div>
+            <div class="unit">
+                <label>排序：</label>
+                <input type="text" name="sort" size="3" maxlength="3" class="required" value="{$sort}" />
+            </div>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+        <input type="hidden" name="nodeId" value="{$id}" />
+    </form>
+
+</div>
+

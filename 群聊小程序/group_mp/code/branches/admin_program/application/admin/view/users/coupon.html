@@ -1,0 +1,64 @@
+<form id="pagerForm" method="post" action="{:url('Users/Coupon')}">
+    <input type="hidden" name="nick_name" value="{$nick_name}" />
+    <input type="hidden" name="type" value="{$type}" />
+    <input type="hidden" name="pageNum" value="{$page_num}" />
+</form>
+<div class="pageHeader">
+    <form onsubmit="return navTabSearch(this);" action="{:url('Users/Coupon')}" method="post">
+        <div class="searchBar">
+            <table class="searchContent">
+                <tr>
+                    <td>
+                        用户名：<input type="text" name="nick_name" value="{$nick_name}"/>
+                    </td>
+                    <td>
+                        <label >类型：</label>
+                        <select class="combox" name="type">
+                            <option value="">请选择礼品状态</option>
+                            <option value="1"{eq name="$type" value="1" }selected="selected"{/eq}>充值</option>
+                            <option value="2"{eq name="$type" value="2" }selected="selected"{/eq}>购买vip</option>
+                            <option value="3"{eq name="$type" value="3" }selected="selected"{/eq}>其他</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div class="subBar">
+                <ul>
+                    <li><div class="buttonActive"><div class="buttonContent"><button type="submit">搜索</button></div></div></li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <table class="table" width="100%" layoutH="110">
+        <thead>
+        <tr>
+            <th width="125">用户名</th>
+            <th width="150">用户名类型</th>
+            <th width="125">点券使用数量(充值\使用)</th>
+            <th width="125">支付单号</th>
+            <th width="125">vip时长</th>
+            <th width="125">创建时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        {volist name="list" id="vo"}
+        <tr target="id" rel="{$vo.id}">
+            <td>{$vo.user_id|get_adminuser_name}</td>
+            <td>{$vo.user_id|get_user_type}</td>
+            <td>{$vo.id|get_type_coupon}</td>
+            <td>{$vo.order_id|get_orderSn}</td>
+            <td>{$vo.id|get_vip_time}</td>
+            <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
+        </tr>
+        {/volist}
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>共{$count}条</span>
+        </div>
+        <div class="pagination" targetType="adTab" totalCount="{$count}" numPerPage="{$num_per_page}" pageNumShown="10" currentPage="{$page_num}"></div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	 <meta charset = "utf-8">
+	 <meta name = "viewport" content = "width = device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable = 0" />
+	 <meta name="apple-mobile-web-app-capable" content="yes">
+	 <link rel="stylesheet" type="text/css" href="../css/style.css">
+ 	<script type="text/javascript" src="../js/screen.js"></script>
+	 <script type="text/javascript" src="../js/jquery.min.js"></script>
+</head>
+<body>
+	<header>
+		<p class="title"><span class="back"></span>法律文书</p>
+	</header>
+  	<div class="law_list">
+  		<ul>
+  			<li>
+  				<p class="contant">民事判决书</p>
+  				<p class="bianhao">详情查看 <span class="date">2018-1-2</span>
+          </p>
+  			</li>
+  			<li>
+  				<p class="contant">刑事判决书</p>
+  				<p class="bianhao">详情查看 <span class="date">2018-1-2</span>
+          </p>
+  			</li>
+  			<li>
+  				<p class="contant">民事裁定书</p>
+  				<p class="bianhao">详情查看 <span class="date">2018-1-2</span>
+          </p>
+  			</li>
+  			<li>
+  				<p class="contant">刑事裁定书</p>
+  				<p class="bianhao">详情查看 <span class="date">2018-1-2</span>
+          </p>
+  			</li>
+  			<li>
+  				<p class="contant"> 刑事调解书</p>
+  				<p class="bianhao">详情查看 <span class="date">2018-1-2</span>
+          </p>
+  			</li>
+  		</ul>
+  	</div>
+	<script type="text/javascript">
+             $("li").click(function(){
+         location.href='book_list.html';
+      }); 
+             $(".back").click(function(){
+         location.href='case_show.html';
+      })
+        
+    </script>
+</body>
+</html>

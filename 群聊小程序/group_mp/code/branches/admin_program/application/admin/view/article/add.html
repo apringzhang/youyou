@@ -1,0 +1,45 @@
+<div class="pageContent">
+    <form method="post" action="{:url('Article/doAdd')}" class="pageForm" onsubmit="return validateCallback(this, navTabAjaxDone)">
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>文章名称：</label>
+                <input type="text" name="name" size="20" maxlength="20" class="required" value=""/>
+            </div>
+            <div class="unit">
+                <label>标题：</label>
+                <input type="text" name="title" size="20" maxlength="20" value="" class="required"/>
+            </div>
+            <div class="unit">
+                <label>作者：</label>
+                <input type="text" name="author" size="20" maxlength="20" class="required" />
+            </div>
+            <div class="unit">
+                <label>文章分类：</label>
+                <select name="type">
+                    {volist name="cglist" id="vo"}
+                    <option value="{$vo.id}">{$vo.name}</option>
+                    {/volist}
+                </select>
+            </div>
+            <div class="unit">
+                <label>排序：</label>
+                <input type="text" name="sort" size="10" maxlength="10" class="required" class="required"/>
+            </div>
+            <div class="unit">
+                <label>文章简介：</label>
+                <textarea name="des" rows="4" cols="50"></textarea>
+            </div>
+            <div class="unit">
+                <label>详情：</label>
+                {:widget('Editor/show', ['details', '' , 60, 5])}
+            </div>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>
+

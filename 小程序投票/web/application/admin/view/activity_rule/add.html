@@ -1,0 +1,69 @@
+<script>
+    $('#rule_type').change(function () {
+        loadFormContent($(this).val());
+    });
+    function loadFormContent(type) {
+        $('#form_content').loadUrl("{:url('ActivityRule/getFormContent')}?jump=" + type, {}, function () {
+
+        });
+    }
+</script>
+<div class="pageContent">
+    <form method="post" action="{:url('ActivityRule/doAdd')}" class="pageForm" onsubmit="return validateCallback(this, dialogAjaxDone)">
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>规则名称：</label>
+                <input type="text" name="rule_name" maxlength="200" class="required" value="" />
+            </div>
+            <div class="unit">
+                <label>规则类型：</label>
+                <select class="combox active"  name="rule_type" id='rule_type'>
+                    <option value="0">请选择类型</option>
+                    <option value="1">仅投一次</option>
+                    <option value="2">仅投n次</option>
+                    <option value="3">两次间隔</option>
+                    <option value="4">每天N人</option>
+                </select>
+            </div>
+            <div id='form_content'></div>
+<!--            <div class="unit">
+                <label>对应数量：</label>
+                <input type="text" name="vote_num" maxlength="200" class="required digits" value="" />
+            </div>
+            <div class="unit">
+                <label>对应用户数量：</label>
+                <input type="text" name="user_num" maxlength="200" class="required" value="" />
+            </div>
+            <div class="unit">
+                <label>间隔时间单位：</label>
+                <select class="combox active"  name="time_unit">
+                    <option value="1">分钟</option>
+                    <option value="2">小时</option>
+                    <option value="3">天</option>
+                </select>
+            </div>
+            <div class="unit">
+                <label>间隔时间：</label>
+                <input type="text" name="time_interval" maxlength="200" size="50" class="required" value="" />
+            </div>-->
+            <div class="unit">
+                <label>成功提示：</label>
+                <input type="text" name="msg_success" maxlength="200" size="50" class="required" value="" />
+            </div>
+            <div class="unit">
+                <label>失败提示：</label>
+                <input type="text" name="msg_fail" maxlength="200" size="50" class="required" value="" />
+            </div>
+            <div class="unit">
+                <label>违规提示：</label>
+                <input type="text" name="irregularities" maxlength="200" size="50" class="required" value="" />
+            </div>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>

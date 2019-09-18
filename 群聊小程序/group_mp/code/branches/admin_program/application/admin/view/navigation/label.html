@@ -1,0 +1,73 @@
+<form id="pagerForm" method="post" action="{:url('Navigation/label')}">
+    <input type="hidden" name="name" value="{$name}" />
+    <input type="hidden" name="type" value="{$type}" />
+    <input type="hidden" name="pageNum" value="{$page_num}" />
+</form>
+<div class="pageHeader">
+    <form onsubmit="return navTabSearch(this);" action="{:url('Navigation/label')}" method="post">
+        <div class="searchBar">
+            <table class="searchContent">
+                <tr>
+                    <td>
+                        标签名称：<input type="text" name="name" value="{$name}"/>
+                    </td>
+                    <td>
+                        <label >类型选择：</label>
+                        <select class="combox" name="type">
+                            <option value="1"{eq name="$type" value="1" }selected="selected"{/eq}>外部链接</option>
+                            <option value="2"{eq name="$type" value="2" }selected="selected"{/eq}>资讯文章</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div class="subBar">
+                <ul>
+                    <li><div class="buttonActive"><div class="buttonContent"><button type="submit">搜索</button></div></div></li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <div class="panelBar">
+        <ul class="toolBar">
+            <li><a rel="labeladd" class="add" href="{:url('Navigation/labeladd')}" target="dialog" width="850" height="500" title="添加标签"><span>添加</span></a></li>
+            <li><a rel="label_modify" class="edit" href="{:url('Navigation/labelmodify')}?id={id}" target="dialog" width="850" height="500" title="修改标签"><span>修改</span></a></li>
+            <li><a class="delete" href="{:url('Navigation/labeldoDelete')}?id={id}" target="ajaxTodo" title="确定要删除吗？"><span>删除</span></a></li>
+        </ul>
+    </div>
+    <table class="table" width="100%" layoutH="137">
+        <thead>
+        <tr>
+            <th width="125">标签名称</th>
+            <th width="150">标签类型</th>
+            <th width="125">所选资讯</th>
+            <th width="125">外部链接地址</th>
+            <th width="125">是否首页展示</th>
+            <th width="125">排序</th>
+            <th width="125">创建时间</th>
+            <th width="125">更新时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        {volist name="list" id="vo"}
+        <tr target="id" rel="{$vo.id}">
+            <td>{$vo.name}</td>
+            <td>{$vo.type|get_Nav_type}</td>
+            <td>{$vo.id|get_infor_name}</td>
+            <td>{$vo.url}</td>
+            <td>{$vo.is_homeshow|get_homeshow_name}</td>
+            <td>{$vo.sort}</td>
+            <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
+            <td>{$vo.update_time|date="Y-m-d H:i:s",###}</td>
+        </tr>
+        {/volist}
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>共{$count}条</span>
+        </div>
+        <div class="pagination" targetType="adTab" totalCount="{$count}" numPerPage="{$num_per_page}" pageNumShown="10" currentPage="{$page_num}"></div>
+    </div>
+</div>

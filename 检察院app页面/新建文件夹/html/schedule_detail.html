@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	 <meta charset = "utf-8">
+	 <meta name = "viewport" content = "width = device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable = 0" />
+	 <meta name="apple-mobile-web-app-capable" content="yes">
+	 <link rel="stylesheet" type="text/css" href="../css/style.css">
+	 <script type="text/javascript" src="../js/screen.js"></script>
+	 <script type="text/javascript" src="../js/jquery.min.js"></script>
+</head>
+<body>
+	<header class="header">
+		<p class="title"><span class="back"></span>待办事项</p>
+	</header>
+	<div class="j-contant">
+		<div class="j-detailTitle">
+			公文标题
+		</div>
+		<div class="j-title">
+			附件列表
+		</div>
+		<table class="j-list">
+			<tr>
+				<td>附件1</td>
+				<td>2019-09-13</td>
+				<td>
+					<a href="">查看</a>
+				</td>				
+			</tr>
+			<tr>
+				<td>附件1</td>
+				<td>2019-09-13</td>
+				<td>
+					<a href="">查看</a>
+				</td>				
+			</tr>
+			<tr>
+				<td>附件1</td>
+				<td>2019-09-13</td>
+				<td>
+					<a href="">查看</a>
+				</td>				
+  		</table>
+		<ul class="j-approve clearfix">
+			<li>
+				<textarea placeholder="请输入审批说明"></textarea>
+				<button class="npc_btn">同意</button>
+			</li>
+			<li>
+				<textarea placeholder="请输入退回说明"></textarea>
+				<button class="npc_btn">退回</button>
+			</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+             $(".back").click(function(){
+         location.href='schedule.html';
+      }); 		
+        
+    </script>
+</body>
+</html>

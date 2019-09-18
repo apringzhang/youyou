@@ -1,0 +1,11 @@
+{volist name="list" id="vo"}
+<tr target="nodeId" rel="{$vo.id}">
+    <td>{$vo.id}</td>
+    <td style="text-indent: {$level*40}px">{$vo.node_title}</td>
+    <td>{$vo.node_name}</td>
+    <td>{$vo.sort}</td>
+    <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
+    <td>{$vo.update_time|date="Y-m-d H:i:s",###}</td>
+</tr>
+{:widget('Node/listTree', ['pid' => $vo['id'], 'level' => $level + 1])}
+{/volist}

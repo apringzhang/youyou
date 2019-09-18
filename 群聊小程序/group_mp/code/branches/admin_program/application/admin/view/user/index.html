@@ -1,0 +1,89 @@
+<form id="pagerForm" method="post" action="{:url('User/index')}">
+    <input type="hidden" name="userName" value="{$userName}"/>
+    <input type="hidden" name="userAccount" value="{$userAccount}"/>
+    <input type="hidden" name="roleId" value="{$roleId}"/>
+    <input type="hidden" name="pageNum" value="{$pageNum}"/>
+</form>
+<div class="pageHeader">
+    <form onsubmit="return navTabSearch(this);" action="{:url('User/index')}" method="post">
+        <div class="searchBar">
+            <table class="searchContent">
+                <tr>
+                    <td>
+                        姓名：<input type="text" name="userName" value="{$userName}"/>
+                    </td>
+                    <td>
+                        帐号：<input type="text" name="userAccount" value="{$userAccount}"/>
+                    </td>
+                    <td>
+                        <select class="combox" name="roleId">
+                            <option value="0">全部</option>
+                            {volist name="roleList" id="vo"}
+                            {eq name="roleId" value="$vo.id"}
+                            <option value="{$vo.id}" selected="selected">{$vo.role_name}</option>
+                            {else/}
+                            <option value="{$vo.id}">{$vo.role_name}</option>
+                            {/eq}
+                            {/volist}
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div class="subBar">
+                <ul>
+                    <li>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit">搜索</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <div class="panelBar">
+        <ul class="toolBar">
+            <li><a mask="true" class="add" href="{:url('User/add')}" target="dialog" width="530"
+                   height="240" title="添加用户"><span>添加</span></a></li>
+            <li><a mask="true" class="edit" href="{:url('User/modify')}?id={userId}" target="dialog"
+                   width="530" height="240" title="修改用户"><span>修改</span></a></li>
+            <li><a class="delete" href="{:url('User/doDelete')}?id={userId}" target="ajaxTodo"
+                   title="确定要删除吗？"><span>删除</span></a>
+            </li>
+        </ul>
+    </div>
+    <table class="table" width="100%" layoutH="137">
+        <thead>
+        <tr>
+            <th width="50">ID</th>
+            <th>姓名</th>
+            <th>帐号</th>
+            <th width="150">角色</th>
+            <th width="125">创建时间</th>
+            <th width="125">修改时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        {volist name="list" id="vo"}
+        <tr target="userId" rel="{$vo.id}">
+            <td>{$vo.id}</td>
+            <td>{$vo.user_name}</td>
+            <td>{$vo.user_account}</td>
+            <td>{$vo.role_id|get_role_name}</td>
+            <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
+            <td>{$vo.update_time|date="Y-m-d H:i:s",###}</td>
+        </tr>
+        {/volist}
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>共{$count}条</span>
+        </div>
+        <div class="pagination" targetType="navTab" totalCount="{$count}" numPerPage="{$numPerPage}" pageNumShown="10"
+             currentPage="{$pageNum}"></div>
+    </div>
+</div>

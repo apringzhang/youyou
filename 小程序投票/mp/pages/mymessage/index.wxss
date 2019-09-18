@@ -1,0 +1,49 @@
+/* pages/listimg/listimg.wxss */
+.listimg {
+  height: 150rpx;
+  padding: 0 20rpx;
+  border-bottom: 1px solid #ddd;
+}
+
+.listimg .left_img {
+  position: relative;
+  float: left;
+  width: 140rpx;
+  height: 150rpx;
+  padding: 16rpx 0;
+  box-sizing: border-box;
+}
+
+.listimg .left_img image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 10px;
+}
+
+.listimg .right_txt {
+  float: left;
+  width: 80%;
+  margin-top: 23rpx;
+}
+.listimg .right_txt > text{
+  display:block;
+  height:72rpx;
+  overflow:hidden;
+}
+.listimg .right_txt .clock {
+  line-height: 48rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+.edit{
+  float:right;
+  width:100rpx;
+  height:44rpx;
+  line-height:44rpx;
+  padding:0;
+  background:#ba48ed;
+  color:#ffffff;
+  font-size:28rpx;
+  border-radius:6rpx;
+  text-indent: 20rpx;
+}

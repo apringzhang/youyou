@@ -1,0 +1,112 @@
+/* pages/friend/friend.wxss */
+
+page {
+    background: #f4f5f6;
+}
+
+.friend {
+    height: 180rpx;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    line-height: 50rpx;
+    padding: 10rpx 20rpx
+}
+.headphoto {
+    width: 100rpx;
+    height: 100rpx;
+}
+.headphoto image {
+    width: 100%;
+    height: 100%;
+}
+.name {
+    flex-direction: column;
+    display: flex;
+    font-size: 23rpx;
+    margin-left: 24rpx;
+}
+
+.replay {
+    position: absolute;
+    right: 70rpx;
+    font-size: 50rpx;
+}
+
+.hr {
+    width: 100%;
+    height: 15px;
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    background: #fff;
+}
+
+.title {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    font-size: 15px;
+}
+
+.detail2 {
+    font-size: 15px;
+    position: absolute;
+    right: 10px;
+    height: 50px;
+    line-height: 50px;
+    color: #888;
+    margin-top: 10rpx;
+}
+
+.detail2 image {
+    width: 40rpx !important;
+    height: 35rpx !important;
+}
+
+.line {
+    border: 1px solid #ccc;
+    opacity: 0.2;
+}
+
+.nickname {
+    font-size: 30rpx;
+}
+
+.icon {
+    width: 50rpx;
+    height: 50rpx;
+    margin-left: 25rpx;
+    margin-top: 27rpx
+}
+
+.icon image {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.elitem {
+    background: #fff;
+    font-size: 15px;
+    justify-content:center;
+display:flex;
+height:100rpx;
+line-height:100rpx;
+}
+.elicon{
+    width: 50rpx;
+    height: 50rpx;
+    margin-top:10rpx;
+
+}
+.elicon image {
+    width: 100% !important;
+    height: 100% !important;
+}
+.eltitle{
+    font-size: 15px;
+    margin-left:15rpx;
+
+}

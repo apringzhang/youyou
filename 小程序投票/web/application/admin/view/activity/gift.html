@@ -1,0 +1,56 @@
+<form id="pagerForm" method="post" action="{:url('Activity/gift')}">
+    <input type="hidden" name="giftName" value="{$giftName}"/>
+    <input type="hidden" name="pageNum" value="{$pageNum}"/>
+</form>
+
+<div class="pageHeader">
+    <form rel="pagerForm" method="post" action="{:url('Activity/gift')}" onsubmit="return dwzSearch(this, 'dialog');">
+        <div class="searchBar">
+            <ul class="searchContent">
+                <li>
+                    <label>礼物名称:</label>
+                    <input class="textInput" name="giftName" value="{$giftName}" type="text">
+                </li>
+            </ul>
+            <div class="subBar">
+                <ul>
+                    <li><div class="buttonActive"><div class="buttonContent"><button type="submit">查询</button></div></div></li>
+                    <li><div class="button"><div class="buttonContent"><button type="button" multLookup="orgId" warn="请选择部门">选择带回</button></div></div></li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+
+    <table class="table" layoutH="118" targetType="dialog" width="100%">
+        <thead>
+            <tr>
+                <th width="30"><input type="checkbox" class="checkboxCtrl" group="orgId" /></th>
+                <th width="250" orderfield="orgName">礼物名称</th>
+                <th orderfield="orgNum">价值(元)</th>
+                <th orderfield="leader">可兑换票数</th>
+                <th orderfield="creator">添加时间</th>
+            </tr>
+        </thead>
+        <tbody>
+            {volist name="list" id="vo"}
+            <tr>
+                <td><input type="checkbox" name="orgId" value="{gift_ids:'{$vo.id}', gift_name:'{$vo.gift_name}'}"/></td>
+                <td>{$vo.gift_name}</td>
+                <td>{$vo.gift_value}元</td>
+                <td>{$vo.vote_num}票</td>
+                <td>{$vo.create_time|date="Y-m-d H:i:s", ###}</td>
+            </tr>
+            {/volist}
+        </tbody>
+    </table>
+
+    <div class="panelBar">
+        <div class="pages">
+            <span>共{$count}条</span>
+        </div>
+        <div class="pagination" targetType="navTab" totalCount="{$count}" numPerPage="20" pageNumShown="10"
+             currentPage="{$pageNum}"></div>
+    </div>
+</div>

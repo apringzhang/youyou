@@ -1,0 +1,56 @@
+<div class="pageContent">
+    <form method="post" action="{:url('Navigation/DoLaModify')}" class="pageForm" onsubmit="return validateCallback(this, dialogAjaxDone)">
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>标签名称：</label>
+                <input type="text" name="name" size="20" maxlength="20" class="required" value="{$name}"/>
+            </div>
+            <div class="unit">
+                <label>标签类型：</label>
+                外部链接<input id="wb" type="radio" name="type" value="1" {eq name="$type" value="1" }checked{/eq}>
+                咨讯信息<input id="zxxx" type="radio" name="type" value="2" {eq name="$type" value="2" }checked{/eq}>
+            </div>
+            <script>
+                $('#wb').click(function(){
+                    $('#lj').css('display','block');
+                    $('#zx').css('display','none');
+                })
+                $('#zxxx').click(function(){
+                    $('#lj').css('display','none');
+                    $('#zx').css('display','block');
+                })
+            </script>
+            <div id="lj" class="unit" {eq name="$type" value="2" }style="display: none" {/eq}>
+                <label>外部链接：</label>
+                <input type="text" name="url" size="20" value="{$url}"/>
+            </div>
+            <div id="zx" class="unit" {eq name="$type" value="1" }style="display: none" {/eq}>
+                <label>咨询选择：</label>
+                <select name="information">
+                    {volist name="info" id="vo"}
+                    <option value="{$vo.id}" {eq name="$navigation.inf_id" value="$vo.id" }selected="selected"{/eq}>
+                    {$vo.title}
+                    </option>
+                    {/volist}
+                </select>
+            </div>
+            <div class="unit">
+                <label>是否首页展示：</label>
+                是<input id="sys" type="radio" name="is_homeshow" value="0" {eq name="is_homeshow" value="0" }checked{/eq}>
+                否<input id="syf" type="radio" name="is_homeshow" value="1" {eq name="is_homeshow" value="1" }checked{/eq}>
+            </div>
+            <div class="unit">
+                <label>排序：</label>
+                <input type="text" name="sort" size="10" maxlength="10" class="required" value="{$sort}">
+            </div>
+            <input type="hidden" value="{$id}" name="id">
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>
+

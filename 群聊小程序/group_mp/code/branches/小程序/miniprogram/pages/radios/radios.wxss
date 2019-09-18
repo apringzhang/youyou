@@ -1,0 +1,85 @@
+page, scroll-view {
+  height: 100%;
+}
+.head{
+ height:2.5rem;
+width:100%;
+border-bottom:1px solid grey;
+line-height:2.5rem
+}
+.search
+{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  align-items: center;
+  width:70%;
+  height:2rem;
+  background-color:whitesmoke;
+  border:1rpx solid whitesmoke;
+  border-radius: 5rpx;
+margin-left:1rem;
+margin-top:2%
+}
+
+/* 搜索框提示文字样式 */
+.search input
+{
+  font-size:0.8rem;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-left:0.5rem; 
+}
+
+/* 搜索框小图标 */
+.search image
+{ 
+  width:40rpx;
+  height:40rpx;
+  padding-right:20rpx;
+}
+.sure {
+ position:absolute;
+right:1rem;
+top:2%;
+height:1.6rem;
+line-height:1.6rem;
+  width: 13%;
+  background: #96EB6A;
+  text-align: center;
+  font-size: 0.8rem;
+  border-radius: 8px;
+}
+.radio_style{
+  width:1rem;
+  height:1rem;
+}
+.con_list>view {
+  padding-left: 20rpx;
+}
+
+.con_list .title {
+  line-height: 60rpx;
+  background: #eee;
+  font-size: 27rpx;
+}
+
+.con_list .list {
+  line-height: 100rpx;
+  font-size: 0;
+  border-bottom: 1px solid #eee;
+}
+
+.list image {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 6rpx;
+  vertical-align: middle;
+}
+
+.list .name {
+  display: inline-block;
+  margin-left: 20rpx;
+  font-size: 34rpx;
+  vertical-align: middle;
+}
+

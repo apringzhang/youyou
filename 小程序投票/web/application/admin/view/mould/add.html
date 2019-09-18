@@ -1,0 +1,25 @@
+<div class="pageContent">
+    <form method="post" action="{:url('Mould/doAdd')}" class="pageForm" onsubmit="return validateCallback(this, dialogAjaxDone)">
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>模板名称：</label>
+                <input type="text" name="model_name" size="20" class="required" />
+            </div>
+            <div class="unit">
+                <label>模板微信返回码：</label>
+                <input type="text" name="model_code" size="20"  class="required" />
+            </div>
+            <div class="unit">
+                <label>模版变量说明：</label>
+                <input type="text" name="model_details" size="20" class="required" />
+            </div>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>
+

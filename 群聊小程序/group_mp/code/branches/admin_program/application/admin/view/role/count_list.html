@@ -1,0 +1,21 @@
+<div class="pageContent">
+    <!-- <form method="post" action="{:url('User/doAdd')}" class="pageForm" onsubmit="return validateCallback(this, dialogAjaxDone)"> -->
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>访问数量：</label>
+                <input type="text" size="20" maxlength="20" class="required disabled" disabled="disabled" value="{$click_count}"/>
+            </div>
+            <div class="unit">
+                <label>添单数量：</label>
+                <input type="text" size="20" maxlength="20" class="required disabled" disabled="disabled" value="{$add_count}"/>
+            </div>
+        </div>
+        <div class="formBar">
+            <ul>
+                <!-- <li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li> -->
+                <li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    <!-- </form> -->
+</div>
+

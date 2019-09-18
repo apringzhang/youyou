@@ -1,0 +1,5 @@
+<div class="unit">
+    <label>对应数量：</label>
+    <input type="text" name="vote_num" maxlength="200" class="required number" 
+           {eq name='rule_type' value='1'} readonly='readonly' value='1'{else /}value="{$vote_num}"{/eq} />
+</div>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>测试模拟</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js" type="text/javascript"></script><!--<![endif]-->
+</head>
+<body>
+	输入订单号：<input type="text" id="order_sn" style="width: 250px">
+	<button data-name="accept" class="order">模拟接受订单</button>
+	<button data-name="fetch" class="order">模拟完成取货</button>
+	<button data-name="finish" class="order">模拟完成订单</button>
+	<button data-name="cancel" class="order">模拟取消订单</button>
+	<button data-name="expire" class="order">模拟订单过期</button>
+</body>
+<script type="text/javascript">
+    $('.order').click(function(){
+    	var data_name = $(this).attr('data-name');
+    	var order_sn  = $('#order_sn').val();
+    	$.post("{:url('Callback/back_simulation')}",{data_name:data_name,order_sn:order_sn},function(data){
+	       console.log(data);
+	    },"json");
+    })
+</script>
+</html>

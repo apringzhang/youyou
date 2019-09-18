@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>接口文档</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./static/api/style.css"/>
+    <script type="text/javascript" src="./static/api/jquery.min.js"></script>
+    <script type="text/javascript" src="./static/api/main.js"></script>
+</head>
+<body>
+<h1>接口文档</h1>
+<div>
+    <table style="display: table;">
+        <tr>
+            <th align="right">接口地址:</th>
+            <td>http://127.0.0.1/index.php/api/{路径}</td>
+        </tr>
+        <tr>
+            <th align="right">POST参数:</th>
+            <td>param={加密字符串}</td>
+        </tr>
+        <tr>
+            <th align="right">加密方式:</th>
+            <td>AES-256-ECB</td>
+        </tr>
+        <tr>
+            <th align="right">KEY:</th>
+            <td>D8yZvupMj9u5o4WyD3jbATOMtHvWeQaI</td>
+        </tr>
+    </table>
+</div>
+<fieldset>
+    <legend>加密测试</legend>
+    <table border="1">
+        <tr>
+            <th>路径</th>
+            <td>test</td>
+        </tr>
+        <tr>
+            <th>参数</th>
+            <td>{action: "testcrypt", data: "测试字符串"}</td>
+        </tr>
+        <tr>
+            <th>返回</th>
+            <td>
+                <h4>成功</h4>
+                <pre>
+{
+    result: "0",
+    message: "success",
+    data: ["测试字符串"]
+}
+                        </pre>
+                <h4>失败</h4>
+                <pre>
+{
+    result: "2",
+    message: "错误信息",
+    data: ""
+}
+                        </pre>
+            </td>
+        </tr>
+    </table>
+</fieldset>
+</body>
+</html>

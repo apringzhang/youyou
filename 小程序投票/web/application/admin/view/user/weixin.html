@@ -1,0 +1,84 @@
+<form id="pagerForm" method="post" action="{:url('User/weixin')}">
+    <input type="hidden" name="nick_name" value="{$nick_name}"/>
+    <input type="hidden" name="pageNum" value="{$pageNum}"/>
+</form>
+<div class="pageHeader">
+    <form onsubmit="return navTabSearch(this);" action="{:url('User/weixin')}" method="post">
+        <div class="searchBar">
+            <table class="searchContent">
+                <tr>
+                    <td>
+                        昵称：<input type="text" name="nick_name" value="{$nick_name}"/>
+                    </td>
+                </tr>
+            </table>
+            <div class="subBar">
+                <ul>
+                    <li>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit">搜索</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <table class="table" width="110%" layoutH="110">
+        <thead>
+            <tr>
+                <th width="60">昵称</th>
+                <th width="35">性别</th>
+                <th width="60">红包</th>
+                <th width="60">积分</th>
+                <th width="70">国家</th>
+                <th width="100">省份</th>
+                <th width="80">城市</th>
+                <th width="200">收货地址</th>
+                <th width="45">开发人员</th>
+                <th width="45">语言</th>
+                <th width="50">头像</th>
+                <th width="100">openid</th>
+                <th width="110">创建时间</th>
+                <th width="110">更新时间</th>
+            </tr>
+        </thead>
+        <tbody>
+            {volist name="list" id="vo"}
+                <tr target="weixin_id" rel="{$vo.id}">
+                    <td>{$vo.nick_name}</td>
+                    <td>
+                    {switch name="vo.gender"}
+                        {case value="1"}男{/case}
+                        {case value="2"}女{/case}
+                        {case value="3"}未知{/case}
+                        {default /}
+                    {/switch}
+                    </td>
+                    <td>{$vo.red_packet}</td>
+                    <td>{$vo.scroe}</td>
+                    <td>{$vo.country}</td>
+                    <td>{$vo.province}</td>
+                    <td>{$vo.city}</td>
+                    <td>{$vo.address}</td>
+                    <td><a rel="Manageweixin" class="adeditd" href="{:url('User/detail')}?id={$vo.id}" target="dialog" width="400" height="150" title="开发人员" mask="true">设置</a></td>
+                    <td>{$vo.language}</td>
+                    <td><a onclick="$(this).colorbox({iframe: true,width: 680,height: 710});return false;" href="{$vo.avatar_url}">查看图片</a></td>
+                    <td>{$vo.openid}</td>
+                    <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
+                    <td>{$vo.update_time|date="Y-m-d H:i:s",###}</td>
+                </tr>
+            {/volist}
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>共{$count}条</span>
+        </div>
+        <div class="pagination" targetType="navTab" totalCount="{$count}" numPerPage="{$numPerPage}" pageNumShown="10"
+             currentPage="{$pageNum}"></div>
+    </div>
+</div>

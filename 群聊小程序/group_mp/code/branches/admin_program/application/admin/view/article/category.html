@@ -1,0 +1,58 @@
+<form id="pagerForm" method="post" action="{:url('Article/category')}">
+    <input type="hidden" name="name" value="{$name}" />
+    <input type="hidden" name="pageNum" value="{$page_num}" />
+</form>
+<div class="pageHeader">
+    <form onsubmit="return navTabSearch(this);" action="{:url('Article/category')}" method="post">
+        <div class="searchBar">
+            <table class="searchContent">
+                <tr>
+                    <td>
+                        分类名称：<input type="text" name="name" value="{$name}"/>
+                    </td>
+                </tr>
+            </table>
+            <div class="subBar">
+                <ul>
+                    <li><div class="buttonActive"><div class="buttonContent"><button type="submit">搜索</button></div></div></li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <div class="panelBar">
+        <ul class="toolBar">
+            <li><a rel="ca_manage_add" class="add" href="{:url('Article/Cgadd')}" target="dialog" width="850" height="500" title="添加文章分类"><span>添加</span></a></li>
+            <li><a rel="ca_manage_modify" class="edit" href="{:url('Article/Cgmodify')}?id={id}" target="dialog" width="850" height="500" title="修改文章分类"><span>修改</span></a></li>
+            <li><a class="delete" href="{:url('Article/CgdoDelete')}?id={id}" target="ajaxTodo" title="确定要删除吗？"><span>删除</span></a></li>
+        </ul>
+    </div>
+    <table class="table" width="100%" layoutH="137">
+        <thead>
+        <tr>
+
+            <th>分类名称</th>
+            <th width="150">排序</th>
+            <th width="125">创建时间</th>
+            <th width="125">修改时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        {volist name="list" id="vo"}
+        <tr target="id" rel="{$vo.id}">
+            <td>{$vo.name}</td>
+            <td>{$vo.sort}</td>
+            <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
+            <td>{$vo.update_time|date="Y-m-d H:i:s",###}</td>
+        </tr>
+        {/volist}
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>共{$count}条</span>
+        </div>
+        <div class="pagination" targetType="adTab" totalCount="{$count}" numPerPage="{$num_per_page}" pageNumShown="10" currentPage="{$page_num}"></div>
+    </div>
+</div>

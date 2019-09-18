@@ -1,0 +1,114 @@
+/* pages/gift/index.wxss */
+
+.send_gift {
+  padding: 0 20rpx;
+  margin: 20rpx 0;
+}
+
+.gift_txt {
+  padding: 20rpx 0;
+  border-bottom: 1px dashed #b12bec;
+}
+
+.send_gift .left_img {
+  position: relative;
+  float: left;
+  width: 140rpx;
+  height: 152rpx;
+  padding: 16rpx 0;
+  margin-right: 20rpx;
+  box-sizing: border-box;
+}
+
+.gift_txt .left_img image {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+}
+
+.send_gift .right_txt {
+  float: left;
+  width: 75%;
+  margin-top: 20rpx;
+}
+
+.gift_txt .title {
+  margin: 10rpx 0 20rpx 0;
+  color: #b12bec;
+  font-size: 28rpx;
+}
+
+.gift_txt .small {
+  color: #999;
+  font-size: 24rpx;
+}
+
+.gift_txt .votes {
+  float: right;
+}
+
+.gift {
+  margin: 10px;
+  padding: 0 10px;
+  background: #fff;
+}
+
+.gift .box {
+  position: relative;
+  float: left;
+  width: 33.3%;
+  height: 260rpx;
+  padding: 8rpx 0 0;
+  margin-bottom: 16rpx;
+  box-sizing: border-box;
+}
+
+.gift .box image {
+  display: block;
+  width: 140rpx;
+  height: 160rpx;
+  margin: 0 auto;
+}
+
+.gift text {
+  display: block;
+  height: 36rpx;
+  line-height: 36rpx;
+  margin: 6rpx 0;
+  padding: 0 4rpx;
+  color: #999;
+  text-align: center;
+}
+
+.gift .title {
+  margin: 10rpx 0;
+  color: #e34f8b;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.gift .choose {
+  position: absolute;
+  bottom: 20rpx;
+  left: 6rpx;
+  width: 44rpx;
+  height: 44rpx;
+  padding-left: 4rpx;
+  line-height: 44rpx;
+}
+
+.gift .choose image {
+  width: 44rpx;
+  height: 44rpx;
+}
+.counts{
+  padding:10rpx 20rpx;
+  font-size:28rpx;
+}
+.counts slider{
+  display: inline-block;
+  width:360rpx;
+}
+.primary{
+  margin:50rpx 0 0;
+}

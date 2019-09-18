@@ -1,0 +1,33 @@
+/* pages/rule/index.wxss */
+.activity {
+  padding: 0 20rpx;
+}
+
+.activity .title {
+  padding: 16rpx 0;
+  background: #f9f9f9;
+  font-size:32rpx;
+}
+
+.activity .title image {
+  width: 42rpx;
+  height: 42rpx;
+  margin: 0 8rpx 0 0;
+  vertical-align: top;
+}
+
+.activity .strong {
+  line-height: 26px;
+  font-weight: normal;
+}
+
+.activity text {
+  display: block;
+  margin: 10rpx 0;
+}
+
+.activity .img {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+}

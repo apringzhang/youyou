@@ -1,0 +1,69 @@
+{
+  "pages": [
+    "pages/activity/index",
+    "pages/index/index",
+    "pages/rule/index",
+    "pages/enter/index",
+    "pages/board/index",
+    "pages/detail/index",
+    "pages/gift/index",
+    "pages/logs/logs",
+    "pages/search/search",
+    "pages/my/my",
+    "pages/lucky/lucky",
+    "pages/record/index",
+    "pages/redrecord/index",
+    "pages/listimg/listimg",
+    "pages/message/message",
+    "pages/packet/packet",
+    "pages/mysign/index",
+    "pages/signdetail/index",
+    "pages/mymessage/index",
+    "pages/web/index",
+    "pages/mypacket/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#333333",
+    "navigationBarTitleText": "首页",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#b12bec",
+    "borderStyle": "#b2b2b2",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/icon1.png",
+        "selectedIconPath": "images/icon1-1.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/rule/index",
+        "iconPath": "images/icon2.png",
+        "selectedIconPath": "images/icon2-1.png",
+        "text": "规则"
+      },
+      {
+        "pagePath": "pages/board/index",
+        "iconPath": "images/icon4.png",
+        "selectedIconPath": "images/icon4-1.png",
+        "text": "榜单"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "images/icon16.png",
+        "selectedIconPath": "images/icon16-1.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

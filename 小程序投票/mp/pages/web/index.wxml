@@ -1,0 +1,2 @@
+<!--pages/web/index.wxml-->
+<web-view src="https://mp.drinkwall.cn/tg/"></web-view>

@@ -1,0 +1,22 @@
+<view wx:if="{{activity_status != 0}}">
+  <text class="count" wx:if="{{activity_status == 1}}">报名结束倒计时</text>
+  <text class="count" wx:if="{{activity_status == 2}}">活动结束倒计时</text>
+  <view class="time-wrap">
+    <view>
+      <text>{{countDownDay}}</text>
+      <text>天</text>
+    </view>
+    <view>
+      <text>{{countDownHour}}</text>
+      <text>时</text>
+    </view>
+    <view>
+      <text>{{countDownMinutes}}</text>
+      <text>分</text>
+    </view>
+    <view>
+      <text>{{countDownSeconds}}</text>
+      <text>秒</text>
+    </view>
+  </view>
+</view>

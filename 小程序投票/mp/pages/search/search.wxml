@@ -1,0 +1,29 @@
+<!--index.wxml-->
+<view class="container">  
+  <form bindsubmit='searchinfo'>
+  <view class="search">
+    <input type="text" name='keyword' placeholder="请输入编号或姓名" confirm-type="search" value='{{keyword}}'/>
+    <text></text>
+    <button form-type='submit'>搜索</button>
+  </view>
+  </form>
+
+  <view class="person clearfix">
+  <block wx:key="id" wx:for="{{voteList}}">
+    <navigator url="../detail/index?id={{item.id}}">
+        <text class="poll">{{item.sign_code}}号,{{item.total_count}}票</text>
+         <image src="{{imageUrl}}{{item.sign_image}}"/> 
+        <view class="info">
+          <text>{{item.username}}</text>
+          <text class="vote_btn">投票</text>
+        </view>
+        <view class="info" style="padding-top: 0">
+          <text>{{item.sign_unit}}</text>
+        </view>
+        <view class="packet">
+           <image src="/images/icon15.png" wx:if="{{item.red_status == 1}}"></image> 
+        </view>
+      </navigator>
+    </block>
+  </view>
+</view>

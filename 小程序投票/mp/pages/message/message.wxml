@@ -1,0 +1,25 @@
+<!--pages/message/message.wxml-->
+<view class="container">
+  <scroll-view class="scroll" scroll-y bindscrolltolower="onReachBottom">
+
+    <view class="listimg clearfix" wx:for="{{rel}}" wx:key="id">
+      <view class="left_img">
+        <image src="{{item.avatar_url}}" />
+        <text>{{item.nick_name}}</text>
+      </view>
+      <view class="right_txt">
+        <text>{{item.content}}</text>
+        <view>
+          <text class="clock">{{item.create_time}}</text>
+        </view>
+      </view>
+    </view>
+    
+  </scroll-view>
+  <form bindsubmit="doSubmit">
+    <view class="key_info">
+      <textarea name="content" class="multi" placeholder="请输入留言内容" value="{{detail}}"></textarea>
+      <button class="submit" formType="submit">发表留言</button>
+    </view>
+  </form>
+</view>

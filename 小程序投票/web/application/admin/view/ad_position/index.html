@@ -1,0 +1,65 @@
+<form id="pagerForm" method="post" action="{:url('AdPosition/index')}">
+    <input type="hidden" name="pageNum" value="{$page_num}" />
+</form>
+<div class="pageHeader">
+    <form onsubmit="return navTabSearch(this);" action="{:url('AdPosition/index')}" method="post">
+        <div class="searchBar">
+            <ul class="searchContent">
+                <li>
+                    <label>广告位名称：</label>
+                    <input name="adp_name" type="text" value="{$adp_name}"/>
+                </li>  
+            </ul>
+            <div class="subBar">
+                <ul>
+                    <li><div class="buttonActive"><div class="buttonContent"><button type="submit">搜索</button></div></div></li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <div class="panelBar">
+        <ul class="toolBar">
+            <li><a rel="ad_issue_manage_add" class="add" href="{:url('AdPosition/add')}" target="dialog" width="520" height="320" title="添加广告位" mask="true"><span>添加</span></a></li>
+            <li><a rel="ad_issue_manage_modify" class="edit" mask='true' width='520' height='320' href="{:url('AdPosition/modify')}?id={ad_issue_id}" target="dialog" title="修改广告位"><span>修改</span></a></li>
+            <li><a title="确定要删除吗?" target="ajaxTodo" rel="ids" postType="string" href="{:url('AdPosition/doDelete')}?id={ad_issue_id}"  class="delete"><span>删除</span></a></li>
+            <!--<li><a rel="ad_issue_manage_add" class="add" href="{:url('AdPosition/ceshi')}" target="dialog" width="520" height="300" title="添加广告位" mask="true"><span>测试</span></a></li>-->
+            <a href="index.html"></a>
+            <li class="line">line</li>
+            <!--<li><a rel="ad_issue_manage_ad_list" class="icon" href="{:url('AdIssue/adList')}&id={ad_issue_id}" width="300" height="400" target="dialog" mask="true" title="广告列表"><span>广告列表</span></a></li>-->
+        </ul>
+    </div>
+    <table class="table" width="100%" layoutH="135">
+        <thead>
+        <tr>
+            <th width="150">广告位名称</th>
+            <th width="">广告描述</th>
+            <th width="80">广告位宽度</th>
+            <th width="80">广告位高度</th>
+            <th width="90">广告位标识符</th>
+            <th width="150">创建日期</th>
+            <th width="150">更新日期</th>
+        </tr>
+        </thead>
+        <tbody>
+        {volist name="list" id="vo"}
+            <tr target="ad_issue_id" rel="{$vo.id}">
+                <td>{$vo.adp_name}</td>
+                <td>{$vo.adp_introduce}</td>
+                <td>{$vo.adp_width}</td>
+                <td>{$vo.adp_height}</td>
+                <td>{$vo.adp_code}</td>
+                <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
+                <td>{$vo.update_time|date="Y-m-d H:i:s",###}</td>
+            </tr>
+        {/volist}
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>共{$count}条</span>
+        </div>
+        <div class="pagination" targetType="navTab" totalCount="{$count}" numPerPage="{$num_per_page}" pageNumShown="10" currentPage="{$page_num}"></div>
+    </div>
+</div>

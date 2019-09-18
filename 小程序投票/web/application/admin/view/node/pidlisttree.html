@@ -1,0 +1,12 @@
+{volist name="list" id="vo"}
+{neq name="current" value="$vo.id"}
+<ul>
+    <li>
+        <a href="javascript:void(0)" onclick="$.bringBack({pid: '{$vo.id}', parentNodeTitle: '{$vo.node_title}'})">{$vo.node_title}</a>
+        {notempty name="vo.sub"}
+        {:widget('Node/pidListTree', ['pid' => $vo['id'], 'current' => $current])}
+        {/notempty}
+    </li>
+</ul>
+{/neq}
+{/volist}

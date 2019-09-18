@@ -1,0 +1,69 @@
+<!--index.wxml-->
+<view class="container">
+  <include src="../include/topRollText.wxml" />
+  <include src="../include/slideShow.wxml" />
+
+  <view class="box_bg">
+    <view class="number">
+      <view class="cloumn">
+        <view>
+          <image src="/images/ico1.png" /> 已报名
+        </view>
+        <text>{{apply_count}}</text>
+      </view>
+      <view class="cloumn">
+        <view>
+          <image src="/images/ico2.png" /> 累计投票
+        </view>
+        <text>{{total_count}}</text>
+      </view>
+      <view class="cloumn">
+        <view>
+          <image src="/images/ico3.png" /> 访问量
+        </view>
+        <text>{{visit_count}}</text>
+      </view>
+    </view>
+    <include src="../include/countDown.wxml" />
+    <view bindtap='backEnter' class="join">我要报名</view>
+    <view class="share" bindtap='showLayer'>
+      <image src="/images/share.png" /> 生成海报分享给好友
+    </view>
+  </view>
+  <form bindsubmit='doSearch'>
+    <view class="search">
+      <input type="text" name="keyword" placeholder="请输入编号或姓名" confirm-type="search" />
+      <text></text>
+      <button formType="submit">搜索</button>
+    </view>
+  </form>
+  <view class="person clearfix">
+    <block wx:key="id" wx:for="{{voteList}}">
+      <navigator url="../detail/index?id={{item.id}}">
+        <text class="poll">{{item.sign_code}}号,{{item.total_count}}票</text>
+         <image src="{{imageUrl}}{{item.sign_image}}"/> 
+        <view class="info">
+          <text>{{item.username}}</text>
+          <text class="vote_btn">投票</text>
+        </view>
+        <view class="info" style="padding-top: 0">
+          <text>{{item.sign_unit}}</text>
+        </view>
+        <view class="packet">
+           <image src="/images/icon15.png" wx:if="{{item.red_status == 1}}"></image> 
+        </view>
+      </navigator>
+    </block>
+  </view>
+</view>
+<view class="share_layer" style='display:{{isShow}}'>
+  <view class="share_box">
+    <image src="{{shareImageUrl}}" style="width: 600rpx;" mode="widthFix"></image>
+    <view class="share_txt">
+      <button type="default" class="default" hover-class="other-button-hover" bindtap='saveShareImage'>点击保存到相册</button>
+    </view>
+  </view>
+  <view class="close">
+    <image src="/images/close.png" bindtap='hideLayer' />
+  </view>
+</view>

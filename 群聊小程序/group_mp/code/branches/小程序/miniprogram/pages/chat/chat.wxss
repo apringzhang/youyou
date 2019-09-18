@@ -1,0 +1,135 @@
+page {
+    background: #f4f5f6;
+}
+.hide {
+    display: none;
+  }
+  
+  .show {
+    display: block;
+  }
+.chat_list {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 10rpx;
+    background: #fff;
+}
+
+.hr {
+    width: 100%;
+    height: 15px;
+}
+
+.chat_listinfor {
+    height: 170rpx;
+    width: 20%;
+    text-align: center;
+}
+
+.chat_pic {
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.listinfor_up {
+    margin-top: 20rpx;
+}
+
+.listinfor_down {
+    font-size: 50%;
+}
+
+.user_add {
+    width: 105rpx;
+    height: 100rpx;
+    margin-bottom: 20rpx;
+    margin-left: 20rpx
+}
+
+.addimg {
+    width: 100%;
+    height: 100%;
+    border: 1rpx solid #f4f5f6;
+}
+
+.user_delete {
+    width: 105rpx;
+    height: 100rpx;
+    margin-bottom: 20rpx;
+    margin-left: 50rpx
+}
+
+.deleteimg {
+    width: 100%;
+    height: 100%;
+    border: 1rpx solid #f4f5f6;
+}
+
+.turnback {
+    font-size: 15px;
+    line-height: 100rpx;
+    background-color: #fff;
+    box-sizing: border-box;
+    color: #999;
+    text-align: center;
+    vertical-align: middle;
+    height: 100rpx;
+}
+.marg{
+    margin-top:10rpx;
+}
+.add_img{
+    width:4rem;
+    height:4rem;
+    margin:0 auto
+  }
+  .bg_view{
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0px;
+  background:rgba(0,0,0,0.4);
+  overflow: hidden;
+  z-index:100
+}
+.apply{
+  width:70%;
+height:10rem;
+background:#fff;
+border-radius:10px;
+margin:0 auto;
+margin-top:9rem
+}
+.title{
+  padding-top:1.5rem;
+  font-size:0.8rem;
+margin-left:0.5rem;
+}
+.contant{
+  width:90%;
+margin-top:1rem;
+border:1px solid #eee;
+margin-bottom:1rem;
+margin-left:0.5rem;
+height:1.5rem;
+line-height:1.5rem;
+font-size:0.7rem
+}
+.btn{
+  width:4rem;
+height:1.7rem;
+font-size:0.7rem;
+margin-top:2rem;
+line-height:1.7rem;
+}
+.pic{
+  width:2rem;
+  height:2rem;
+  float:right;
+}
+.pic image{
+  width:100%;
+  height:100%
+}

@@ -1,0 +1,118 @@
+page, scroll-view {
+  height: 100%;
+}
+
+.head {
+  height: 2rem;
+  width: 100%;
+  line-height: 2rem
+}
+.head .title{
+  font-size: 30rpx;
+  margin-left: 26rpx;
+  margin-right: 26rpx;
+  border-bottom:1px solid lightgrey;
+}
+.search {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 88%;
+  height: 2rem;
+  background-color: whitesmoke;
+  border: 1rpx solid whitesmoke;
+  border-radius: 5rpx;
+  margin-left: 1rem;
+  margin-top: 2%
+}
+
+/* 搜索框提示文字样式 */
+
+.search input {
+  font-size: 0.8rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-left: 0.5rem;
+}
+
+/* 搜索框小图标 */
+
+.search image {
+  width: 40rpx;
+  height: 40rpx;
+  padding-right: 20rpx;
+}
+
+.radio_style {
+  width: 1rem;
+  height: 1rem;
+}
+
+.con_list>view {
+  padding-left: 20rpx;
+}
+
+.con_list .title {
+  line-height: 60rpx;
+  background: #eee;
+}
+
+.con_list .list {
+  line-height:140rpx;
+border-bottom:1px solid #eee;
+height:140rpx
+}
+
+.list .imgperson {
+  width:80rpx;
+height:80rpx;
+border-radius:6rpx;
+float:left;
+margin-top:30rpx
+}
+.list .imggroup {
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  float: left;
+margin-right:10rpx
+}
+
+.list .name {
+float:left;
+width:60%;
+height:70rpx;
+margin-top:30rpx;
+margin-left:30rpx;
+}
+.name_group{
+  height:30rpx;
+  font-size:25rpx;
+ 
+}
+.name_title{
+  height:25rpx;
+line-height:25rpx;
+font-size:35rpx;
+margin-top:10rpx;
+}
+.name_cont{
+height:30rpx;
+line-height:30rpx;
+margin-top:20rpx;
+margin-left:200rpx;
+ overflow: hidden;
+  text-overflow: ellipsis;
+}
+.btn{
+ height:60rpx;
+line-height:60rpx;
+float:right;
+width:86rpx;
+background:#96EB6A;
+margin-top:40rpx;
+margin-right:50rpx;
+border-radius:6px;
+font-size:25rpx;
+text-align: center;
+  }

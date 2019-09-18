@@ -1,0 +1,67 @@
+
+<div class="pageContent">
+    <form method="post" action="{:url('Ad/doAdd')}" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone)">
+        <div class="pageFormContent" layoutH="56">
+            <div class="unit">
+                <label>广告位：</label> 
+                <select class="combox active"  name="adp_id">
+                    <option value="0">请选择广告位</option>
+                    {volist name="ad_position" id="vo"}
+                    <option value="{$vo.id}">{$vo.adp_name}</option>
+                    {/volist}
+                </select>
+            </div>
+            <div class="unit">
+                <label>活动：</label>
+                <select class="combox active"  name="activity_id">
+                    <option value="0">请选择活动</option>
+                    {volist name="activity" id="vo"}
+                    <option value="{$vo.id}">{$vo.activity_name}</option>
+                    {/volist}
+                </select>
+            </div>
+            <div class="unit">
+                <label>小程序：</label>
+                <select class="combox active"  name="appid">
+                    <option value="">请选择</option>
+                    {volist name="mp" id="vo"}
+                    <option value="{$vo.appid}">{$vo.mp_name}</option>
+                    {/volist}
+                </select>
+            </div>
+
+            <div class="unit">
+                <label>广告名称：</label>
+                <input type="text" name="ad_name" maxlength="200" class="required" value="" />
+            </div>&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="unit">
+                <label>图片：</label>
+                {:widget('Upload/image', ['ad_image', ''])}
+            </div>
+            <!--<div class="unit">-->
+            <!--<label>背景颜色：</label>-->
+            <!--<input type="text" name="bgcolor" maxlength="200" class="required" value="" />-->
+            <!--</div>-->
+
+            <div class="unit">
+                <label>排序：</label>
+                <input type="text" name="sort" size="3" maxlength="3" class="digits" value="0" />
+            </div>
+            <div class="unit">
+                <label>广告介绍：</label>
+                <textarea name="ad_introduce" class="required" rows="7" cols="40"></textarea>
+            </div>
+            <div class="unit">
+                <label>链接内容：</label>
+                {:widget('Editor/show', ['ad_linkcontent', '' , 40, 5])}
+            </div>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+
+    </form>
+</div>

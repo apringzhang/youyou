@@ -1,0 +1,5 @@
+<view class="dowebok scroll-text-outer">
+  <view class="scroll-text-inner">
+    <view class="scroll-text-content" style="left: {{scrollTextLeft}}px;">{{activity_notice}}</view>
+  </view>
+</view>

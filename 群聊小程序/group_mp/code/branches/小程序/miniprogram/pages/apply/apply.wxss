@@ -1,0 +1,48 @@
+.bg_view{
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0px;
+  background:rgba(0,0,0,0.4);
+  overflow: hidden;
+
+}
+.apply{
+  width:70%;
+height:10rem;
+background:#fff;
+border-radius:10px;
+margin:0 auto;
+margin-top:9rem
+}
+.title{
+  padding-top:1.5rem;
+  font-size:0.8rem;
+margin-left:0.5rem;
+}
+.contant{
+  width:90%;
+margin-top:1rem;
+border:1px solid #eee;
+margin-bottom:1rem;
+margin-left:0.5rem;
+height:1.5rem;
+line-height:1.5rem;
+font-size:0.7rem
+}
+.btn{
+  width:4rem;
+height:1.7rem;
+font-size:0.7rem;
+margin-top:2rem;
+line-height:1.7rem;
+}
+.pic{
+  width:2rem;
+  height:2rem;
+  float:right;
+}
+.pic image{
+  width:100%;
+  height:100%
+}

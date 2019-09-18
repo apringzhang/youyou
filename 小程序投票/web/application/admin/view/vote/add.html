@@ -1,0 +1,44 @@
+<div class="pageContent">
+    <form method="post" action="{:url('Vote/doAdd')}" class="pageForm" onsubmit="return validateCallback(this, dialogAjaxDone)">
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>报名ID：</label>
+                <input type="text" name="sign_id" size="20" maxlength="20" class="required" />
+            </div>
+            <div class="unit">
+                <label>增加票数：</label>
+                <input id="vote_count" type="text" name="vote_count" size="20" maxlength="20" class="required" />
+            </div>
+            <div class="unit">
+                <label>每20秒增加票数：</label>
+                <input type="text" id="vote_per_sec" name="vote_per_sec" size="20" maxlength="20" class="required" value="5"/>
+            </div>
+            <div class="unit">
+                <label>开始时间：</label>
+                <input id="start_time"  name="start_time" type="text" size="20" datefmt="yyyy-MM-dd HH:mm:ss" class="date textInput readonly valid required"/>
+            </div>
+            <div class="unit">
+                <label>结束时间：</label>
+                <input  name="stop_time" id="stop_time" type="text" size="20" datefmt="yyyy-MM-dd HH:mm:ss" class="date textInput readonly valid required"/>
+                <div class="buttonActive"><div class="buttonContent"><button id="sc" type="button">生成</button></div></div>
+            </div>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>
+<script type="text/javascript">
+    $("#sc").click(function(){
+            var time =  $("#start_time").val();
+            var count = $("#vote_count").val();
+            var num = $("#vote_per_sec").val();
+            $.post("{:url('Vote/check_time')}",{time:time,count:count,num:num},function(data){
+                $("#stop_time").val(data);
+            });
+    });
+</script>
+

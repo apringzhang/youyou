@@ -1,0 +1,21 @@
+<view class="head">
+  <view class="search">
+    <input type='text' placeholder='输入搜索昵称' value="{{val}}" confirm-type='search' bindconfirm='bindlike'  bindinput="bindvalue"></input>
+    <image class="" src='../../images/search.png' bindtap='bindtitle'></image>
+  </view>
+  <!-- <view class="sure">确定</view> -->
+</view>
+<scroll-view scroll-y scroll-into-view="{{scroll}}">
+  <view class="con">
+    <view class="con_list">
+      <view class="list" wx:for="{{items}}" wx:key="this" wx:for-item="list">
+        <image src="{{list.avatar_url}}"></image>
+        <view class="name">
+          <view class="name_title">{{list.nick_name}}</view>
+          <view class="name_cont">{{list.reason}}</view>
+        </view>
+        <view class="btn" data-user="{{list.g_to_userid}}" bindtap="bindadd">接受</view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

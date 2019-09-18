@@ -1,0 +1,80 @@
+<form id="pagerForm" method="post" action="{:url('Sign/userpacket')}">
+    <input type="hidden" name="activity_id" value="{$Think.request.activity_id}"/>
+    <input type="hidden" name="action" value="{$action}"/>
+    <input type="hidden" name="pageNum" value="{$pageNum}"/>
+</form>
+<div class="pageHeader">
+    <form onsubmit="return navTabSearch(this);" action="{:url('Sign/userpacket')}" method="post">
+        <div class="searchBar">
+            <table class="searchContent">
+                <tr>
+                    <input type="hidden" name="activity_id" value="{$Think.request.activity_id}"/>
+                    <td>
+                        <label>行为：</label>
+                        <select name="action" class="combox">
+                            <option value="">全部</option>
+                            <option value="1" {eq name="action" value="1"}selected="selected"{/eq}>投票</option>
+                            <option value="2" {eq name="action" value="2"}selected="selected"{/eq}>礼物</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div class="subBar">
+                <ul>
+                    <li>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit">搜索</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <table class="table" width="100%" layoutH="110">
+        <thead>
+            <tr>
+                <th width="30">ID</th>
+                <th width="100">所属活动</th>
+                <th width="100">报名名称</th>
+                <th width="100">礼物名称</th>
+                <th width="100">红包金额</th>
+                <th width="70">行为</th>
+                <th width="100">创建时间</th>
+            </tr>
+        </thead>
+        <tbody>
+            {volist name="list" id="vo"}
+                <tr target="Sign_id" rel="{$vo.id}">
+                    <td>{$vo.id}</td>
+                    <td>{$vo.activity_name}</td>
+                    <td>{$vo.username}</td>
+                    <td>{$vo.gift_name}</td>
+                    <td>{$vo.amount}</td>
+                    <td>
+                    {switch name="vo.action"}
+                        {case value="1"}
+                            投票
+                        {/case}
+                        {case value="2"}
+                            礼物
+                        {/case}
+                        {default /}
+                    {/switch}
+                    </td>
+                    <td>{$vo.create_time|date="Y-m-d H:i:s", ###}</td>
+                </tr>
+            {/volist}
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>共{$count}条</span>
+        </div>
+        <div class="pagination" targetType="navTab" totalCount="{$count}" numPerPage="{$numPerPage}" pageNumShown="10"
+             currentPage="{$pageNum}"></div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<view >
+    <view class="head">
+    <view class="title">收藏列表</view>
+    </view>
+  <scroll-view scroll-y scroll-into-view="{{scroll}}">
+    <view class="con">
+      <view class="con_list">
+        <view class="list" wx:for="{{list}}" wx:for-item="list">
+          <image class='imgperson' src="{{list.avatar_url}}"></image>
+          <view class="name">
+            <view class="name_title">{{list.nick_name}}</view>
+            <view class="name_cont">
+              <image class='imggroup' src="{{list.icon}}"></image>
+              <view class="name_group" >{{list.name}}</view>
+            </view>
+          </view>
+          <view class="btn" bindtap="checkDel" data-id="{{list.id}}" data-touid="{{list.touid}}">删除</view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

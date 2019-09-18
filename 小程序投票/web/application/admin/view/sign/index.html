@@ -1,0 +1,130 @@
+<form id="pagerForm" method="post" action="{:url('Sign/index')}">
+    <input type="hidden" name="signName" value="{$signName}"/>
+    <input type="hidden" name="id" value="{$Think.request.id}"/>
+    <input type="hidden" name="auditFlag" value="{$auditFlag}"/>
+    <input type="hidden" name="pageNum" value="{$pageNum}"/>
+</form>
+<div class="pageHeader">
+    <form onsubmit="return navTabSearch(this);" action="{:url('Sign/index')}" method="post">
+        <div class="searchBar">
+            <table class="searchContent">
+                <tr>
+                    <td>
+                        报名名称：<input type="text" name="signName" value="{$signName}"/>
+                    </td>
+                    <input type="hidden" name="id" value="{$Think.request.id}"/>
+                    <td>
+                        <label>审核状态：</label>
+                        <select name="auditFlag" class="combox" >
+                            <option value="">全部</option>
+                            <option value="1" {eq name="auditFlag" value="1"}selected="selected"{/eq}>审核通过</option>
+                            <option value="2" {eq name="auditFlag" value="2"}selected="selected"{/eq}>待审核</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div class="subBar">
+                <ul>
+                    <li>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit">搜索</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <div class="panelBar">
+        <ul class="toolBar">
+            <li><a mask="true" class="add" href="{:url('Sign/add')}?id={$Think.request.id}" target="navTab" title="添加报名"><span>添加</span></a></li>
+            <li><a mask="true" class="edit" href="{:url('Sign/modify')}?id={Sign_id}" target="navTab" title="修改报名"><span>修改</span></a></li>
+            <li><a class="delete" href="{:url('Sign/doDelete')}?id={Sign_id}&activity_id={$Think.request.id}" target="ajaxTodo"
+                   title="确定要删除吗？"><span>删除</span></a>
+            </li>
+            <li class="line">line</li>
+            <li><a class="icon" href="{:url('Sign/derive')}?id={$Think.request.id}&signName={$signName}&auditFlag={$auditFlag}" title="导出报名"><span>导出报名</span></a></li>
+            <li class="line">line</li>
+            <li><a class="icon" href="{:url('Sign/exportgift')}?id={$Think.request.id}&signName={$signName}" title="导出礼物" ><span>导出礼物</span></a></li>
+        </ul>
+    </div>
+    <table class="table" width="100%" layoutH="138">
+        <thead>
+            <tr>
+            	<th>ID</th>
+                <th>学生姓名</th>
+                <th>所属活动</th>
+                <th width="60">封面图</th>
+                <th width="100">联系电话</th>
+                <th width="70">报名人编号</th>
+                <th width="70">用户投票数</th>
+                <th width="80">用户礼物票数</th>
+                <th width="65">调整票数</th>
+                <th width="55">总票数</th>
+                <th width="40">锁定</th>
+                <th width="65">审核状态</th>
+                <th width="65">音频</th>
+                <th width="125">创建时间</th>
+                <th width="125">更新时间</th>
+                <th width="60">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {volist name="list" id="vo"}
+                <tr target="Sign_id" rel="{$vo.id}">
+                	<td>{$vo.id}</td>
+                    <td>{$vo.username}</td>
+                    <td>{$vo.activity_name}</td>
+                    <td><a onclick="$(this).colorbox({height: 600});return false;" href="{$Think.config.mp_image_url}/{$vo.sign_image}"> 查看图片 </a></td>
+                    <td>{$vo.mobile}</td>
+                    <td>{$vo.sign_code}</td>
+                    <!-- <td>
+                        <a onclick="$(this).colorbox({height: 600});return false;" href="{$Think.config.image_url}/{$vo.Sign_image}"> 查看图片 </a>
+                    </td> -->
+                    <td>{$vo.vote_count}</td>
+                    <td>{$vo.gift_count}</td>
+                    <td>{$vo.admin_count}</td>
+                    <td>{$vo.total_count}</td>
+                    <td>
+                    {switch name="vo.is_lock"}
+                        {case value="0"}
+                            否
+                        {/case}
+                        {case value="1"}
+                            是
+                        {/case}
+                        {default /}
+                    {/switch}
+                    </td>
+                    <td>
+                    {switch name="vo.audit_flag"}
+                        {case value="1"}
+                            审核通过
+                        {/case}
+                        {case value="2"}
+                            <a href="{:url('Sign/index')}?id={$Think.request.id}&s_id={$vo.id}&signName={$signName}&auditFlag={$auditFlag}&pageNum={$pageNum}" rel="signManage" target="navTab"style="color:#00AA55;" title="报名管理">待审核</a>
+                        {/case}
+                        {default /}
+                    {/switch}
+                    </td>
+                    <td>
+                        <a onclick="$(this).colorbox({height:300,width:600,iframe:true});return false;" href="{$Think.config.mp_audio_url}/{$vo.sign_audio}"> 收听音频 </a>
+                    </td>
+                    <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
+                    <td>{$vo.update_time|date="Y-m-d H:i:s",###}</td>
+                    <td><a rel="admin_count_manage" class="add" href="{:url('Sign/adjust')}?id={$vo.id}&activity_id={$Think.request.id}" width="450" height="150" target="dialog" title="调整票数" style="color:#00AA55;">调整票数</a></td>
+                </tr>
+            {/volist}
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>共{$count}条</span>
+        </div>
+        <div class="pagination" targetType="navTab" totalCount="{$count}" numPerPage="{$numPerPage}" pageNumShown="10"
+             currentPage="{$pageNum}"></div>
+    </div>
+</div>

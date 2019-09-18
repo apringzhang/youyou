@@ -1,0 +1,16 @@
+<volist name="tree_list" id="vo">
+    <neq name="vo.id" value="$current_id">
+        <li>
+            <if condition="check_id($vo['id'], $role_id)">
+                <a href="javascript:void(0)" tname="node_id_array[]" tvalue="{$vo.id}" checked="checked">{$vo.node_title}</a>
+            <else />
+                <a href="javascript:void(0)" tname="node_id_array[]" tvalue="{$vo.id}">{$vo.node_title}</a>
+            </if>
+            <notempty name="vo.sublist">
+                <ul>
+                    {:W('Role/listTree', array($vo['sublist'], $role_id))}
+                </ul>
+            </notempty>
+        </li>
+    </neq>
+</volist>

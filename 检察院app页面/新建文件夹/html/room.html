@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	 <meta charset = "utf-8">
+	 <meta name = "viewport" content = "width = device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable = 0" />
+	 <meta name="apple-mobile-web-app-capable" content="yes">
+	 <link rel="stylesheet" type="text/css" href="../css/style.css">
+ 	<script type="text/javascript" src="../js/screen.js"></script>
+	 <script type="text/javascript" src="../js/jquery.min.js"></script>
+</head>
+<body>
+	<header>
+		<p class="title"><span class="back"></span>科室列表</p>
+	</header>
+  	<div class="law_list">
+  		<ul>
+  			<li class="law_list_safe">
+  				<p class="contant">安管科</p>
+  				<p class="bianhao">科室职能 <span class="date">2018-1-2</span>
+          </p>
+  			</li>
+  			<li class="law_list_kongsu">
+  				<p class="contant kongsu">控诉科</p>
+  				<p class="bianhao">科室职能 <span class="date">2018-1-2</span>
+          </p>
+  			</li>
+  			<li>
+  				<p class="contant">纠察科</p>
+  				<p class="bianhao">科室职能 <span class="date">2018-1-2</span>
+          </p>
+  			</li>
+  			<li>
+  				<p class="contant">司务科</p>
+  				<p class="bianhao">科室职能 <span class="date">2018-1-2</span>
+          </p>
+  			</li>
+  			<li>
+  				<p class="contant">人事科</p>
+  				<p class="bianhao">科室职能 <span class="date">2018-1-2</span>
+          </p>
+  			</li>
+  		</ul>
+  	</div>
+	<script type="text/javascript">
+             $(".law_list_safe").click(function(){
+         location.href='department_safe.html';
+      }); 
+              $(".law_list_kongsu").click(function(){
+         location.href='department.html';
+      });
+             $(".back").click(function(){
+         location.href='room_show.html';
+      })
+    </script>
+</body>
+</html>

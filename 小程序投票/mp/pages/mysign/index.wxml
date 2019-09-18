@@ -1,0 +1,27 @@
+<!--pages/listimg/listimg.wxml-->
+<view class="container">
+
+  <view wx:if="{{rel != ''}}">
+    <view class="listimg" wx:key="id" wx:for="{{rel}}">
+      <view class="left_img">
+        <image src="{{imageUrl}}{{item.sign_image}}" />
+      </view>
+      <view class="right_txt">
+        <text>{{item.username}}</text>
+        <view>
+          <text class="clock">{{item.create_time}}</text>
+          <navigator class="edit" url="../signdetail/index?id={{item.id}}">
+            编辑
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="nomessage" wx:else="{{rel == ''}}">
+    <view class="circle">
+      <image src="/images/icon19.png"></image>
+    </view>
+    <text>暂无消息</text>
+  </view>
+</view>

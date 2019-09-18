@@ -1,0 +1,9 @@
+<textarea id="kindeditor-{$name}" name="{$name}" cols="90" rows="{$rows}">{$value}</textarea>
+<script>
+    KindEditor.create('#kindeditor-{$name}', {
+        uploadJson: '{:url("Index/kindEditorUpload")}',
+        afterChange: function () {
+            this.sync();
+        }
+    });
+</script>

@@ -1,0 +1,12 @@
+{
+    "navigationBarBackgroundColor": "#EDEDED",
+    "navigationBarTitleText": "聊天信息",
+    "backgroundColor": "#EDEDED",
+    "backgroundTextStyle": "light",
+    "usingComponents": {
+        "van-icon": "../../dist/icon/index",
+        "van-cell": "../../dist/cell/index",
+        "van-cell-group": "../../dist/cell-group/index",
+        "van-switch-cell": "../../dist/switch-cell/index"
+    }
+}

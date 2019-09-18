@@ -1,0 +1,166 @@
+<!--pages/detail/index.wxml-->
+<view class="container">
+  <view class="main">
+    <include src="../include/topRollText.wxml" />
+    <view class="top_bg">
+      <view class="person_info">
+        <image src="{{imageUrl}}{{rel.sign_image}}" />
+        <text>{{rel.username}}</text>
+        <view class="share" bindtap='showLayer'>
+          <image src="/images/share.png" /> 生成海报分享给好友
+        </view>
+      </view>
+      <view class="number number1">
+
+        <block wx:if="{{rel.is_gift == 1}}">
+          <view class="cloumn">
+            <view>
+              <image src="/images/ico4.png" /> 编号
+            </view>
+            <text>{{rel.sign_code}}</text>
+          </view>
+          <view class="cloumn">
+            <view>
+              <image src="/images/ico2.png" /> 票数
+            </view>
+            <text>{{rel.total_count}}</text>
+          </view>
+
+          <view class="cloumn">
+            <view>
+              <image src="/images/ico6.png" /> 助力
+            </view>
+            <text>{{rel.gift_num}}</text>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="cloumn" style="width: 50%;">
+            <view>
+              <image src="/images/ico4.png" /> 编号
+            </view>
+            <text>{{rel.sign_code}}</text>
+          </view>
+          <view class="cloumn" style="width: 50%;">
+            <view>
+              <image src="/images/ico2.png" /> 票数
+            </view>
+            <text>{{rel.total_count}}</text>
+          </view>
+        </block>
+        <!-- <view class="cloumn">
+        <navigator url="../message/message?id={{rel.id}}">
+          <view>
+            <image src="/images/ico7.png" /> 留言
+          </view>
+          <text>{{rel.message_count}}</text>
+        </navigator>
+        </view> -->
+      </view>
+    </view>
+    <view class="view">
+      <view style="font-size: 32rpx; padding-top: 16rpx; padding-bottom: 16rpx;">故事名称：{{rel.sign_introduce}}</view>
+      <view class="playbtn">
+        <view bindtap='startPlay' wx:if="{{status==''}}">
+          <image src="/images/icon23.png" />
+        </view>
+        <view bindtap='startStop' wx:else>
+          <image src="/images/icon24.png" />
+        </view>
+        <view class="playbar">
+          <text>点击播放故事音频</text>
+          <progress percent="{{num}}" stroke-width="8" />
+        </view>
+      </view>
+      <swiper class="slide1" autoplay indicator-dots indicator-color="#eeeeee" indicator-active-color="#ee001c">
+        <block wx:key="id" wx:for="{{rel.sign_introduce_image}}">
+          <swiper-item>
+            <image src="{{imageUrl}}{{item}}"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+      <!-- <navigator url="../packet/packet?id={{rel.id}}">
+      <view class="pull">
+        <button>帮TA拉票</button>
+      </view>
+      </navigator> -->
+      <view class="intro_box">
+        <image src="/images/icon9.png" />
+        <view class="person_intro">
+          <text class="title">参赛宣言</text>
+          <view wx:if="{{rel.sign_video}}">
+            <video src="{{videoUrl}}{{rel.sign_video}}" controls></video>
+          </view>
+          <!-- <text class="title">哈尔滨市南岗区先锋路</text>
+          <text class="title">北京国际体育舞蹈学校</text> -->
+          <text>{{rel.sign_declaration}}
+          </text>
+        </view>
+
+        <!-- <button bindtap='startPlay' wx:if="{{status==''}}">播放</button>
+        <button bindtap='startStop' wx:else>停止</button>
+        <progress percent="{{num}}" wx:if="{{show}}"/> -->
+      </view>
+    </view>
+    <view class="send_gift" wx:if="{{rel.is_gift == 1}}">
+      <view class="title">
+        <image src="/images/icon11.png" />助力详情
+      </view>
+      <view class="list">
+        <block wx:key="id" wx:for="{{rel.gift_list}}">
+          <view>
+            <view class="left_img">
+              <image src="{{item.headimgurl}}" />
+            </view>
+            <view class="right_txt">
+              <text>{{item.name}}，给TA送了{{item.gift_num}}个{{item.gift_name}}</text>
+              <text class="clock">{{item.create_time}}</text>
+            </view>
+          </view>
+        </block>
+        <!-- <view>
+          <view class="left_img">
+            <image src="/images/img1.png" />
+          </view>
+          <view class="right_txt">
+            <text>成一名，给TA送了金色勋章</text>
+            <text class="clock">2017-10-20 22:00:00</text>
+          </view>
+        </view>
+        <view>
+          <view class="left_img">
+            <image src="/images/img1.png" />
+          </view>
+          <view class="right_txt">
+            <text>成一名，给TA送了金色勋章</text>
+            <text class="clock">2017-10-20 22:00:00</text>
+          </view>
+        </view> -->
+      </view>
+    </view>
+  </view>
+  <view class="footer">
+    <view bindtap='backIndex'>
+      <image src="/images/icon6.png" />回首页
+    </view>
+    <view class="middle" bindtap='doActivity'>
+      <image src="/images/icon8.png" />
+    </view>
+    <block wx:if="{{rel.is_gift == 1}}">
+      <navigator url="../gift/index?id={{rel.id}}">
+        <image src="/images/icon7.png" />助力
+      </navigator>
+    </block>
+  </view>
+
+  <view class="share_layer" style='display:{{isShow}}'>
+    <view class="share_box">
+      <image src="{{shareImageUrl}}" style="width: 600rpx;" mode="widthFix"></image>
+      <view class="share_txt">
+        <button type="default" class="default" hover-class="other-button-hover" bindtap='saveShareImage'>点击保存到相册</button>
+      </view>
+    </view>
+    <view class="close">
+      <image src="/images/close.png" bindtap='hideLayer' />
+    </view>
+  </view>
+</view>

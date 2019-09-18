@@ -1,0 +1,67 @@
+<form id="pagerForm" method="post" action="{:url('User/useraward')}">
+    <input type="hidden" name="openid" value="{$openid}"/>
+    <input type="hidden" name="pageNum" value="{$pageNum}"/>
+</form>
+<div class="pageHeader">
+    <form onsubmit="return navTabSearch(this);" action="{:url('User/useraward')}" method="post">
+        <div class="searchBar">
+            <table class="searchContent">
+                <tr>
+                    <td>
+                        用户OPENID：<input type="text" name="openid" value="{$openid}"/>
+                    </td>
+                </tr>
+            </table>
+            <div class="subBar">
+                <ul>
+                    <li>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit">搜索</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <table class="table" width="100%" layoutH="110">
+        <thead>
+            <tr>
+                <th width="30">ID</th>
+                <th width="100">活动名称</th>
+                <th width="100">用户OPENID</th>
+                <th width="100">奖品名称</th>
+                <th width="100">创建时间</th>
+                <th width="100">确认时间</th>
+            </tr>
+        </thead>
+        <tbody>
+            {volist name="list" id="vo"}
+                <tr target="weixin_id" rel="{$vo.id}">
+                    <td>{$vo.id}</td>
+                    <td>{$vo.activity_name}</td>
+                    <td>{$vo.openid}</td>
+                    <td>{$vo.award_name}</td>
+                    <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
+                    <td>
+                    {empty name="vo.confirm_time"}
+                        <a href="{:url('User/confirm')}?id={$vo.id}" class="delete" style="color:#00AA55;" target="ajaxTodo" title="执行确认吗？">确认</a>
+                    {else /}
+                        {$vo.confirm_time|date="Y-m-d H:i:s",###}
+                    {/empty}
+                    </td>
+                </tr>
+            {/volist}
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>共{$count}条</span>
+        </div>
+        <div class="pagination" targetType="navTab" totalCount="{$count}" numPerPage="{$numPerPage}" pageNumShown="10"
+             currentPage="{$pageNum}"></div>
+    </div>
+</div>

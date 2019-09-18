@@ -1,0 +1,20 @@
+<div class="pageContent">
+    <div class="pageFormContent" layoutH="58">
+        <ul class="tree treeFolder expand">
+            <li><a href="javascript:void(0)" onclick="$.bringBack({pid: '0', parentNodeTitle: '顶级节点'})">顶级节点</a>
+                {:widget('Node/pidListTree', ['pid' => 0, 'current' => input('nodeId')])}
+            </li>
+        </ul>
+    </div>
+    <div class="formBar">
+        <ul>
+            <li>
+                <div class="button">
+                    <div class="buttonContent">
+                        <button class="close" type="button">关闭</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

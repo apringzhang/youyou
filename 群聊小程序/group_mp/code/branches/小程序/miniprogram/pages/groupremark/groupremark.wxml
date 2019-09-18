@@ -1,0 +1,13 @@
+<view >
+    <view >备注</view>
+    <view >
+        <van-cell-group>
+  <van-field
+    value="{{ value }}"
+    border="{{ false }}"
+    bind:change="onChange"
+  />
+</van-cell-group>
+    </view>
+    <view ><van-button type="primary" size="small">提交</van-button></view>
+</view>

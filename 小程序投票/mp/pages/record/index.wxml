@@ -1,0 +1,16 @@
+<view class="container">
+  <view wx:if="{{rel != ''}}">
+
+    <view class="items clearfix"  wx:key="id" wx:for="{{rel}}">
+      <view>{{item.award_name}}</view>
+      <text>{{item.create_time}}</text>
+    </view>
+    
+  </view>
+  <view class="nomessage"  wx:else="{{rel == ''}}">
+    <view class="circle">
+      <image src="/images/icon19.png"></image>
+    </view>
+    <text>暂无消息</text>
+  </view>
+</view>

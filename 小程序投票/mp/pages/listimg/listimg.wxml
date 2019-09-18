@@ -1,0 +1,35 @@
+<!--pages/listimg/listimg.wxml-->
+<view class="container">
+  <view>
+    <view class="listimg">
+      <view class="left_img">
+        <image src="/images/img1.png" />
+      </view>
+      <view class="right_txt">
+        <text>标题标题标题标题标题标题标题标题标题标题标题标题标题标题标标题标标题标题标题标题标题标题标题标题标题标题标题</text>
+        <view>
+          <text class="clock">2017-10-20 22:00:00</text>
+          <button class="edit">编辑</button>
+        </view>
+      </view>
+    </view>
+    <view class="listimg">
+      <view class="left_img">
+        <image src="/images/img1.png" />
+      </view>
+      <view class="right_txt">
+        <text>标题标题题标题标题标题题标题标题标题题标</text>
+        <view>
+          <text class="clock">2017-10-20 22:00:00</text>
+          <button class="edit">编辑</button>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="nomessage" style="display:none">
+    <view class="circle">
+      <image src="/images/icon19.png"></image>
+    </view>
+    <text>暂无消息</text>
+  </view>
+</view>

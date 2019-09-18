@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>外卖小票</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        body {
+            font-family: "微软雅黑";
+            background: #f1f1f1
+        }
+
+        .fl {
+            float: left
+        }
+
+        .fr {
+            float: right
+        }
+
+        .clear {
+            clear: both;
+            overflow: auto
+        }
+
+        .ps {
+            margin-top: 20px;
+            padding: 10px 30px;
+            border-top: 1px dashed #000;
+            border-bottom: 1px dashed #000
+        }
+
+        .zbox {
+            width: 364px;
+            padding: 40px 10px;
+            background: #FFF;
+            margin: 30px auto
+        }
+
+        div label,
+        div span {
+            display: inline-block;
+            vertical-align: center
+        }
+
+        .wmbox {
+            width: 364px;
+            margin: 0 auto;
+            background: #fff
+        }
+
+        .food_box {
+            padding: 10px 0;
+            border-bottom: #000 1px dashed
+        }
+
+        .fontbig {
+            font-size: 32px
+        }
+
+        .fontmid {
+            font-size: 24px
+        }
+
+        .fontsml {
+            font-size: 20px
+        }
+
+        .fontsmler {
+            font-size: 18px
+        }
+
+        .cen {
+            text-align: center
+        }
+
+        .lanzi {
+            text-align: center;
+            background: #FFF
+        }
+
+        .cpxx {
+            padding: 5px 0;
+            clear: both;
+            overflow: auto
+        }
+
+        .cpxx .cp {
+            width: 60%
+        }
+
+        .cpxx .sl {
+            width: 15%;
+            margin-top: 5px
+        }
+    </style>
+</head>
+
+<body>
+<div class="zbox">
+    <div class="wmbox">
+        <p class="fontbig cen">【{$print.pbill_name}】</p>
+        {eq name="order.order_type" value="1"}
+            {eq name="order.distribution" value="0"}
+                <div class="fontbig">
+                    <label>桌号：</label>
+                    <span>{$table.table_name}</span>
+                </div>
+            {/eq}
+        {/eq}
+        {eq name="order.order_type" value="3"}
+                <div class="fontbig">
+                    <label>桌号：</label>
+                    <span>{$table.table_name}</span>
+                </div>
+        {/eq}
+        <div class="fontsmler">
+            <label>下单时间：</label>
+            <span>{$order.create_time|date="Y-m-d H:i:s",###}</span>
+        </div>
+        <div class="fontsmler">
+            <label>账单号：</label>
+            <span>{$order.order_sn}</span>
+        </div>
+        <!-- 品名数量 -->
+        <div class="clear ps">
+            <div class="fl">品名</div>
+            <div class="fr">数量</div>
+        </div>
+        <!--菜品-->
+        <eq></eq>
+        {switch name="print.isshow_category" }
+        {case value="1"}
+        {volist name="$print.goodslist" id="vo" key="goodskey"}
+        <div class="fontsmler food_box">
+            <div class="lanzi">（{$vo.cat_id|getGoodsCat}）</div>
+            {volist name="$vo.list" id="listvo"}
+            <div class="cpxx">
+                <div class="cp fl fontmid">{$listvo.goods_name}</div>
+                <div class="sl fr">{$listvo.goods_num}份</div>
+            </div>
+            {/volist}
+        </div>
+        {/volist}
+        {/case}
+        {case value="2"}
+        <div class="fontsmler food_box">
+            {volist name="$print.goodslist" id="vo"}
+            <div class="cpxx">
+                <div class="cp fl fontmid">{$vo.goods_name}</div>
+                <div class="sl fr">{$vo.goods_num}份</div>
+            </div>
+            {/volist}
+        </div>
+        {/case}
+        {/switch}
+    </div>
+</div>
+</body>
+
+</html>

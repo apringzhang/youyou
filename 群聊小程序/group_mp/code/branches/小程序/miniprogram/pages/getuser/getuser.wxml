@@ -1,0 +1,1 @@
+<button lang="zh_CN" open-type='getUserInfo' bindgetuserinfo="onGetUserInfo">获取微信用户信息</button>

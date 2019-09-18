@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "群列表",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+      "van-icon": "../../dist/icon/index",
+      "van-search": "../../dist/search/index"
+    } 
+}

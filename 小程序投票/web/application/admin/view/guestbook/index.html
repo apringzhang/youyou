@@ -1,0 +1,74 @@
+<form id="pagerForm" method="post" action="{:url('Guestbook/index')}">
+    <input type="hidden" name="start_time" value="{$start_time}"/>
+    <input type="hidden" name="activity_id" value="{$Think.request.activity_id}"/>
+    <input type="hidden" name="stop_time" value="{$stop_time}"/>
+    <input type="hidden" name="pageNum" value="{$pageNum}"/>
+</form>
+<div class="pageHeader">
+    <form onsubmit="return navTabSearch(this);" action="{:url('Guestbook/index')}" method="post">
+        <div class="searchBar">
+            <table class="searchContent">
+                <tr>
+                    <td>
+                        起始日期：<input type="text" size="20" datefmt="yyyy-MM-dd" class="date textInput readonly valid" name="start_time" value="{$start_time}"/>
+                    </td>
+                    <input type="hidden" name="activity_id" value="{$Think.request.activity_id}"/>
+                    <td>
+                        结束日期：<input type="text" size="20" datefmt="yyyy-MM-dd" class="date textInput readonly valid" name="stop_time" value="{$stop_time}"/>
+                    </td>
+                </tr>
+            </table>
+            <div class="subBar">
+                <ul>
+                    <li>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit">搜索</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <div class="panelBar">
+        <ul class="toolBar">
+            <li><a class="delete" href="{:url('Guestbook/doDelete')}?id={guestbook_id}" target="ajaxTodo"
+                   title="确定要删除吗？"><span>删除</span></a>
+            </li>
+        </ul>
+    </div>
+    <table class="table" width="100%" layoutH="135">
+        <thead>
+            <tr>
+                <th width="100">所属活动</th>
+                <th width="100">报名名称</th>
+                <th width="100">用户OPENID</th>
+                <th width="100">留言内容</th>
+                <th width="125">创建时间</th>
+                <th width="125">修改时间</th>
+            </tr>
+        </thead>
+        <tbody>
+            {volist name="list" id="vo"}
+                <tr target="guestbook_id" rel="{$vo.id}">
+                    <td>{$vo.activity_name}</td>
+                    <td>{$vo.username}</td>
+                    <td>{$vo.openid}</td>
+                    <td><a rel="Managebook" class="adeditd" href="{:url('Guestbook/detail')}?id={$vo.id}" target="dialog" width="550" height="300" title="留言内容" mask="true">查看留言</a></td>
+                    <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
+                    <td>{$vo.update_time|date="Y-m-d H:i:s",###}</td>
+                </tr>
+            {/volist}
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>共{$count}条</span>
+        </div>
+        <div class="pagination" targetType="navTab" totalCount="{$count}" numPerPage="{$numPerPage}" pageNumShown="10"
+             currentPage="{$pageNum}"></div>
+    </div>
+</div>

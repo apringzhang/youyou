@@ -1,0 +1,2 @@
+php Applications\GroupMp\start_register.php Applications\GroupMp\start_gateway.php Applications\GroupMp\start_businessworker.php
+pause

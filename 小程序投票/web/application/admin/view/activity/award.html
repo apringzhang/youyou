@@ -1,0 +1,29 @@
+<div class="pageContent">
+    <form method="post" action="{:url('Activity/doaward')}" class="pageForm" onsubmit="return validateCallback(this, dialogAjaxDone)">
+        <div class="pageFormContent" layoutH="58">
+            <!-- <div class="unit">
+                <label>投票赠送积分：</label>
+                <input type="text" name="vote_score" size="20" maxlength="7" class="required digits" value="{$vote_score}"/>
+            </div> -->
+            {volist name="award" id="vo"}
+            <div class="unit">
+                <label>{$vo.name}(百分比)：</label>
+                <input type="hidden" name="award_id[]" value="{$vo.award_id}"/>
+                <input type="text" name="odds[{$key}]" size="10" maxlength="3" class="required digits" placeholder="中奖几率百分比" value="{$vo.odds|default=''}"/>
+            </div>
+            <div class="unit">
+                <label>奖品数量：</label>
+                <input type="text" name="num[{$key}]" size="10" maxlength="10" class="required" placeholder="-1为不限制" value="{$vo.num|default=''}"/>
+            </div>
+            {/volist}
+        </div>
+        <input type="hidden" name="activity_id" value="{$Think.get.id}"/>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>
+

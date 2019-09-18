@@ -1,0 +1,13 @@
+<!--pages/rule/index.wxml-->
+<view class="container">
+  <include src="../include/topRollText.wxml" />
+  <include src="../include/slideShow.wxml" />
+  <include src="../include/countDown.wxml" /> 
+  
+   <view class="activity">
+    <view class="title">
+      <image src="/images/icon5.png" /> 活动规则
+    </view>
+      <image style="width:710rpx;" mode="widthFix" src="{{adminImageUrl}}{{desc}}"></image> 
+  </view> 
+</view>

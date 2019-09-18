@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>风险管理平台</title>
+    <link href="{$Think.config.dwz_url}/themes/css/login.css" rel="stylesheet" type="text/css"/>
+    <style type="text/css">
+        .loginForm p {
+            clear: both;
+        }
+
+        .loginForm p label {
+            text-align: right;
+        }
+
+        .login_bar {
+            padding-left: 80px;
+        }
+    </style>
+    <script type="text/javascript" src="{$Think.config.dwz_url}/js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            refresh_captcha();
+            $('#captcha_image').click(function () {
+                refresh_captcha();
+            });
+        });
+        function refresh_captcha() {
+            var time = new Date().getTime();
+            $('#captcha_image').attr('src', '{:captcha_src()}?time=' + time);
+        }
+        function do_submit() {
+            var login_url = "{:url('Open/doLogin')}";
+            console.log(111);
+            var param = {
+                username: $('#username').val(),
+                password: $('#password').val(),
+                captcha: $('#captcha').val()
+            };
+            $.post(login_url, param, function (data) {
+                if (data.result == 0) {
+                    window.location.href = "{:url('Index/index')}";
+                }
+                if (data.result == 2) {
+                    alert(data.message);
+                    refresh_captcha();
+                    $('#username').focus();
+                }
+            }, 'json');
+            return false;
+        }
+    </script>
+</head>
+
+<body>
+<div id="login">
+    <div id="login_header">
+        <h1 class="login_logo">
+            <a href="{:url('index/Index/index')}" target="_blank"><img
+                    src="{$Think.config.dwz_url}/themes/default/images/login_logo.gif"/></a>
+        </h1>
+        <div class="login_headerContent">
+            <h2 class="login_title"><img src="{$Think.config.dwz_url}/themes/default/images/login_title.png"/></h2>
+        </div>
+    </div>
+    <div id="login_content">
+        <div class="loginForm">
+            <form action="" method="post" onsubmit="return do_submit()">
+                <p>
+                    <label>用户名：</label>
+                    <input id="username" type="text" name="username" size="16" maxlength="20" class="login_input"/>
+                </p>
+                <p>
+                    <label>密码：</label>
+                    <input id="password" type="password" name="password" size="16" maxlength="20" class="login_input"/>
+                </p>
+                <p>
+                    <label>验证码：</label>
+                    <input id="captcha" class="code" type="text" name="captcha" size="1" maxlength="4"/>
+                    <img id="captcha_image" style="cursor: pointer;" alt="验证码" title="点击更换验证码" src="" with="75" height="24" />
+                </p>
+                <div class="login_bar">
+                    <input class="sub" type="submit" value=""/>
+                </div>
+            </form>
+        </div>
+        <div class="login_banner"><img src="{$Think.config.dwz_url}/themes/default/images/login_banner.jpg"/></div>
+        <div class="login_main"></div>
+    </div>
+    <div id="login_footer">版权所有 违者必究</div>
+</div>
+</body>
+</html>

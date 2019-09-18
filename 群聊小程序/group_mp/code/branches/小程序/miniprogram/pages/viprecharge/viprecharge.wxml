@@ -1,0 +1,13 @@
+<!--pages/recharge/recharge.wxml-->
+<view class='bg-gray'>
+
+<view class='main'>
+  <text>选择vip</text>
+  <view class='flex between itemBox'>
+      <view class="{{activeIndex == index ? 'active':''}}"  wx:for="{{items}}" wx:key="this" bindtap='activethis' data-tid="{{item.id}}" data-price="{{item.price}}" data-thisindex='{{index}}'><div>{{item.price}}元</div>
+      <div class='time'>1个月</div>
+      </view>
+  </view>
+</view>
+<view class='thisbtn' bindtap='binsubmit'>立即充值</view>
+</view>

@@ -1,0 +1,134 @@
+/**index.wxss**/
+page {
+    background: #f4f5f6;
+  }
+  
+  .hide {
+    display: none;
+  }
+  
+  .show {
+    display: block;
+  }
+  
+  .arrow_left {
+    font-size: 40rpx;
+    margin-top: 13rpx;
+    margin-left: 20rpx;
+  }
+  
+.head {
+  height: 2.5rem;
+  width: 100%;
+  border-bottom: 1px solid grey;
+  line-height: 2.5rem
+}
+
+.search {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 88%;
+  height: 2rem;
+  background-color: whitesmoke;
+  border: 1rpx solid lightgrey;
+  border-radius: 5rpx;
+  margin-left: 1rem;
+  margin-top: 2%
+}
+
+/* 搜索框提示文字样式 */
+
+.search input {
+  font-size: 0.8rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-left: 0.5rem;
+}
+
+/* 搜索框小图标 */
+
+.search image {
+  width: 40rpx;
+  height: 40rpx;
+  padding-right: 20rpx;
+}
+  
+  .title {
+    width: 20%;
+    margin-top: 24rpx;
+    height: 30rpx;
+    line-height: 30rpx;
+    text-align: center;
+  }
+  
+  .bc_text {
+    line-height: 68rpx;
+    height: 68rpx;
+    margin-top: 34rpx;
+  }
+  
+  .name {
+    font-size: 20rpx;
+    color: grey;
+    margin-left: 30rpx;
+    margin-top: 13rpx;
+    margin-bottom: 13rpx;
+  }
+  
+  .list_contain {
+    background: #fff;
+    height: 120rpx;
+    font-size: 36rpx;
+    position:relative;
+  }
+  
+  .group_pic {
+    width: 24%;
+    float: left;
+    height: 100rpx;
+  }
+  
+  .group_piccontain {
+    width: 100rpx;
+    height: 100%;
+    margin-left: 20%;
+    margin-top: 6%
+  }
+  
+  .group_name {
+    float: left;
+    height: 118rpx;
+    line-height: 118rpx;
+    width: 75%;
+    border-bottom: 1rpx solid #EDEDED;
+  }
+  
+  .group_nub {
+    text-align: center;
+    margin-top: 10rpx;
+    font-size: 28rpx;
+    color: grey;
+  }
+  .disturb{
+    width:40rpx;
+height:40rpx;
+position:absolute;
+right:90rpx;
+top:36rpx;
+  }
+  .disturb image{
+    width:100% !important;
+    height:100% !important;
+  }
+  .amend{
+    width:50rpx;
+height:50rpx;
+position:absolute;
+right:36rpx;
+top:36rpx;
+  }
+  .amend image{
+    width:100% !important;
+    height:100% !important;
+  }

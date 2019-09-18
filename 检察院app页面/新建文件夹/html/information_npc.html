@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	 <meta charset = "utf-8">
+	 <meta name = "viewport" content = "width = device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable = 0" />
+	 <meta name="apple-mobile-web-app-capable" content="yes">
+	 <link rel="stylesheet" type="text/css" href="../css/style.css">
+	 <script type="text/javascript" src="../js/screen.js"></script>
+	 <script type="text/javascript" src="../js/jquery.min.js"></script>
+</head>
+<body style="background: #f2f3f4;">
+	<header class="header">
+		<p class="title"><span class="back"></span>填写信息</p>
+	</header>
+	<div class="contant">
+		<ul>
+			<li>
+				<span>姓名</span>
+				<input type="text" class="inp" placeholder="请输入姓名（例如：张三）">
+			</li>
+			<li>
+				<span>身份证号</span>
+				<input type="text" class="inp" placeholder="请输入身份证号">
+			</li>
+			<li>
+				<span>手机号</span>
+				<input type="text" class="inp" placeholder="请输入手机号">
+			</li>
+			<li>
+				<span>工作单位</span>
+				<input type="text" class="inp" placeholder="请输入工作单位">
+			</li>
+			<li class="addpic">
+				<span>照片</span>
+				<input type="text" class="photo" placeholder="请上传本人照片">
+				<div id="preview">
+					<input type="file" accept="image/*" id="file">
+				</div>
+				<i class="turn"></i>
+			</li>
+		</ul>
+	</div>
+	<div class="card">
+		<p class="pass">上传人大代表证</p>
+		<p class="pass_infor"><span class="safe"></span>根据监管要求身份证照片仅用于实名认证</p>
+		<div class="card_bord">
+			<div id="member_card">
+				<input type="file" accept="image/*" id="npc_card">
+			</div>
+			<p class="card_bordtext">上传个人信息页</p>
+		</div>
+		
+         </div>
+	</div>
+	<div class="npc_btn">提交按钮</div>
+	<script type="text/javascript">
+            var preview = document.querySelector('#preview');
+            var eleFile = document.querySelector('#file');
+            eleFile.addEventListener('change', function() {
+                var file = this.files[0];                
+                // 确认选择的文件是图片                
+                if(file.type.indexOf("image") == 0) {
+                    var reader = new FileReader();
+                    reader.readAsDataURL(file);                    
+                    reader.onload = function(e) {
+                        // 图片base64化
+                        var newUrl = this.result;
+                        preview.style.backgroundImage = 'url(' + newUrl + ')';
+                    };
+                }
+            });   
+             var member_card = document.querySelector('#member_card');
+            var npc_card = document.querySelector('#npc_card');
+            npc_card.addEventListener('change', function() {
+                var file = this.files[0];                
+                // 确认选择的文件是图片                
+                if(file.type.indexOf("image") == 0) {
+                    var reader = new FileReader();
+                    reader.readAsDataURL(file);                    
+                    reader.onload = function(e) {
+                        // 图片base64化
+                        var newUrl = this.result;
+                        member_card.style.backgroundImage = 'url(' + newUrl + ')';
+                    };
+                }
+            }); 
+            $(".back").click(function(){
+   			 location.href='truename.html';
+			}); 
+			$(".npc_btn").click(function(){
+   			 location.href='index.html';
+			});
+        </script>
+</body>
+</html>

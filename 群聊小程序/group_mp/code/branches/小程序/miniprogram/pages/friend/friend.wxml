@@ -1,0 +1,47 @@
+<!-- pages/friend/friend.wxml -->
+<view class="friend">
+    <view class="headphoto">
+        <image src="{{info.avatar_url}}" />
+    </view>
+    <view class="name">
+        <text class="nickname">{{info.g_nick_name}} {{info.genders}}</text>
+        <text class="site">{{info.province}} {{info.city}}</text>
+    </view>
+</view>
+<view class="line"></view>
+<!-- <view class='item' bindtap='goRemark'>
+    <view class="title" >设置备注</view>
+    <view class="detail2">
+        <image src="../../images/more.png" />
+    </view>
+</view> -->
+<view class="line"></view>
+<!-- <view class='item'>
+    <view class="title">电话号码：123465789</view>
+</view> -->
+<view class="hr"></view>
+<view class='item' bindtap='goGroup'>
+    <view class="title">我俩的共同群</view>
+    <view class="detail2">
+        <image src="../../images/more.png" />
+    </view>
+</view>
+<view class="line"></view>
+<view class="item" style="display:block">
+    <van-switch-cell title="收藏此成员" checked="{{ checked }}" bind:change="onChange" />
+</view>
+<!-- <view class="hr"></view>
+<view class="elitem">
+    <view class="elicon">
+        <image src="../../images/collection.png" />
+    </view>
+    <view class="eltitle">发信息</view>
+</view>
+<view class="line"></view>
+<view class="elitem">
+    <view class="elicon">
+        <image src="../../images/collection.png" />
+    </view>
+    <view class="eltitle">视频通话</view>
+</view> -->
+<view class="line"></view>

@@ -1,0 +1,22 @@
+<view>
+    <view class="header">
+        <view class="title">成员列表</view>
+        <view class="delete" bindtap='binddelete'>删除</view>
+    </view>
+    <scroll-view scroll-y scroll-into-view="{{scroll}}">
+      <view class="con">
+        <checkbox-group bindchange="checkboxChange">
+        <view class="con_list">
+          <view class="list" wx:for="{{items}}" wx:key="" wx:for-item="list">
+            
+              <label class="checkbox">
+                <image src="{{list.avatar_url}}"></image>
+                <view class="name">{{list.g_nick_name}}</view>
+                <checkbox value="{{list.g_userid}}" style="position:absolute; right:1rem;" />
+              </label>
+          </view>
+        </view>
+        </checkbox-group>
+      </view>
+    </scroll-view>
+</view>

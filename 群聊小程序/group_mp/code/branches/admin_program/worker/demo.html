@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript">
+        let uri = 'ws://127.0.0.1:8282';
+        let ws;
+        let linked = false;
+
+        function send_login() {
+            ws = new WebSocket(uri);
+            ws.onmessage = function (e) {
+                let data = JSON.parse(e.data);
+                console.log(data);
+                if (data.type == 'ping') {
+                    console.log('ping');
+                    return;
+                }
+                if (data.type == 'info') {
+                    alert(data.data);
+                    return;
+                }
+                if (data.type == 'login') {
+                    $('#login_button').hide();
+                    linked = true;
+                    return;
+                }
+                $('#message_content').prepend('<p>' + data.data + '</p>')
+            }
+            ws.onclose = function () {
+                $('#message_content').prepend('<p>连接已断开</p>')
+                $('#login_button').show();
+                linked = false;
+            }
+            ws.onopen = function () {
+                let nick_name = prompt("请输入用户名");
+                ws.send(JSON.stringify({
+                    type: 'login',
+                    data: nick_name,
+                    group: 1
+                }));
+            }
+        }
+
+        function send_message() {
+            if (!ws || !linked) {
+                alert('请登录');
+                return;
+            }
+            let text = $('#text_box').val();
+            if (text == '') {
+                alert('发送内容不能为空');
+                return;
+            }
+            ws.send(JSON.stringify({
+                type: 'text',
+                data: text
+            }));
+            $('#text_box').val('');
+        }
+
+        $(document).keypress(function (e) {
+            if (e.which == 13) {
+                send_message();
+            }
+        });
+    </script>
+</head>
+<body>
+<button id="login_button" onclick="send_login()">登录</button>
+<input type="text" id="text_box" placeholder="请输入要发送的内容"/>
+<button onclick="send_message()">发送</button>
+<div id="message_content"></div>
+</body>
+</html>

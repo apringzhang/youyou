@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/getuser/getuser",
+    "pages/chat/chat",
+    "pages/contact/contact",
+    "pages/surpergroup/surpergroup",
+    "pages/samegroup/samegroup",
+    "pages/personal/personal",
+    "pages/friend/friend",
+    "pages/groupremark/groupremark",
+    "pages/business/business",
+    "pages/collection/collection",
+    "pages/rember/rember",
+    "pages/recharge/recharge",
+    "pages/apply/apply",
+    "pages/delgroup/delgroup",
+    "pages/radios/radios",
+    "pages/viprecharge/viprecharge",
+    "pages/ticketslog/ticketslog"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#EDEDED",
+    "navigationBarTextStyle": "black",
+    "backgroundColor ": "#EDEDED"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#11cd6e",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "images/Home.png",
+        "iconPath": "images/Home (1).png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "images/talk.png",
+        "iconPath": "images/talk(1).png",
+        "pagePath": "pages/surpergroup/surpergroup",
+        "text": "超级群聊"
+      },
+      {
+        "selectedIconPath": "images/person.png",
+        "iconPath": "images/person(1).png",
+        "pagePath": "pages/personal/personal",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "debug": true
+}

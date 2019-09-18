@@ -1,0 +1,70 @@
+<form id="pagerForm" method="post" action="{:url('Mp/index')}">
+    <input type="hidden" name="MpAppid" value="{$MpAppid}"/>
+    <input type="hidden" name="pageNum" value="{$pageNum}"/>
+</form>
+<div class="pageHeader">
+    <form onsubmit="return navTabSearch(this);" action="{:url('Mp/index')}" method="post">
+        <div class="searchBar">
+            <table class="searchContent">
+                <tr>
+                    <td>
+                        小程序Appid：<input type="text" name="MpAppid" value="{$MpAppid}"/>
+                    </td>
+                </tr>
+            </table>
+            <div class="subBar">
+                <ul>
+                    <li>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit">搜索</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <div class="panelBar">
+        <ul class="toolBar">
+            <li><a mask="true" class="add" href="{:url('Mp/add')}" target="dialog" width="530"
+                   height="250" title="添加礼物"><span>添加</span></a></li>
+            <li><a mask="true" class="edit" href="{:url('Mp/modify')}?id={MpId}" target="dialog"
+                   width="530" height="250" title="修改礼物"><span>修改</span></a></li>
+            <li><a class="delete" href="{:url('Mp/doDelete')}?id={MpId}" target="ajaxTodo"
+                   title="确定要删除吗？"><span>删除</span></a>
+            </li>
+        </ul>
+    </div>
+    <table class="table" width="100%" layoutH="137">
+        <thead>
+        <tr>
+            <th width="50">ID</th>
+            <th width="200">小程序APPID</th>
+            <th>小程序名称</th>
+            <th width="150">创建时间</th>
+            <th width="150">修改时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        {volist name="list" id="vo"}
+        <tr target="MpId" rel="{$vo.id}">
+            <td>{$vo.id}</td>
+            <td>{$vo.appid}</td>
+            <td>{$vo.mp_name}</td>
+            <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
+            <td>{$vo.update_time|date="Y-m-d H:i:s",###}</td>
+        </tr>
+        {/volist}
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>共{$count}条</span>
+        </div>
+        <div class="pagination" targetType="navTab" totalCount="{$count}" numPerPage="{$numPerPage}" pageNumShown="10"
+             currentPage="{$pageNum}"></div>
+    </div>
+</div>

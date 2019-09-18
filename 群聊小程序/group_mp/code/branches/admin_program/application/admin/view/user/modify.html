@@ -1,0 +1,57 @@
+<div class="pageContent">
+    <form method="post" action="{:url('User/doModify')}" class="pageForm"
+          onsubmit="return validateCallback(this, dialogAjaxDone)">
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>角色：</label>
+                <select class="combox" name="roleId">
+                    <option value="0">全部</option>
+                    {volist name="roleList" id="vo"}
+                    {eq name="role_id" value="$vo.id"}
+                    <option value="{$vo.id}" selected="selected">{$vo.role_name}</option>
+                    {else/}
+                    <option value="{$vo.id}">{$vo.role_name}</option>
+                    {/eq}
+                    {/volist}
+                </select>
+            </div>
+            <div class="unit">
+                <label>姓名：</label>
+                <input type="text" name="userName" size="20" maxlength="20" class="required" value="{$user_name}"/>
+            </div>
+            <div class="unit">
+                <label>帐号：</label>
+                <input type="text" name="userAccount" size="20" maxlength="20" class="required"
+                       value="{$user_account}"/>
+            </div>
+            <div class="unit">
+                <label>密码：</label>
+                <input id="user_password" type="password" name="userPassword" size="20" maxlength="20"/>
+            </div>
+            <div class="unit">
+                <label>重复密码：</label>
+                <input type="password" size="20" maxlength="20" equalto="#user_password"/>
+            </div>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li>
+                    <div class="buttonActive">
+                        <div class="buttonContent">
+                            <button type="submit">提交</button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="button">
+                        <div class="buttonContent">
+                            <button type="button" class="close">取消</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <input type="hidden" name="userId" value="{$id}"/>
+    </form>
+</div>
+

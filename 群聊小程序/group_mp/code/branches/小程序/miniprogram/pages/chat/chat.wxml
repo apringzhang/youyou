@@ -1,0 +1,88 @@
+<!-- pages/chat/chat.wxml -->
+<view>
+    <view class="bg_view {{showView?'hide':'show'}}">
+        <view class="apply">
+            <view class="pic" bindtap='bindhide'>
+                <image src="../../images/del.png" />
+            </view>
+            <view class="title">超级群名称</view>
+            <view class="contant">
+                <input class="inp" value="{{groupInfo.name}}" bindinput='bindname'/>
+            </view>
+            <button class="btn" bindtap='subname'>提交</button>
+        </view>
+    </view>
+    <view class="bg_view {{show?'hide':'show'}}">
+        <view class="apply">
+            <view class="pic" bindtap='bindhide'>
+                <image src="../../images/del.png" />
+            </view>
+            <view class="title">超级群公告</view>
+            <view class="contant">
+                <input class="inp" value="{{groupInfo.notice}}" bindinput='bindnotice'/>
+            </view>
+            <button class="btn" bindtap='subnotice'>提交</button>
+        </view>
+    </view>
+    <view class="bg_view {{shownick?'hide':'show'}}">
+        <view class="apply">
+            <view class="pic" bindtap='bindhide'>
+                <image src="../../images/del.png" />
+            </view>
+            <view class="title">我的群昵称</view>
+            <view class="contant">
+                <input class="inp" value="{{groupInfo.g_nick_name}}" bindinput='bindnick'/>
+            </view>
+            <button class="btn" bindtap='subnick'>提交</button>
+        </view>
+    </view>
+    <view class="chat_list">
+        <block wx:for="{{items}}" wx:key="this">
+            <view class="chat_listinfor">
+                <view class="listinfor_up">
+                    <image src='{{item.avatar_url}}' class="chat_pic" bindtap='turnFriend' data-user="{{item.g_userid}}"></image>
+                </view>
+                <view class="listinfor_down">
+                    <text>{{item.g_nick_name}}</text>
+                </view>
+            </view>
+        </block>
+        <view class="user_add">
+            <image src="../../images/add.png" class='addimg' bindtap='turnMenlist'></image>
+        </view>
+        <view class="user_delete" bindtap='clicktar' wx:if="{{adminId == 1}}">
+            <image src="../../images/delete.png" class='deleteimg'></image>
+        </view>
+    </view>
+    <modal hidden="{{hiddensave}}" title="分享二维码"  confirm-text="保存到相册" cancel-text="取消分享" bindconfirm="save" bindcancel="cancel">
+    <view class="add_img"><image src="{{images}}" style="width:100%;height:100%"/></view>
+  </modal>
+    <view class="hr"></view>
+    <view class="cells">
+        <van-cell title="超级群名称" is-link bindtap="opensupname" value="{{groupInfo.name}}"/>
+    
+        <van-cell title="超级群公告" is-link bindtap="opensupnotice" value="{{groupInfo.notice}}"/>
+        <van-cell title="我的群昵称" is-link bindtap="opennickname" value="{{groupInfo.g_nick_name}}"/>
+        <view class="marg" wx:if="{{adminId == 1}}">
+            <van-switch-cell title="入群是否审核" checked="{{ checked }}" bind:change="onChange" />
+        </view>
+        <!-- <view class="marg">
+            <van-switch-cell title="消息免打扰" checked="{{ disturb }}" bind:change="onDisturb" />
+        </view> -->
+        <view class="hr"></view>
+        <van-cell wx:if="{{adminId == 1}}" title="申请入群名单" is-link url="/pages/addfriend/addfriend?gid={{gid}}" link-type="navigateTo" />
+        <van-cell wx:if="{{adminId == 1}}" title="群管理转让" is-link bindtap="bindradios" />
+        <view class="marg">
+            <van-switch-cell title="置顶聊天" checked="{{ talk }}" bind:change="onTalk" />
+        </view>
+        <!-- <view class="marg">
+            <van-switch-cell title="是否显示备注" checked="{{ showinfor }}" bind:change="onShowinfor" />
+        </view> -->
+        <view class="hr"></view>
+        <!-- <van-cell title="查找聊天记录" is-link url="/pages/rember/rember" link-type="navigateTo" /> -->
+        <van-cell title="清除聊天记录" is-link bindtap="openConfirm" />
+        <view class="hr"></view>
+        <view class="turnback" bindtap="delConfirm">删除并退出</view>
+        <view class="hr"></view>
+    </view>
+</view>

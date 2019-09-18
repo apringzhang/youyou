@@ -1,0 +1,103 @@
+<div class="toggleCollapse"><h2>主菜单</h2>
+    <div>收缩</div>
+</div>
+<div class="accordion" fillSpace="sidebar">
+    <div class="accordionHeader">
+        <h2><span>Folder</span>文章管理</h2>
+    </div>
+    {check name="article_manage"}
+    <div class="accordionContent">
+        <ul class="tree treeFolder">
+            <li><a rel="articleCgManage" href="{:url('Article/category')}" target="navTab">分类管理</a></li>
+            <li><a rel="articleManage" href="{:url('Article/index')}" target="navTab">文章管理</a></li>
+        </ul>
+    </div>
+    {/check}
+    {check name="nav_manage"}
+    <div class="accordionHeader">
+        <h2><span>Folder</span>导航管理</h2>
+    </div>
+    <div class="accordionContent">
+        <ul class="tree treeFolder">
+            <li><a rel="labelManage" href="{:url('Navigation/label')}" target="navTab">标签管理</a></li>
+            <li><a rel="informationManage" href="{:url('Navigation/information')}" target="navTab">资讯管理</a></li>
+        </ul>
+    </div>
+    {/check}
+    {check name="carousel_manage"}
+    <div class="accordionHeader">
+        <h2><span>Folder</span>轮播管理</h2>
+    </div>
+    <div class="accordionContent">
+        <ul class="tree treeFolder">
+            <li><a rel="carouselManage" href="{:url('Carousel/index')}" target="navTab">轮播管理</a></li>
+        </ul>
+    </div>
+    {/check}
+    {check name="ad_manage"}
+    <div class="accordionHeader">
+        <h2><span>Folder</span>广告位管理</h2>
+    </div>
+    <div class="accordionContent">
+        <ul class="tree treeFolder">
+            <li><a rel="adManage" href="{:url('Ad/index')}" target="navTab">广告位管理</a></li>
+        </ul>
+    </div>
+    {/check}
+    {check name="money_manage"}
+    <div class="accordionHeader">
+        <h2><span>Folder</span>价格管理</h2>
+    </div>
+    <div class="accordionContent">
+        <ul class="tree treeFolder">
+            <li><a rel="moneyManage" href="{:url('Money/index')}" target="navTab">开通VIP价格管理</a></li>
+            <li><a rel="rechargeManage" href="{:url('Recharge/index')}" target="navTab">点卷充值管理</a></li>
+        </ul>
+    </div>
+    {/check}
+    {check name="groups_manage"}
+    <div class="accordionHeader">
+        <h2><span>Folder</span>群管理</h2>
+    </div>
+    <div class="accordionContent">
+        <ul class="tree treeFolder">
+            <li><a rel="groupsManage" href="{:url('Groups/index')}" target="navTab">群管理</a></li>
+        </ul>
+    </div>
+    {/check}
+    {check name="users_manage"}
+    <div class="accordionHeader">
+        <h2><span>Folder</span>用户管理</h2>
+    </div>
+    <div class="accordionContent">
+        <ul class="tree treeFolder">
+            <li><a rel="usersManage" href="{:url('Users/index')}" target="navTab">用户信息管理</a></li>
+            <li><a rel="usersgiftManage" href="{:url('Users/gift')}" target="navTab">礼品记录管理</a></li>
+            <li><a rel="userscouponManage" href="{:url('Users/coupon')}" target="navTab">点券使用记录</a></li>
+        </ul>
+    </div>
+    {/check}
+    {check name="activity_manage"}
+    <div class="accordionHeader">
+        <h2><span>Folder</span>活动管理</h2>
+    </div>
+    <div class="accordionContent">
+        <ul class="tree treeFolder">
+            <li><a rel="activityManage" href="{:url('Activity/index')}" target="navTab">活动管理</a></li>
+            <li><a rel="giftManage" href="{:url('Gift/index')}" target="navTab">奖品管理</a></li>
+        </ul>
+    </div>
+    {/check}
+    <div class="accordionHeader">
+        <h2><span>Folder</span>系统管理</h2>
+    </div>
+    <div class="accordionContent">
+        <ul class="tree treeFolder">
+            <li><a rel="userManage" href="{:url('User/index')}" target="navTab">用户管理</a></li>
+            <li><a rel="roleManage" href="{:url('Role/index')}" target="navTab">角色管理</a></li>
+            {check name="node_manage"}
+            <li><a rel="nodeManage" href="{:url('Node/index')}" target="navTab">节点管理</a></li>
+            {/check}
+        </ul>
+    </div>
+</div>

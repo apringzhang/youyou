@@ -1,0 +1,18 @@
+<div class="pageContent">
+    <form method="post" action="{:url('User/doDetail')}" class="pageForm" onsubmit="return validateCallback(this, dialogAjaxDone)">
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>开发人员：</label>
+                <input type="radio" name="is_developer" value="0" {eq name="is_developer" value="0"}checked{/eq}/>否
+                <input type="radio" name="is_developer" value="1" {eq name="is_developer" value="1"}checked{/eq}/>是
+            </div>
+        </div>
+        <input name="id" type="hidden" value="{$Think.get.id}"/>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>

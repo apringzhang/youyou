@@ -1,0 +1,77 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1.0, minimum-scale=1, maximum-scale=1" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<meta content="email=no" name="format-detection" />
+<title></title>
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+ <script type="text/javascript" src="../js/screen.js"></script>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/TouchSlide.1.1.js"min></script>
+</head>
+
+<body>
+ <header class="header">
+		<p class="title"><span class="back"></span>新闻公告</p>
+	</header>
+  <div class="site"></div>
+  	  <div class="view-list">
+        <div class="item clearfix">
+		  <a class="img"><img src="../images/img29.jpg" alt=""/></a>
+		  <div class="details">
+			<a href="#" class="info-txt">
+			黑龙江日报7月18日讯今年上半哈尔滨机场旅客吞吐量再创新高东北三省首位。不仅如此位客吞吐量再省首位
+           </a>
+           <span class="part">人民检察</span>
+		    <span class="date">2017-02-04</span>
+		  </div>
+	    </div>
+		 <div class="item clearfix">
+		  <a class="img"><img src="../images/img30.jpg" alt=""/></a>
+		  <div class="details">
+			<a href="#" class="info-txt">
+			黑龙江日报7月18日讯今年上半哈尔滨机场旅客吞吐量再创新高东北三省首位。不仅如此新高东北三省首位龙江日报7月18日讯今年上半哈尔滨机场旅客吞吐量再创新高东北.
+           </a>
+           <span class="part">人民检察</span>
+		    <span class="date">2017-02-04</span>
+		  </div>
+	    </div>
+		 <div class="item clearfix">
+		  <a class="img"><img src="../images/img31.jpg" alt=""/></a>
+		  <div class="details">
+			<a href="#" class="info-txt">
+			黑龙江日报7月18日讯今年上半哈尔滨机场旅客吞吐量再创新高东北三省龙江日报7月18日讯今年上半哈尔滨机场旅客吞吐量再创新高东北首位。不仅如此龙江日报7月18日讯今年上半哈尔滨机场旅客吞吐量再创新高东北
+           </a>
+           <span class="part">人民检察</span>
+		   <span class="date">2017-02-04</span>
+		  </div>
+	    </div>
+	</div>
+	<script src="../js/common.js"></script>
+	<script type="text/javascript">
+		 $(document).ready(function(){
+	            	$('#parties').click(function(){
+	            		$('.relation').css({'display':'block'});
+	            		$('#parties').children('span').addClass('cover');
+	            		$('#victim').children('span').removeClass('cover');
+	            		 location.href='notice.html';
+
+	            });
+	            $('#victim').click(function(){
+	            		$('.relation').css({'display':'none'});
+	            		$('#victim').children('span').addClass('cover')
+						$('#parties').children('span').removeClass('cover');
+	            });
+	            $(".item").click(function(){
+   			 location.href='new_list.html';
+			});
+            });
+		 $(".back").click(function(){
+   			 location.href='index.html';})
+	</script>
+</body>
+</html>

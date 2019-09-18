@@ -1,0 +1,43 @@
+<div class="pageContent">
+<form id="pagerForm" method="post" action="{:url('Groups/Memberlist')}">
+    <input type="hidden" name="id" value="{$id}" />
+    <input type="hidden" name="pageNum" value="{$page_num}" />
+</form>
+<div class="pageContent">
+    <table class="table" width="100%" layoutH="85">
+        <thead>
+        <tr>
+            <th width="125">成员昵称</th>
+            <th width="125">头像</th>
+            <th width="125">性别</th>
+            <th width="125">国家</th>
+            <th width="125">省份</th>
+            <th width="125">城市</th>
+        </tr>
+        </thead>
+        <tbody>
+        {volist name="list" id="vo"}
+        <tr target="id" rel="{$vo.id}">
+            <td>{$vo.user.nick_name}</td>
+            <td><a onclick="$(this).colorbox({height: 600});return false;" href="{$Think.config.image_url}/{$vo.user.avatar_url}">查看图片</a></td>
+            <td>{$vo.user.gender|get_sex}</td>
+            <td>{$vo.user.country}</td>
+            <td>{$vo.user.province}</td>
+            <td>{$vo.user.city}</td>
+        </tr>
+        {/volist}
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>共{$count}条</span>
+        </div>
+        <div class="pagination" targetType="adTab" totalCount="{$count}" numPerPage="{$num_per_page}" pageNumShown="10" currentPage="{$page_num}"></div>
+    </div>
+</div>
+    <div class="formBar">
+        <ul>
+            <li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+        </ul>
+    </div>
+</div>

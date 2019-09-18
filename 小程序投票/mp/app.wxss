@@ -1,0 +1,174 @@
+/**app.wxss**/
+.clearfix:after {
+	display: block;
+	content: "clear";
+	height: 0;
+	clear: both;
+	overflow: hidden;
+	visibility: hidden;
+}
+.container {
+  height: 100%;
+  box-sizing: border-box;
+  font-size: 28rpx;
+}
+
+.dowebok {
+  display: block;
+  width: 100%;
+  line-height: 64rpx;
+  background: #fcf9e4;
+  color: #978b71;
+}
+.slide,.slide image{
+  width:100%;
+  height:420rpx;
+}
+.slide1,.slide1 image{
+  width:100%;
+  height:700rpx;
+}
+.box_bg {
+  background: #f9f9f9;
+  height: 430rpx;
+}
+
+.number {
+  height: 100rpx;
+  padding: 20rpx;
+  line-height: 100rpx;
+}
+
+.number>view {
+  float: left;
+  width: 33.3%;
+  margin-top: 14rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.number>view:not(:last-child) {
+  border-right: 1px solid #c8c8c8;
+}
+
+.cloumn view {
+  display: block;
+  line-height: 40rpx;
+  color: #666;
+}
+
+.cloumn view image {
+  width: 18px;
+  height: 18px;
+  vertical-align: -4rpx;
+}
+
+.cloumn text {
+  display: block;
+  line-height: 36rpx;
+  color: #4c4c4c;
+}
+
+.count {
+  display: block;
+  margin-bottom: 10px;
+  color: #999;
+  text-align: center;
+}
+
+.time-wrap {
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.time-wrap>view {
+  display: inline-block;
+  margin: 0 4rpx;
+  padding: 6rpx 12rpx;
+  color: #777;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+.search {
+    display: block;
+    width: 92%;
+    height: 60rpx;
+    line-height: 60rpx;
+    margin: 20rpx auto 0;
+    background: #ffffff;
+    border-radius: 10rpx;
+    font-size: 32rpx;
+    border: 1px solid #c8c8c8;
+    overflow: hidden;
+}
+.search input[type="text"] {
+    float: left;
+    width: 75%;
+    height: 60rpx;
+    border-radius: 30rpx;
+    padding: 0 6rpx 0 16rpx;
+    box-sizing: border-box;
+}
+.search text {
+    display: inline-block;
+    height: 44rpx;
+    margin-top: 10rpx;
+    border-left: 1px solid #c8c8c8;
+}
+.search button {
+    float: right;
+    width: 24%;
+    text-align: center;
+    background: none;
+    line-height: 60rpx;
+    font-size: 32rpx;
+    color: #999999;
+}
+.viewmore {
+    padding-bottom: 12rpx;
+    color: #333333;
+    text-align: center;
+}
+.mt {
+  margin: 20rpx 0;
+}
+
+/*滚动效果*/
+.scroll-text-outer {
+  overflow: hidden;
+}
+
+.scroll-text-inner {
+  width: 9999rpx;
+}
+
+.scroll-text-content {
+  position: relative;
+  top: 0rpx;
+  left: 0rpx;
+}
+
+.nomessage text {
+  display: block;
+  color: #999;
+  font-size: 32rpx;
+  text-align: center;
+}
+
+.nomessage .circle {
+  width: 180rpx;
+  height: 180rpx;
+  padding-top: 40rpx;
+  background: #f2f2f2;
+  margin: 150rpx auto 30rpx;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.nomessage .circle image {
+  display: block;
+  width: 100rpx;
+  height: 102rpx;
+  margin: 0 0 0 48rpx;
+}

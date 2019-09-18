@@ -1,0 +1,26 @@
+<div class="pageContent">
+    <form method="post" action="{:url('Recharge/doModify')}" class="pageForm" onsubmit="return validateCallback(this, dialogAjaxDone)">
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>开通金额：</label>
+                <input type="text" name="price" size="20" maxlength="20" class="required" value="{$price}"/>
+            </div>
+            <div class="unit">
+                <label>兑换点劵数量：</label>
+                <input type="text" name="stamps" size="20" maxlength="20" class="required" value="{$stamps}"/>
+            </div>
+            <div class="unit">
+                <label>排序：</label>
+                <input type="text" name="sort" size="5" maxlength="10" class="required" value="{$sort}"/>
+            </div>
+            <input type="hidden" name="id" value="{$id}">
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>
+

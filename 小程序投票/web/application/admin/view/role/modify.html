@@ -1,0 +1,22 @@
+<div class="pageContent">
+    <form method="post" action="{:url('Role/doModify')}" class="pageForm" onsubmit="return validateCallback(this, dialogAjaxDone)">
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>角色名：</label>
+                <input type="text" name="roleName" size="20" maxlength="20" class="required" value="{$role_name}" />
+            </div>
+            <div class="unit">
+                <label>排序：</label>
+                <input type="text" name="sort" size="3" maxlength="3" class="required" value="{$sort}" />
+            </div>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+        <input type="hidden" name="roleId" value="{$id}" />
+    </form>
+</div>
+

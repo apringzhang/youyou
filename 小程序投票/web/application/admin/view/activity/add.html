@@ -1,0 +1,204 @@
+<div class="pageContent">
+    <form method="post" action="{:url('Activity/doAdd')}" class="pageForm" onsubmit="return validateCallback(this, navTabAjaxDone)">
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>选择小程序：</label>
+                <select class="combox" name="mp_id" >
+                    {volist name="mp_value" id="mp"}
+                    <option value="{$mp.id}">{$mp.mp_name}</option>
+                    {/volist}
+                </select>
+            </div>
+            <div class="unit">
+                <label>活动名称：</label>
+                <input type="text" name="activity_name" size="20" maxlength="20" class="required" />
+            </div>
+            <div class="unit">
+                <label>活动背景图：</label>
+                {:widget('Upload/image', ['activity_image', ''])}
+            </div>
+            <div class="unit">
+                <label>活动分享背景图：</label>
+                {:widget('Upload/image', ['activity_share_image', ''])}
+            </div>
+            <div class="unit">
+                <label>活动报名分享背景图：</label>
+                {:widget('Upload/image', ['activity_sign_share_image', ''])}
+            </div>
+            <!-- <div class="unit">
+                <label>红包规则图：</label>
+                {:widget('Upload/image', ['red_packet_rule_image', ''])}
+            </div> -->
+            <div class="unit">
+                <label>报名开始时间：</label>
+                <input type="text" size="20" datefmt="yyyy-MM-dd HH:mm:ss" class="date textInput readonly valid required" name="apply_start_time"/>
+            </div>
+            <div class="unit">
+                <label>报名结束时间：</label>
+                <input type="text" size="20" datefmt="yyyy-MM-dd HH:mm:ss" class="date textInput readonly valid required" name="apply_stop_time"/>
+            </div>
+            <div class="unit">
+                <label>活动开始时间：</label>
+                <input type="text" size="20" datefmt="yyyy-MM-dd HH:mm:ss" class="date textInput readonly valid required" name="start_time"/>
+            </div>
+            <div class="unit">
+                <label>活动结束时间：</label>
+                <input type="text" size="20" datefmt="yyyy-MM-dd HH:mm:ss" class="date textInput readonly valid required" name="stop_time"/>
+            </div>
+            <div class="unit">
+                <label>活动类型：</label>
+                <input type="radio" name="activity_type" value="1" checked="checked"/>个人
+                <input type="radio" name="activity_type" value="2" />商家
+                <input type="radio" name="activity_type" value="3" />景物
+            </div>
+            <div class="unit">
+                <label>活动规则：</label>
+                <select class="combox" name="rule_id" >
+                    <option value="">请选择</option>
+                    {volist name="attr_values" id="mo"}
+                        <option value="{$mo.id}">{$mo.rule_name}</option>
+                    {/volist}
+                </select>
+            </div>
+            <div class="unit">
+                <label>活动分类：</label>
+                <select class="combox" name="category_id">
+                    <option value="">请选择</option>
+                    {volist name="activity_category" id="ac"}
+                        <option value="{$ac.id}">{$ac.category_name}</option>
+                    {/volist}
+                </select>
+            </div>
+            <div class="unit">
+                <label>报名审核：</label>
+                <input type="radio" name="audit_flag" value="0" checked="checked"/>否
+                <input type="radio" name="audit_flag" value="1" />是
+            </div>
+            <div class="unit">
+                <label>订单前缀：</label>
+                <input type="text" name="order_prefix" size="20" maxlength="50" class="required" />
+            </div>
+            <div class="unit">
+                <label>选择礼物：</label>
+                <input lookupgroup="" name="gift_ids" value="" type="hidden">
+                <input lookupgroup="" name="gift_name" type="text" class="textInput valid required" readonly value="">
+                <a class="btnLook" href="{:url('Activity/gift')}" lookupgroup="">查找带回</a>
+            </div>
+            <!-- <div class="unit">
+                <label>活动礼物：</label>
+                <input type="text" name="gift_ids" size="20" maxlength="20" class="required" />
+            </div> -->
+            <!-- <div class="unit">
+                <label>主题颜色:</label> -->
+                <!-- <input class="required" name="color" id="color" type="hidden" lookupGroup="" readonly="true" value="#808080" /> -->
+                <!-- <input name="theme_color" type="hidden" value=""/>
+                <input maxlength="6" id="colorpickerField1" class="colorSelect" size="2">
+                <input disabled="disabled" size="4">
+            </div> -->
+            <!-- <div class="unit">
+                <label>选中颜色:</label> -->
+                <!-- <input class="required" name="check_color" id="colorSelect" type="hidden" lookupGroup="" readonly="true" value="#808080" /> -->
+                <!-- <input name="check_color" type="hidden" value=""/>
+                <input maxlength="6" id="colorpickerField2"  class="colorSelect" size="2">
+                <input disabled="disabled" size="4">
+            </div> -->
+            <!-- <div class="unit">
+                <label>支付背景图：</label>
+                {:widget('Upload/image', ['pay_background_image', ''])}
+            </div> -->
+            <div class="unit">
+                <label>活动规则图：</label>
+                {:widget('Upload/image', ['activity_desc', ''])}
+                <!-- {:widget('Editor/show', ['activity_desc', '', 10])} -->
+            </div>
+            <div class="unit">
+                <label>上榜最低票数：</label>
+                <input type="text" name="vote_bottom" size="20" maxlength="20" class="required digits" />
+            </div>
+            <div class="unit">
+                <label>上榜最低排名数：</label>
+                <input type="text" name="vote_rank_bottom" size="20" maxlength="20" class="required digits" />
+            </div>
+            <div class="unit" style="display: none;">
+                <label>收款方类型：</label>
+                <!-- <input type="radio" class="receive" name="receive_side" value="1" checked="checked"/>平台 -->
+                <input type="radio" class="receive" name="receive_side" value="2" checked="checked"/>自定义
+            </div>
+            <input type="hidden" name="receive_side" value="2" />
+            <span class="pay">
+            </span>
+            <!-- <script>
+                $('.receive').click(function() {
+                    if ($(this).val() == 2) {
+                        $('.pay').loadUrl('{:url("activity/pay")}');
+                    } else {
+                        $('.pay').empty();
+                    }
+                })
+            </script> -->
+            <div class="unit">
+                <label>商品名称：</label>
+                <input type="text" name="pay_body" size="20" maxlength="20" class="required" />
+            </div>
+            <div class="unit">
+                <label>抽奖所需积分：</label>
+                <input type="text" name="start_score" size="20" maxlength="7" class="required digits" />
+            </div>
+            <!-- <div class="unit">
+                <label>单个红包最大金额：</label>
+                <input type="text" name="max_red_packet" size="20" maxlength="7" class="required number" min="1" max="200"/>
+            </div> -->
+            <div class="unit">
+                <label>是否有礼物：</label>
+                <input type="radio" name="is_gift" value="0" />否
+                <input type="radio" name="is_gift" value="1" checked="checked" />是
+            </div>
+            <div class="unit">
+                <label>是否有报名：</label>
+                <input type="radio" name="is_sign" value="0" />否
+                <input type="radio" name="is_sign" value="1" checked="checked" />是
+            </div>
+            <!--<div class="unit">-->
+                <!--<label>是否强关：</label>-->
+                <!--<input type="radio" name="is_coerce" value="0" checked="checked"/>否-->
+                <!--<input type="radio" name="is_coerce" value="1" />是-->
+            <!--</div>-->
+            <div class="unit">
+                <label>是否在线：</label>
+                <input type="radio" name="online_flag" value="0" />下线
+                <input type="radio" name="online_flag" value="1" checked="checked" />在线
+            </div>
+            <div class="unit">
+                <label>活动公告：</label>
+                <textarea name="activity_notice" cols="50" rows="8"></textarea>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function(){
+                $('.receive').click();
+                $('.receive').attr('disabled', 'disabled');
+                $('.colorSelect').ColorPicker({
+                    onSubmit: function(hsb, hex, rgb, el) {
+                        $(el).next().css('backgroundColor', '#' + hex);
+                        $(el).prev().val('#' + hex);
+                        $(el).val(hex);
+                        $(el).ColorPickerHide();
+                    },
+                    onBeforeShow: function () {
+                        $(this).ColorPickerSetColor(this.value);
+                    }
+                })
+                .bind('keyup', function(){
+                    $(this).ColorPickerSetColor(this.value);
+                });
+            });
+        </script>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>
+

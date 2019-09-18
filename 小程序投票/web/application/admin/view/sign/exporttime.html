@@ -1,0 +1,35 @@
+<div class="pageContent">
+    <form method="post" class="pageForm" onsubmit="return validateCallback(this, dialogAjaxDone)" enctype="multipart/form-data">
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>开始时间：</label>
+                <input type="text" size="20" datefmt="yyyy-MM-dd" class="date textInput readonly valid required" name="start_time"/>
+            </div>
+            <div class="unit">
+                <label>结束时间：</label>
+                <input type="text" size="20" datefmt="yyyy-MM-dd" class="date textInput readonly valid required" name="stop_time"/>
+            </div>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="button">提交</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>
+<script>
+    $('.buttonActive').click(function() {
+        var start_time = $('input[name="start_time"]').val()+" 00:00:00";
+        var stop_time = $('input[name="stop_time"]').val()+" 23:59:59";
+
+        start_time = Date.parse(new Date(start_time));
+        start_time = start_time / 1000;
+        stop_time = Date.parse(new Date(stop_time));
+        stop_time = stop_time / 1000;
+        if (start_time > stop_time) {
+            alertMsg.error('结束时间不能小于开始时间');
+        }
+        window.location.href = "{:url('sign/doExporttime')}?start_time=" + start_time + "&stop_time=" + stop_time;
+    })
+</script>

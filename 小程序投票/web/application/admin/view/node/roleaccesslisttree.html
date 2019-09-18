@@ -1,0 +1,14 @@
+{volist name="list" id="vo"}
+<li>
+    {if condition="check_id($vo['id'], $roleId)"}
+    <a href="javascript:void(0)" tname="nodeIdArray[]" tvalue="{$vo.id}" checked="checked">{$vo.node_title}</a>
+    {else/}
+    <a href="javascript:void(0)" tname="nodeIdArray[]" tvalue="{$vo.id}">{$vo.node_title}</a>
+    {/if}
+    {notempty name="vo.sub"}
+    <ul>
+        {:widget('Node/roleAccessListTree', ['pid' => $vo['id'], 'roleId' => $roleId])}
+    </ul>
+    {/notempty}
+</li>
+{/volist}

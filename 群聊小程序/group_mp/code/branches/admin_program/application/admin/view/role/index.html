@@ -1,0 +1,73 @@
+<form id="pagerForm" method="post" action="{:url('Role/index')}">
+    <input type="hidden" name="roleName" value="{$roleName}"/>
+    <input type="hidden" name="pageNum" value="{$pageNum}"/>
+</form>
+<div class="pageHeader">
+    <form onsubmit="return navTabSearch(this);" action="{:url('Role/index')}" method="post">
+        <div class="searchBar">
+            <table class="searchContent">
+                <tr>
+                    <td>
+                        角色名：<input type="text" name="roleName" value="{$roleName}"/>
+                    </td>
+                </tr>
+            </table>
+            <div class="subBar">
+                <ul>
+                    <li>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit">搜索</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <div class="panelBar">
+        <ul class="toolBar">
+            <li><a mask="true" class="add" href="{:url('Role/add')}" target="dialog" width="530"
+                   height="160" title="添加角色"><span>添加</span></a></li>
+            <li><a mask="true" class="edit" href="{:url('Role/modify')}?id={roleId}" target="dialog"
+                   width="530" height="160" title="修改角色"><span>修改</span></a></li>
+            <li><a class="delete" href="{:url('Role/doDelete')}?id={roleId}" target="ajaxTodo"
+                   title="确定要删除吗？"><span>删除</span></a>
+            </li>
+            <li class="line">line</li>
+            <li><a class="icon" href="{:url('Role/modifyAccess')}?id={roleId}" target="dialog" width="400" height="400"
+                   title="修改角色权限" mask="true"><span>修改权限</span></a></li>
+        </ul>
+    </div>
+    <table class="table" width="100%" layoutH="137">
+        <thead>
+        <tr>
+            <th width="50">ID</th>
+            <th>角色名</th>
+            <th width="50">排序</th>
+            <th width="125">创建时间</th>
+            <th width="125">修改时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        {volist name="list" id="vo"}
+        <tr target="roleId" rel="{$vo.id}">
+            <td>{$vo.id}</td>
+            <td>{$vo.role_name}</td>
+            <td>{$vo.sort}</td>
+            <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
+            <td>{$vo.update_time|date="Y-m-d H:i:s",###}</td>
+        </tr>
+        {/volist}
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>共{$count}条</span>
+        </div>
+        <div class="pagination" targetType="navTab" totalCount="{$count}" numPerPage="{$numPerPage}" pageNumShown="10"
+             currentPage="{$pageNum}"></div>
+    </div>
+</div>

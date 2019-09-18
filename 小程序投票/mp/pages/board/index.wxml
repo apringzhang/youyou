@@ -1,0 +1,39 @@
+<!--pages/board/index.wxml-->
+<view class="container">
+  <include src="../include/topRollText.wxml" />
+  <include src="../include/slideShow.wxml" />
+   <include src="../include/countDown.wxml" /> 
+  <view class="bill">
+    <block wx:key="id" wx:for="{{voteList}}">
+      <navigator url="../detail/index?id={{item.id}}">
+        <view class="clearfix">
+          <view class="left_img">
+            <view wx:if="{{index == 0}}">
+              <view class="gold">
+                <image src="/images/icon12.png" />
+              </view>
+            </view>
+            <view wx:if="{{index == 1}}">
+              <view class="gold">
+                <image src="/images/icon13.png" />
+              </view>
+            </view>
+            <view wx:if="{{index == 2}}">
+              <view class="gold">
+                <image src="/images/icon133.png" />
+              </view>
+            </view>
+            <image src="{{imageUrl}}{{item.sign_image}}" />
+          </view>
+          <view class="right_txt">
+            <view class="title">{{item.username}} {{item.sign_code}}号</view>
+            <text class="votenum">票数：{{item.total_count}}</text>
+            <view>
+              <text class="em on">{{index+1}}</text>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+</view>

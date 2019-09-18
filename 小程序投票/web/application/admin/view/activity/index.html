@@ -1,0 +1,130 @@
+<form id="pagerForm" method="post" action="{:url('Activity/index')}">
+    <input type="hidden" name="activityName" value="{$activityName}"/>
+    <input type="hidden" name="activityType" value="{$activityType}"/>
+    <input type="hidden" name="pageNum" value="{$pageNum}"/>
+</form>
+<div class="pageHeader">
+    <form onsubmit="return navTabSearch(this);" action="{:url('Activity/index')}" method="post">
+        <div class="searchBar">
+            <table class="searchContent">
+                <tr>
+                    <td>
+                        活动名称：<input type="text" name="activityName" value="{$activityName}"/>
+                    </td>
+                    <td>
+                        <label>活动类型：</label>
+                        <select name="activityType" class="combox" >
+                            <option value="">全部</option>
+                            <option value="1" {eq name="activityType" value="1"}selected="selected"{/eq}>个人</option>
+                            <option value="2" {eq name="activityType" value="2"}selected="selected"{/eq}>商家</option>
+                            <option value="3" {eq name="activityType" value="3"}selected="selected"{/eq}>景物</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div class="subBar">
+                <ul>
+                    <li>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit">搜索</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <div class="panelBar">
+        <ul class="toolBar">
+            <li><a mask="true" class="add" href="{:url('Activity/add')}" target="navTab" title="添加活动"><span>添加</span></a></li>
+            <li><a mask="true" class="edit" href="{:url('Activity/modify')}?id={activity_id}" target="navTab" title="修改活动"><span>修改</span></a></li>
+            <li><a class="delete" href="{:url('Activity/doDelete')}?id={activity_id}" target="ajaxTodo"
+                   title="确定要删除吗？"><span>删除</span></a>
+            </li>
+            <li class="line">line</li>
+            <li><a rel="signManage" class="icon" href="{:url('Sign/index')}?id={activity_id}" target="navTab" title="报名管理" mask="true"><span>报名管理</span></a></li>
+            <li class="line">line</li>
+            <li><a rel="scoreManage" class="icon" href="{:url('Activity/score')}?id={activity_id}" target="dialog" width="530" height="350" title="礼物赠送积分数量" mask="true"><span>积分管理</span></a></li>
+            <li class="line">line</li>
+             <li><a rel="scoreManage" class="icon" href="{:url('Activity/award')}?id={activity_id}" target="dialog" width="450" height="430" title="抽奖管理" mask="true"><span>抽奖管理</span></a></li>
+            <li class="line">line</li>
+            <li><a mask="true" class="icon" href="{:url('Activity/copy')}?id={activity_id}" target="dialog" width="450"
+                   height="150" title="复制活动"><span>复制活动</span></a></li>
+            <li class="line">line</li>
+            <!-- <li><a rel="packetManage" class="icon" href="{:url('Sign/packet')}?activity_id={activity_id}" target="navTab" title="查看红包" mask="true"><span>查看红包</span></a></li>
+            <li class="line">line</li>
+            <li><a rel="userpacketManage" class="icon" href="{:url('Sign/userpacket')}?activity_id={activity_id}" target="navTab" title="领取红包" mask="true"><span>领取红包</span></a></li>
+            <li class="line">line</li> -->
+            <li><a rel="guestbookManage" class="icon" href="{:url('Guestbook/index')}?activity_id={activity_id}" target="navTab" title="活动留言" mask="true"><span>活动留言</span></a></li>
+            <li class="line">line</li>
+             <li><a rel="codeManage" class="icon" href="{:url('Activity/code')}?id={activity_id}" target="dialog" width="520" height="530" title="二维码" mask="true"><span>二维码</span></a></li>
+        </ul>
+    </div>
+    <table class="table" width="100%" layoutH="138">
+        <thead>
+            <tr>
+                <th>活动名称</th>
+                <th>入口地址</th>
+                <th width="55">报名总数</th>
+                <th width="55">投票总数</th>
+                <th width="55">活动分类</th>
+                <th width="55">背景图片</th>
+                <th width="115">报名开始时间</th>
+                <th width="115">报名结束时间</th>
+                <th width="115">活动开始时间</th>
+                <th width="115">活动结束时间</th>
+                <th width="55">活动类型</th>
+                <!--<th width="65">支付背景图</th>-->
+                <th width="125">创建时间</th>
+            </tr>
+        </thead>
+        <tbody>
+            {volist name="list" id="vo"}
+                <tr target="activity_id" rel="{$vo.id}">
+                    <td>{$vo.activity_name}</td>
+                    <td>pages/index/index?activity_id={$vo.id}</td>
+                    <td>{$vo.apply_count}</td>
+                    <td>{$vo.total_count}</td>
+                    <td>{$vo.category_name}</td>
+                    <td>
+                        <a onclick="$(this).colorbox({height: 600});return false;" href="{$Think.config.image_url}/{$vo.activity_image}"> 查看图片 </a>
+                    </td>
+                    <td>{$vo.apply_start_time|date="Y-m-d H:i",###}</td>
+                    <td>{$vo.apply_stop_time|date="Y-m-d H:i",###}</td>
+                    <td>{$vo.start_time|date="Y-m-d H:i",###}</td>
+                    <td>{$vo.stop_time|date="Y-m-d H:i",###}</td>
+                    <td>
+                    {switch name="vo.activity_type"}
+                        {case value="1"}
+                            个人
+                        {/case}
+                        {case value="2"}
+                            商家
+                        {/case}
+                        {case value="3"}
+                            景物
+                        {/case}
+                        {default /}
+                    {/switch}
+                    </td>
+                    <!--
+                    <td>
+                        <a onclick="$(this).colorbox({height: 600,photo:true});return false;" href="{$Think.config.image_url}/{$vo.pay_background_image}"> 查看图片 </a>
+                    </td>
+                    -->
+                    <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
+                </tr>
+            {/volist}
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>共{$count}条</span>
+        </div>
+        <div class="pagination" targetType="navTab" totalCount="{$count}" numPerPage="{$numPerPage}" pageNumShown="10"
+             currentPage="{$pageNum}"></div>
+    </div>
+</div>

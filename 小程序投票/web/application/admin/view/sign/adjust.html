@@ -1,0 +1,21 @@
+<div class="pageContent">
+    <form method="post" action="{:url('Sign/doAdjust')}" class="pageForm" onsubmit="return validateCallback(this, dialogAjaxDone)">
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>调整的票数：</label>
+                <input type="text" name="num" size="20" maxlength="20" class="required" value="{$admin_count}"/>
+            </div>
+        </div>
+        <input name="admin_count" type="hidden" value="{$admin_count}"/>
+        <input name="total_count" type="hidden" value="{$total_count}"/>
+        <input name="id" type="hidden" value="{$Think.get.id}"/>
+        <input name="activity_id" type="hidden" value="{$Think.get.activity_id}"/>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>
+

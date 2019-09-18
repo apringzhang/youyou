@@ -1,0 +1,100 @@
+﻿添加留言信息
+https://www.yoyogoods.cn/wangluo/api/guestbook/do_guestbook.php
+session_id
+activity_id
+sign_id
+content  留言内容
+
+获取留言列表
+https://www.yoyogoods.cn/wangluo/api/guestbook/get_guestbook_list.php
+session_id 传session_id 显示个人留言列表  
+activity_id
+sign_id 传sign_id 显示报名留言列表
+
+大转盘
+https://www.yoyogoods.cn/wangluo/api/lottery/push_lottery.php
+session_id
+activity_id
+
+获取用户信息
+https://www.yoyogoods.cn/wangluo/api/users/get_users.php
+session_id
+activity_id
+
+获取用户报名信息列表
+https://www.yoyogoods.cn/wangluo/api/users/get_usersign_list.php
+session_id
+activity_id
+
+删除留言
+session_id 
+sign_id 
+id 
+https://www.yoyogoods.cn/wangluo/api/users/del_usersign.php
+session_id
+id 报名ID
+
+获取拉票用户红包列表及报名信息
+https://www.yoyogoods.cn/wangluo/api/users/get_red_packet.php
+activity_id
+session_id
+
+用户领取的红包列表
+https://www.yoyogoods.cn/wangluo/api/users/get_red_packet_gain.php
+session_id
+activity_id
+
+用户拉票红包领取列表
+https://www.yoyogoods.cn/wangluo/api/users/get_red_packet_grant.php
+session_id
+sign_id
+activity_id
+
+获取用户地址
+https://www.yoyogoods.cn/wangluo/api/address/get_address.php
+session_id
+address
+
+添加收货用户地址
+https://www.yoyogoods.cn/wangluo/api/address/do_address.php
+session_id
+address
+
+获取大转盘中奖纪录列表
+https://www.yoyogoods.cn/wangluo/api/lottery/get_lottery_list.php
+session_id
+activity_id
+
+修改用户报名信息
+https://www.yoyogoods.cn/wangluo/api/apply/up_apply.php
+session_id，
+id 报名ID
+sign_openid 报名用户openid
+username, 姓名;
+sex,性别;
+mobile,手机号;
+sign_unit,所属机构;
+sign_image,封面;
+sign_declaration,参赛宣言;
+sign_introduce,介绍;
+sign_introduce_image，风采组图;
+sign_video, 视频 
+activity_id 所属活动ID
+
+获取报名信息
+https://www.yoyogoods.cn/wangluo/api/users/get_sign_detail.php
+session_id
+activity_id
+sign_id
+
+红包支付
+https://www.yoyogoods.cn/wangluo/api/red_packet/do_red_packet.php
+$data['session_id']
+$data['activity_id']
+$data['sign_id']
+$data['amount']
+do_red_packet
+ 
+红包规则
+https://www.yoyogoods.cn/wangluo/api/red_packet/get_red_rule.php
+$data['activity_id']

@@ -1,0 +1,75 @@
+﻿获取活动信息
+https://www.yoyogoods.cn/wangluo/api/activity/get_activity.php
+session_id，
+appid
+
+报名
+https://www.yoyogoods.cn/wangluo/api/apply/do_apply.php
+session_id，
+appid;
+username, 姓名;
+sex,性别;
+mobile,手机号;
+sign_unit,所属机构;
+sign_image,封面;
+sign_declaration,参赛宣言;
+sign_introduce,介绍;
+sign_introduce_image，风采组图;
+sign_video, 视频;
+sign_audio, 音频;
+
+个人详情信息
+https://www.yoyogoods.cn/wangluo/api/apply/get_apply.php
+session_id,
+id , 详情页ID
+appid,
+
+列表
+https://www.yoyogoods.cn/wangluo/api/apply/get_apply_list.php
+session_id,
+appid,
+keyword,//搜索
+page,//分页数
+rank，//底部菜单栏 排行和首页
+
+购买礼物
+https://www.yoyogoods.cn/wangluo/api/gift/do_order.php
+session_id,
+appid,
+gift_id,礼物ID
+sign_id,被送礼物人ID
+gift_num,礼物个数
+
+获取礼物列表
+https://www.yoyogoods.cn/wangluo/api/gift/get_gift_list.php
+session_id,
+appid,
+
+礼物购买回调
+https://www.yoyogoods.cn/wangluo/api/gift/get_gift_list.php
+transaction_id，微信流水
+out_trade_no，订单号
+
+投票
+https://www.yoyogoods.cn/wangluo/api/vote/do_vote.php
+sign_id,//被投票人ID
+session_id,
+appid,
+
+个人页礼物列表
+http://localhost/wangluo/api/apply/get_apply_gift.php
+$id，详情页ID
+$appid，
+page，页数
+
+广告位
+http://localhost/wangluo/api/ad/get_ad_list.php
+
+session_id
+$appid
+$adp_code 广告位标识符
+
+活动详情
+http://localhost/wangluo/api/activity/get_activity_desc.php
+$appid
+

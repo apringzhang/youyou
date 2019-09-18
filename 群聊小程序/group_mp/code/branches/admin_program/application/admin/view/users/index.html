@@ -1,0 +1,60 @@
+<form id="pagerForm" method="post" action="{:url('Users/index')}">
+    <input type="hidden" name="name" value="{$name}" />
+    <input type="hidden" name="is_vip" value="{$is_vip}" />
+    <input type="hidden" name="pageNum" value="{$page_num}" />
+</form>
+<div class="pageHeader">
+    <form onsubmit="return navTabSearch(this);" action="{:url('Users/index')}" method="post">
+        <div class="searchBar">
+            <table class="searchContent">
+                <tr>
+                    <td>
+                        用户名：<input type="text" name="name" value="{$name}"/>
+                    </td>
+                    <td>
+                        <label >用户角色：</label>
+                        <select class="combox" name="is_vip">
+                            <option value="0"{eq name="$is_vip" value="0" }selected="selected"{/eq}>普通用户</option>
+                            <option value="1"{eq name="$is_vip" value="1" }selected="selected"{/eq}>VIP用户</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div class="subBar">
+                <ul>
+                    <li><div class="buttonActive"><div class="buttonContent"><button type="submit">搜索</button></div></div></li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <table class="table" width="100%" layoutH="110">
+        <thead>
+        <tr>
+            <th width="125">用户名</th>
+            <th width="150">头像</th>
+            <th width="125">角色</th>
+            <th width="125">点券数量</th>
+            <th width="125">会员到期日期</th>
+        </tr>
+        </thead>
+        <tbody>
+        {volist name="list" id="vo"}
+        <tr target="id" rel="{$vo.id}">
+            <td>{$vo.nick_name}</td>
+            <td><a onclick="$(this).colorbox({height: 600});return false;" href="{$Think.config.image_url}/{$vo.avatar_url}">查看图片</a></td>
+            <td>{$vo.is_vip|get_vip}</td>
+            <td>{$vo.stamps}</td>
+            <td>{$vo.vip_time|date="Y-m-d H:i:s",###}</td>
+        </tr>
+        {/volist}
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>共{$count}条</span>
+        </div>
+        <div class="pagination" targetType="adTab" totalCount="{$count}" numPerPage="{$num_per_page}" pageNumShown="10" currentPage="{$page_num}"></div>
+    </div>
+</div>

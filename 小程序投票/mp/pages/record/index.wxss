@@ -1,0 +1,26 @@
+/* pages/list/list.wxss */
+
+.items {
+  position: relative;
+  padding: 0 20rpx;
+  line-height: 80rpx;
+  background: #fff;
+  font-size: 28rpx;
+  border-bottom: 1px solid #eee;
+}
+
+.items view {
+  float: left;
+  width: 75%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.items text {
+  float: right;
+  width: 25%;
+  color: #666;
+  text-align: right;
+}
+

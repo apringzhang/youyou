@@ -1,0 +1,129 @@
+<!--pages/enter/index.wxml-->
+<form bindsubmit="doSubmit">
+  <view class="container">
+    <view class="top_info">
+      <view class="info_txt">
+        <view>
+          <text style="color:red;">*</text>所属学校：
+        </view>
+        <view class="txt">
+          <input name="signUnit" type="text" maxlength="20" placeholder="请输入所属学校名称" />
+        </view>
+      </view>
+      <view class="info_txt">
+        <view>
+          <text style="color:red;">*</text>所属班级：
+        </view>
+        <view class="txt">
+          <input name="signClass" type="text" maxlength="20" placeholder="请输入所属班级名称" />
+        </view>
+      </view>
+      <view class="info_txt">
+        <view>
+          <text style="color:red;">*</text>学生姓名：
+        </view>
+        <view class="txt">
+          <input name="username" type="text"  maxlength="6" placeholder="请输入学生姓名" />
+        </view>
+      </view>
+      <view class="info_txt">
+        <view>
+          <text style="color:red;">*</text>学生性别：
+        </view>
+        <view class="txt">
+          <radio-group name="sex" class="radio-group" bindchange="radioChange">
+            <radio value="1" checked="checked" />男
+            <radio value="2" />女
+          </radio-group>
+        </view>
+      </view>
+      <view class="info_txt">
+        <view>
+          <text style="color:red;">*</text>联系电话：
+        </view>
+        <view class="txt">
+          <input name="mobile" type="number" maxlength="11" placeholder="请输入联系电话" />
+        </view>
+      </view>
+      <view class="info_txt">
+        <view>
+          <text style="color:red;">*</text>故事名称：
+        </view>
+        <view class="txt">
+          <input name="signIntroduce" type="text" maxlength="20" placeholder="请输入故事名称" />
+        </view>
+      </view>
+      <view class="info_txt">
+        <view>
+          <text style="color:red;">*</text>参赛宣言：
+        </view>
+        <view class="txt">
+          <textarea name="signDeclaration" type="text"  maxlength="200" placeholder="请输入参赛宣言" />
+        </view>
+      </view>
+    </view>
+    <view>
+      <view class="info_txt">
+        <view>
+          <text style="color:red;">*</text>封面图：
+        </view>
+        <view class="txt">
+          <view class="image-item" wx:if="{{cover != ''}}">
+            <image src="{{imageUrl}}{{cover}}" data-field-type="cover" bindtap="onClickUpload" class="border"></image>
+          </view>
+          <view class="image-item" wx:if="{{cover == ''}}">
+            <view class="border" data-field-type="cover" bindtap="onClickUpload">
+              选择图片
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="info_txt">
+        <view>
+          <text style="color:red;">*</text>风采图：
+        </view>
+        <view class="txt">
+          <view class="clearfix">
+            <block wx:key="id" wx:for="{{galleryList}}">
+              <image src="{{imageUrl}}{{item}}" />
+            </block>
+            <view class="border" data-field-type="gallery" bindtap="onClickUpload">
+              {{galleryTitle}}
+            </view>
+          </view>
+          <view class="tips">选择上传1-5张照片</view>
+        </view>
+      </view>
+      <view class="info_txt">
+        <view>
+          <text style="color:red;">*</text>上传音频：
+        </view>
+        <view class="txt">
+          <view class="audioBg">
+            <view>
+              <progress percent="{{num}}" wx:if="{{show}}" stroke-width="8" backgroundColor="#cccccc" />
+            </view>
+            <view class="audioBtn">
+              <view bindtap="onRecordButtonClick">
+                <text>{{recordText}}</text>
+                <image src="/images/icon20.png" />
+              </view>
+              <view bindtap='startPlay' wx:if="{{status==''}}">
+                <text>点击播放</text>
+                <image src="/images/icon22.png" />
+              </view>
+              <view bindtap='startStop' wx:else>
+                <text>结束</text>
+                <image src="/images/icon21.png" />
+              </view>
+            </view>
+          </view>
+
+        </view>
+      </view>
+      <view class="tips1">再次点击录音键可重新录音</view>
+      <view class="tips1">如实填写报名信息，获取参赛资格！</view>
+      <button class="submit" formType="submit">提 交</button>
+    </view>
+  </view>
+</form>

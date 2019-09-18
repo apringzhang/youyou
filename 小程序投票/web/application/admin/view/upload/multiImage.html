@@ -1,0 +1,81 @@
+<div style="padding-left: 130px;">
+    <div>
+        <div id="uploadify-{$name}"></div>
+    </div>
+    <div id="uploadify-list-{$name}" style="clear: both;">
+        <div class="uploadify-item-{$name}" style="clear: both;display: none;margin-top: 5px;">
+            <a class="button" onclick="$(this).colorbox({height: 600});return false;" href="javascript:" style="margin-left: 5px;"><span>查看图片</span></a>
+            <a class="move-up-button button" href="javascript:" style="margin-left: 5px;"><span>上移</span></a>
+            <a class="move-down-button button" href="javascript:" style="margin-left: 5px;"><span>下移</span></a>
+            <a class="delete-button button" href="javascript:" style="margin-left: 5px;"><span>删除</span></a>
+            <div style="clear:both"></div>
+        </div>
+        {volist name="list" id="vo"}
+            <div class="uploadify-item-{$name}" style="clear: both;margin-top: 5px;">
+                <a class="button" onclick="$(this).colorbox({height: 600});return false;" href="{$vo}" style="margin-left: 5px;"><span>查看图片</span></a>
+                <a class="move-up-button button" href="javascript:" style="margin-left: 5px;"><span>上移</span></a>
+                <a class="move-down-button button" href="javascript:" style="margin-left: 5px;"><span>下移</span></a>
+                <a class="delete-button button" href="javascript:" style="margin-left: 5px;"><span>删除</span></a>
+                <div style="clear:both"></div>
+            </div>
+        {/volist}
+    </div>
+</div>
+<input type="hidden" id="{$name}" name="{$name}" value="{$value}" />
+<script type="text/javascript">
+    $('#uploadify-{$name}').Huploadify({
+        uploader: '{:url("Index/upload")}',
+        buttonText: '上传多图片',
+        fileTypeDesc: '*.jpg;*.jpeg;*.gif;*.png;',
+        fileTypeExts: '*.jpg;*.jpeg;*.gif;*.png;',
+        auto: true,
+        multi: true,
+        showUploadedPercent: false,
+        height: 21,
+        width: 100,
+        onUploadSuccess: function uploadifySuccess(file, data, response) {
+            data = JSON.parse(data);
+            if (data.result == '0') {
+                var newPic = $('.uploadify-item-{$name}:first').clone(true);
+                newPic.css('display', 'block');
+                newPic.children('a:first').attr('href', "{:config('image_url')}/" + data.url);
+                $('#uploadify-list-{$name}').append(newPic);
+                $('#{$name}').trigger('refreshValue');
+            } else {
+                alertMsg.error(data.message);
+            }
+        }
+    });
+    $('#{$name}').bind('refreshValue', function () {
+        var valueArray = new Array();
+        $('.uploadify-item-{$name}').each(function (index, element) {
+            if (index != 0) {
+                valueArray.push($(element).children('a:first').attr('href'));
+            }
+        });
+        $(this).attr('value', JSON.stringify(valueArray));
+    });
+    $('.uploadify-item-{$name} .delete-button').click(function () {
+        $(this).parent('.uploadify-item-{$name}').remove();
+        $('#{$name}').trigger('refreshValue');
+    });
+    $('.uploadify-item-{$name} .move-up-button').click(function () {
+        if ($(this).parent('.uploadify-item-{$name}').index() == 1) {
+            return;
+        }
+        var thisItem = $(this).parent('.uploadify-item-{$name}').clone(true);
+        $(this).parent('.uploadify-item-{$name}').prev('.uploadify-item-{$name}').before(thisItem);
+        $(this).parent('.uploadify-item-{$name}').remove();
+        $('#{$name}').trigger('refreshValue');
+    });
+    $('.uploadify-item-{$name} .move-down-button').click(function () {
+        if ($(this).parent('.uploadify-item-{$name}').index() + 1 >= $('.uploadify-item-{$name}').size()) {
+            return;
+        }
+        var thisItem = $(this).parent('.uploadify-item-{$name}').clone(true);
+        $(this).parent('.uploadify-item-{$name}').next('.uploadify-item-{$name}').after(thisItem);
+        $(this).parent('.uploadify-item-{$name}').remove();
+        $('#{$name}').trigger('refreshValue');
+    });
+    $('#{$name}').trigger('refreshValue');
+</script>

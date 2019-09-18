@@ -1,0 +1,35 @@
+<div class="pageContent">
+    <form method="post" action="{:url('Activity/doAdd')}" class="pageForm" onsubmit="return validateCallback(this, dialogAjaxDone)">
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>活动名称：</label>
+                <input type="text" name="name" size="20" maxlength="20" class="required" value=""/>
+            </div>
+            <div class="unit">
+                <label>中奖概率：</label>
+                <input type="text" name="rate" size="3" maxlength="3" class="required digits" />
+                <span style="color: grey;">中奖概率为百分比，请填写0-100的数字</span>
+            </div>
+            <div class="unit">
+                <label>选择奖品：</label>
+                <select name="pr_id">
+                    {volist name="cglist" id="vo"}
+                    <option value="{$vo.id}">{$vo.name}</option>
+                    {/volist}
+                </select>
+            </div>
+            <div class="unit">
+                <label>是否开启：</label>
+                是<input id="wb" type="radio" name="is_open" value="0" >
+                否<input id="zxxx" type="radio" name="is_open" value="1" checked>
+            </div>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>
+

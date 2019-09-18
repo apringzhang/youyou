@@ -1,0 +1,39 @@
+<div class="pageContent">
+    <form method="post" action="{:url('Money/doModify')}" class="pageForm" onsubmit="return validateCallback(this, dialogAjaxDone)">
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>开通vip价格：</label>
+                <input type="text" name="price" size="20" maxlength="20" class="required" value="{$price}"/>
+            </div>
+            <div class="unit">
+                <label>vip时长：</label>
+                <select name="times">
+                    <option value="1" {eq name="times" value="1" }selected="selected"{/eq}>1个月</option>
+                    <option value="2" {eq name="times" value="2" }selected="selected"{/eq}>2个月</option>
+                    <option value="3" {eq name="times" value="3" }selected="selected"{/eq}>3个月</option>
+                    <option value="4" {eq name="times" value="4" }selected="selected"{/eq}>4个月</option>
+                    <option value="5" {eq name="times" value="5" }selected="selected"{/eq}>5个月</option>
+                    <option value="6" {eq name="times" value="6" }selected="selected"{/eq}>6个月</option>
+                    <option value="7" {eq name="times" value="7" }selected="selected"{/eq}>7个月</option>
+                    <option value="8" {eq name="times" value="8" }selected="selected"{/eq}>8个月</option>
+                    <option value="9" {eq name="times" value="9" }selected="selected"{/eq}>9个月</option>
+                    <option value="10" {eq name="times" value="10" }selected="selected"{/eq}>10个月</option>
+                    <option value="11" {eq name="times" value="11" }selected="selected"{/eq}>11个月</option>
+                    <option value="12" {eq name="times" value="12" }selected="selected"{/eq}>12个月</option>
+                </select>
+            </div>
+            <div class="unit">
+                <label>排序：</label>
+                <input type="text" name="sort" size="10" maxlength="10" class="required" value="{$sort}"/>
+            </div>
+            <input type="hidden" name="id" value="{$id}">
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>
+

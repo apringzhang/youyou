@@ -1,0 +1,50 @@
+ .header {
+     width: 100%;
+     height: 3rem;
+     background: #f1f1f1;
+     line-height: 3rem;
+     font-size: 0.9rem;
+     margin-bottom: 0.4rem
+ }
+
+ .title {
+     width: 80%;
+     float: left;
+     margin-left: 1rem
+ }
+
+ .delete {
+     width: 13%;
+     background: #96EB6A;
+     float: left;
+     text-align: center;
+     font-size: 0.8rem;
+     height: 1.7rem;
+     line-height: 1.7rem;
+     margin-top: 0.7rem;
+     border-radius: 8px;
+ }
+
+ .con_list>view {
+     padding-left: 20rpx;
+ }
+
+ .con_list .list {
+     line-height: 100rpx;
+     font-size: 0;
+     border-bottom: 1px solid #eee;
+ }
+
+ .list image {
+     width: 70rpx;
+     height: 70rpx;
+     border-radius: 6rpx;
+     vertical-align: middle;
+ }
+
+ .list .name {
+     display: inline-block;
+     margin-left: 20rpx;
+     font-size: 34rpx;
+     vertical-align: middle;
+ }

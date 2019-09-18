@@ -1,0 +1,232 @@
+﻿获取用户信息
+http://localhost/group_mp/public/index.php/api/user/get_user_info
+session_id
+
+获取导航标签
+http://localhost/group_mp/public/index.php/api/navigation/navigation_info
+nav_id  导航标签
+
+获取导航咨询
+http://localhost/group_mp/public/index.php/api/navigation/get_information
+company_id
+
+获取首页轮播图
+http://localhost/group_mp/public/index.php/api/navigation/get_carousel
+
+获取文章分类
+http://localhost/group_mp/public/index.php/api/Category/get_category
+
+获取文章分类下的文章标题
+http://localhost/group_mp/public/index.php/api/Category/get_categorytitle
+category_id
+
+获取广告位
+http://localhost/group_mp/public/index.php/api/Category/get_advert
+is_homeshow  是否首页展示（0否  1是）
+
+创建超级群
+http://localhost/group_mp/public/index.php/api/group/add_group
+'name'
+'sessionId'
+'icon'
+'notice'
+'codes'
+'isaudit'
+
+群列表
+http://localhost/group_mp/public/index.php/api/group/group_list
+sessionId
+
+搜索群列表
+http://localhost/group_mp/public/index.php/api/group/group_like
+like
+sessionId
+
+上传
+http://localhost/group_mp/public/index.php/api/group/upload
+
+上传图片
+http://localhost/group_mp/public/index.php/api/group/upload_image
+
+
+群成员列表
+http://localhost/group_mp/public/index.php/api/group/groups_touser
+g_id   群id
+
+删除群成员
+http://localhost/group_mp/public/index.php/api/group/delete_groups_touser
+g_id   群id
+uid  删除用户id
+
+修改群名称
+http://localhost/group_mp/public/index.php/api/group/groups_name
+g_id   群id
+group_name  修改后的群名称
+
+修改群公告
+http://localhost/group_mp/public/index.php/api/group/groups_notice
+g_id   群id
+notice  修改后的群公告
+
+入群是否审核
+http://localhost/group_mp/public/index.php/api/group/groups_isaudit
+g_id   群id
+isaudit  0否  1是
+
+
+申请入群名单
+http://localhost/group_mp/public/index.php/api/group/groups_invitation
+g_id   群id
+
+小程序码
+http://localhost/group_mp/public/index.php/api/shareimage/share_image
+appid
+param
+
+批准申请人入群
+http://localhost/group_mp/public/index.php/api/group/ratify_group
+g_id
+session_id
+
+群管理转让
+http://localhost/group_mp/public/index.php/api/group/transfer_group
+g_id
+uid  转给某个用户的uid
+session_id
+
+查询用户是否为群管理员
+http://localhost/group_mp/public/index.php/api/group/manage_group
+g_id
+session_id
+返回值为1证明是管理员  返回值为-1证明不是管理员 
+
+查询聊天记录
+http://localhost/group_mp/public/index.php/api/message/get_message
+g_id
+dates 年月日 2015-01-01；
+
+群消息免打扰
+http://localhost/group_mp/public/index.php/api/group/trouble_group
+g_id
+session_id
+is_promottone   0否  1是
+
+置顶聊天
+http://localhost/group_mp/public/index.php/api/group/sticky_group
+g_id
+session_id
+is_top   0否  1是
+
+是否显示备注
+http://localhost/group_mp/public/index.php/api/group/remarks_group
+g_id
+session_id
+is_dis_remarks   0否  1是
+
+删除并退出
+http://localhost/group_mp/public/index.php/api/group/del_group
+g_id
+session_id
+
+查看群信息
+http://localhost/group_mp/public/index.php/api/group/cli_group
+g_id
+session_id
+
+加入群聊
+http://localhost/group_mp/public/index.php/api/group/create_group
+g_id   群id
+session_id 被邀请的用户session_id
+fromuid   邀请人id
+reason  入群理由
+返回值 为21代表需要审核添加邀请记录成功请等待审核   为2代表不需要审核入群成功
+
+
+查看群信息
+http://localhost/group_mp/public/index.php/api/group/cli_group
+g_id
+session_id
+
+群成员信息
+http://localhost/group_mp/public/index.php/api/group/info_group
+g_id
+uid
+
+设置自己的备注
+http://localhost/group_mp/public/index.php/api/group/mybei_group
+g_id
+session_id
+username 备注名
+
+我和他共同群列表
+http://localhost/group_mp/public/index.php/api/group/and_group
+session_id   用户session_id
+fuid   好友id
+
+收藏
+http://localhost/group_mp/public/index.php/api/message/collection
+session_id   用户session_id
+touid   被收藏用户id
+groups_id 群ID
+
+删除收藏
+http://localhost/group_mp/public/index.php/api/message/del_collection
+session_id   用户session_id
+touid   删除用户id
+gid  群id
+
+我的收藏列表
+http://localhost/group_mp/public/index.php/api/message/my_collection
+session_id   用户session_id
+
+唤起充值
+http://localhost/group_mp/public/index.php/api/order_list/cz_pay
+session_id,
+order_id
+
+生成充值订单
+http://localhost/group_mp/public/index.php/api/order/cz_doorder
+session_id
+total_amount  充值金额
+torage_id  充值id
+prom_id 活动id  没活动可不传
+
+充值套餐列表
+http://localhost/group_mp/public/index.php/api/order/recharge_list
+
+
+我的奖品列表
+http://localhost/group_mp/public/index.php/api/message/prize_list
+session_id
+
+奖品兑换
+http://localhost/group_mp/public/index.php/api/message/toprize
+session_id
+id  奖品id
+address
+
+添加用户礼品
+http://localhost/group_mp/public/index.php/api/message/add_toprize
+session_id
+ac_id  活动id
+pr_id  奖品id
+
+
+vip套餐列表
+http://localhost/group_mp/public/index.php/api/message/vip_list
+
+vip续费
+http://localhost/group_mp/public/index.php/api/order_list/vip_pay
+session_id,
+order_id
+
+生成vip续费订单
+http://localhost/group_mp/public/index.php/api/order/vip_doorder
+session_id
+total_amount  点券数量
+viplist_id  vip充值id
+prom_id 活动id  没活动可不传
+
+点券使用记录
+http://localhost/group_mp/public/index.php/api/message/torecharge
+session_id

@@ -1,0 +1,26 @@
+<!--pages/packet/packet.wxml-->
+<view class="container">
+  <form bindsubmit="doSubmit">
+    <view class="grey">
+      <view class="packet">
+        <text>红包金额</text><input type="number" name="money" placeholder="请填写金额，最小1" bindinput="domoney" auto-focus /><text class="fr">元</text>
+      </view>
+      <!-- <view class="packet">
+        <text>红包个数</text><input type="number" name="num" placeholder="请填写个数，最少2" auto-focus bindinput="" /><text class="fr">个</text>
+      </view>
+      <view class="packet">
+      <text> 抢到红包概率</text><text class="fr">10 %</text>
+      </view> -->
+      <view class="tips">
+        需支付<text>{{count}}元</text>
+      </view>
+      <button class="packet_btn submit" formType="submit">添加感谢红包</button>
+      <view>
+        <image style="width: 100%;" src="{{imageUrl}}{{ruleimg}}" mode="widthFix"/>
+      </view>
+      <!-- <view class="txt">
+        帮投票的亲戚朋友们帮投票的亲戚朋友们帮投票的亲戚朋友们帮投票的亲戚朋友们帮投票的亲戚朋友们
+      </view> -->
+    </view>
+  </form>
+</view>

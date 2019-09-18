@@ -1,0 +1,21 @@
+<div class="pageContent">
+    <form method="post" action="{:url('Mp/doModify')}" class="pageForm" onsubmit="return validateCallback(this, dialogAjaxDone)">
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>小程序名称：</label>
+                <input type="text" name="mp_name" size="20" maxlength="20" class="required" value="{$mp_name}"/>
+            </div>
+            <div class="unit">
+                <label>小程序appid：</label>
+                <input type="text" name="appid" size="20" maxlength="20" class="required" value="{$appid}"/>
+            </div>
+        </div>
+        <div class="formBar">
+            <ul>
+                <input type="hidden" name="id" value="{$id}" />
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>

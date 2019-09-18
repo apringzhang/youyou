@@ -1,0 +1,67 @@
+<form id="pagerForm" method="post" action="{:url('Groups/index')}">
+    <input type="hidden" name="name" value="{$name}" />
+    <input type="hidden" name="admin_name" value="{$admin_name}" />
+    <input type="hidden" name="pageNum" value="{$page_num}" />
+</form>
+<div class="pageHeader">
+    <form onsubmit="return navTabSearch(this);" action="{:url('Groups/index')}" method="post">
+        <div class="searchBar">
+            <table class="searchContent">
+
+                <tr>
+                    <td>
+                        群名称：<input type="text" name="name" value="{$name}"/>
+                    </td>
+                    <td>
+                        创建人：<input type="text" name="admin_name" value="{$admin_name}"/>
+                    </td>
+                </tr>
+            </table>
+            <div class="subBar">
+                <ul>
+                    <li><div class="buttonActive"><div class="buttonContent"><button type="submit">搜索</button></div></div></li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <table class="table" width="100%" layoutH="110">
+        <thead>
+        <tr>
+            <th width="125">群名称</th>
+            <th width="125">群logo</th>
+            <th width="125">群公告</th>
+            <th width="125">创建人</th>
+            <th width="125">是否需要审核</th>
+            <th width="125">人数</th>
+            <th width="125">二维码图片查看</th>
+            <th width="125">创建时间</th>
+            <th width="125">修改时间</th>
+            <th width="125">群成员列表</th>
+        </tr>
+        </thead>
+        <tbody>
+        {volist name="list" id="vo"}
+        <tr target="id" rel="{$vo.id}">
+            <td>{$vo.name}</td>
+            <td><a onclick="$(this).colorbox({height: 600});return false;" href="{$Think.config.image_url}/{$vo.icon}">查看图片</a></td>
+            <td>{$vo.notice}</td>
+            <td>{$vo.admin_id|get_adminuser_name}</td>
+            <td>{$vo.isaudit|get_homeshow_name}</td>
+            <td>{$vo.member_count}</td>
+            <td><a onclick="$(this).colorbox({height: 600});return false;" href="{$Think.config.image_url}/{$vo.codes}">查看图片</a></td>
+            <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
+            <td>{$vo.update_time|date="Y-m-d H:i:s",###}</td>
+            <td><a rel="gr_manage_add" href="{:url('Groups/Memberlist')}?id={$vo.id}" target="navTab" width="950" height="500" title="群人员列表">群人员列表</a></td>
+        </tr>
+        {/volist}
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>共{$count}条</span>
+        </div>
+        <div class="pagination" targetType="adTab" totalCount="{$count}" numPerPage="{$num_per_page}" pageNumShown="10" currentPage="{$page_num}"></div>
+    </div>
+</div>
